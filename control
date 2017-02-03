@@ -5,4 +5,4 @@ Architecture: iphoneos-arm
 Description: Prevents installation of conflicting Tweaks on iOS 10
 Maintainer: EthanRDoesMC
 Author: EthanRDoesMC
-Section: Application
+Section: Tweak
