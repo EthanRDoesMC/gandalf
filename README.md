@@ -9,3 +9,7 @@ DANGEROUS TWEAKS SHALL NOT PASS!
 - make sure the conflicts are in alphabetical order
 - create a pull request
 - if release doesn't match this feel free to compile in WSL
+
+
+# Live updates on Twitter
+- twitter.com/ethanrdoesmc_ (with an underscore)
