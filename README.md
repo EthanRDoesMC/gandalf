@@ -8,7 +8,7 @@ DANGEROUS TWEAKS SHALL NOT PASS!
 - every line ends with a Comma (,), except the last
 - make sure the conflicts are in alphabetical order
 - create a pull request
-- inspect create.sh (errors are a thing)
+- if release is behind in the future use ubuntu to compile (sh create.sh)
 
 
 # Live updates on Twitter
