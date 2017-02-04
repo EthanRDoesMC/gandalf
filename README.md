@@ -8,7 +8,7 @@ DANGEROUS TWEAKS SHALL NOT PASS!
 - every line ends with a Comma (,), except the last
 - make sure the conflicts are in alphabetical order
 - create a pull request
-- if release doesn't match this feel free to compile in WSL
+- inspect create.sh (errors are a thing)
 
 
 # Live updates on Twitter
