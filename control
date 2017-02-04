@@ -1,5 +1,5 @@
-Package: com.github.ethanrdoesmc.gandalf10
-Name: Gandalf-10
+Package: com.github.ethanrdoesmc.gandalf
+Name: Gandalf
 Version: 0.0.0.1
 Architecture: iphoneos-arm
 Description: Prevents installation of conflicting Tweaks on iOS 10
