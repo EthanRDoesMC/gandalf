@@ -1,2 +1,6 @@
-eu.heinelt.ifile, 
-net.angelxwind.appsyncunified
+com.rpetrich.biolockdown
+eu.heinelt.ifile,
+net.angelxwind.appsyncunified,
+net.angelxwind.noplsrecovery,
+openssh,
+org.protectmyprivacy.pmp
