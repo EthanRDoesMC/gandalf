@@ -1,0 +1,10 @@
+Package: com.supermamon.newpackage
+Name: New Package
+Architecture: iphoneos-arm
+Depends: firmware (>7.0), mobilesubstrate
+Description: This is a sample new package. Firmware should be greater than 7.0
+Maintainer: Reposi3 <reposithree@gmail.com>
+Author: Reposi3 <reposithree@gmail.com>
+Section: Tweaks
+Depiction: https://supermamon.github.io/Reposi3/depictions/?p=com.supermamon.newpackage
+Version: 2.0.0-1
