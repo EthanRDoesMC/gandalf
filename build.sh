@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Settings
-basename="Gandalf10"
-conflictfile="conflictsnonewlines.txt"
+basename="com.github.ethanrdoesmc.gandalf"
+conflictfile="conflicts.txt"
 
 # create control file and setup for conflicts
 echo "Setting up Files"
@@ -25,7 +25,7 @@ echo "" >> $controlfile
 
 # make dummy file
 mkdir -p $basename/var/mobile/Downloads/
-echo "This is a dummy file from Gandalf iOS 10" >> $basename/var/mobile/Downloads/gandalf_10_dummy.txt
+echo "This is a test file from Gandalf, feel glad knowing you're protected :)" >> $basename/var/mobile/Downloads/gandalf_10_test.txt
 
 
 
