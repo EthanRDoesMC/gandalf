@@ -16,7 +16,7 @@ echo "Conflicts: \c" >> $controlfile
 
 # parse conflicts
 
-while IFS='' read -r line || [[ -n "$line" ]]; do
+while IFS='' read -r line || [[ "$line" ]]; do
 	dt="$(echo "$line"|tr -d '\r\n')"
     echo "$dt\c" >> $controlfile 
 done < "$conflictfile"
