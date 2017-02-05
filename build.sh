@@ -11,14 +11,14 @@ mkdir -p "$basename/DEBIAN/"
 cp control $controlfile
 
 
-echo -e "Conflicts: \c" >> $controlfile
+echo -n "Conflicts: " >> $controlfile
 
 
 # parse conflicts
 
 while IFS='' read -r line || [[ -n "$line" ]]; do
     dt="$(echo "$line"|tr -d '\r\n')"
-    echo -e "$dt\c" >> $controlfile 
+    echo -n "$dt" >> $controlfile 
 done < "$conflictfile"
 echo "" >> $controlfile
 
