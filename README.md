@@ -1,4 +1,4 @@
-# Gandalf
+# Gandalf for iOS 10.2 and future (Main branch)
 DANGEROUS TWEAKS SHALL NOT PASS!
 
 
@@ -8,12 +8,10 @@ DANGEROUS TWEAKS SHALL NOT PASS!
 - do not make a new line, this was the source of the problem using the script.
 - every tweak name ends with a Comma (,), except the last, space between each.
 - make sure the conflicts are in alphabetical order
+- an exception to the rule: the conflicts.txt must have 2 lines (line break at the end). 
 - create a pull request
-- if release is behind use ubuntu to compile (sh build.sh)
+- if release is behind use bash to compile (sh build.sh)
 
-
-# Live updates on Twitter
-- twitter.com/ethanrdoesmc_ (with an underscore)
 
 # Notes
 - testing can be done with the "New Package" in my repo
@@ -21,4 +19,6 @@ DANGEROUS TWEAKS SHALL NOT PASS!
 Repo is at ethanrdoesmc.github.io/repo
 
 
-new build in the morning since laptop went to sleep. need to get used to having it on. 
+I have no idea what's up with the infinite update in my repo. 
+
+Version 1.0.2
