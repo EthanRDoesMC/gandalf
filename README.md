@@ -2,7 +2,7 @@
 ### DANGEROUS TWEAKS SHALL NOT PASS
 
 Install via repo: https://ethanrdoesmc.github.io/repo
-Tap [this](cydia://url/https://cydia.saurik.com/api/share#?source=https://ethanrdoesmc.github.io/repo) to open in Cydia.
+Tap [this][1] to open in Cydia.
 
 # Contribute
 Add an incompatible package identifier to the conflicts.txt file.
@@ -25,3 +25,5 @@ Create a pull request. Most requests *will* be merged.
 I have no idea what's up with the infinite update in my repo. 
 
 Version 102-1.0.3
+
+[1]: cydia://url/https://cydia.saurik.com/api/share#?source=https://ethanrdoesmc.github.io/repo
