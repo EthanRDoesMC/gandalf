@@ -1,4 +1,4 @@
-# Gandalf for iOS 10.2 and future (Main branch)
+# Gandalf for iOS 10.2+
 DANGEROUS TWEAKS SHALL NOT PASS!
 
 
@@ -21,4 +21,4 @@ Repo is at ethanrdoesmc.github.io/repo
 
 I have no idea what's up with the infinite update in my repo. 
 
-Version 1.0.2
+Version 102-1.0.3
