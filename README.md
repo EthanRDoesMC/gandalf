@@ -1,4 +1,4 @@
-# Gandalf for iOS 10.2+
+# Gandalf for Yalu102
 ### DANGEROUS TWEAKS SHALL NOT PASS
 
 Install via repo: https://ethanrdoesmc.github.io/repo
