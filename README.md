@@ -9,7 +9,8 @@ Add an incompatible package identifier to the conflicts.txt file.
 > Packages are **comma space separated** with **no comma closing the list**.
 e.x. `[my.package], [your.package]`
 
-New lines are **not** permitted excluding the 2 line breaks at the end of the file.
+New lines are **not** permitted excluding the 1 line break at the end of the file.
+
 Be sure the conflicts are in alphabetical order.
 
 > If the release is behind, use `bash` to compile:
@@ -20,9 +21,7 @@ Create a pull request. Most requests *will* be merged.
 
 # Notes
 - You can test Gandalf using the *New Package* in my repo.
-
-
-I have no idea what's up with the infinite update in my repo. 
+- I have no idea what's up with the infinite update in my repo. 
 
 Version 102-1.0.3
 
