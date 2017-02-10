@@ -26,4 +26,4 @@ I have no idea what's up with the infinite update in my repo.
 
 Version 102-1.0.3
 
-[1]: cydia://url/https://cydia.saurik.com/api/share#?source=https://ethanrdoesmc.github.io/repo
+[1]: http://tinyurl.com/gandalfios
