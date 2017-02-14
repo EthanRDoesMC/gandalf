@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Settings
-basename="com.github.ethanrdoesmc.gandalf"
+basename="com.github.ethanrdoesmc.gandalf-Yalu102"
 conflictfile="conflicts.txt"
 
 # create control file and setup for conflicts
@@ -25,7 +25,7 @@ echo "" >> $controlfile
 
 # make dummy file
 mkdir -p $basename/var/mobile/Downloads/
-echo "This is a test file from Gandalf, feel glad knowing you're protected :)" >> $basename/var/mobile/Downloads/gandalf_10_test.txt
+echo "This is a test file from Gandalf, feel glad knowing you're protected :)" >> $basename/var/mobile/Downloads/gandalf_102_test.txt
 
 
 
