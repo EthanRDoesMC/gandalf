@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Settings
-basename="com.github.ethanrdoesmc.gandalf-Yalu102"
+basename="com.github.ethanrdoesmc.gandalf-yalu102"
 conflictfile="conflicts.txt"
 
 # create control file and setup for conflicts
