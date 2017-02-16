@@ -1,9 +1,9 @@
 Package: com.github.ethanrdoesmc.gandalf
-Version: 1.1
+Version: 1.1.1
 Section: Tweaks
 Maintainer: EthanRDoesMC
-Depends: firmware (>=10.2)
 Architecture: iphoneos-arm
 Description: Bad tweaks shall not pass installation thanks to the conflicts section.
 Name: Gandalf for Yalu102
 Author: EthanRDoesMC
+Depends: firmware (>=10.2)
