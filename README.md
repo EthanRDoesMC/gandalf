@@ -1,15 +1,28 @@
-# Gandalf
-DANGEROUS TWEAKS SHALL NOT PASS!
+# Gandalf for Yalu102
+### DANGEROUS TWEAKS SHALL NOT PASS
+
+Install via repo: https://ethanrdoesmc.github.io/repo
+Tap [this][1] to open in Cydia.
+
+# Contribute
+Add an incompatible package identifier to the conflicts.txt file.
+> Packages are **comma space separated** with **no comma closing the list**.
+e.x. `[my.package], [your.package]`
+
+New lines are **not** permitted excluding the 1 line break at the end of the file.
+
+Be sure the conflicts are in alphabetical order.
+
+> If the release is behind, use `bash` to compile:
+`sh build.sh`
+
+Create a pull request. Most requests *will* be merged.
 
 
+# Notes
+- You can test Gandalf using the *New Package* in my repo.
+- I have no idea what's up with the infinite update in my repo. 
 
-# How to contribute
-- add a conflicting package-identifier to the conflicts.txt
-- every line ends with a Comma (,), except the last
-- make sure the conflicts are in alphabetical order
-- create a pull request
-- if release is behind in the future use ubuntu to compile (sh create.sh)
+Version 102-1.0.3
 
-
-# Live updates on Twitter
-- twitter.com/ethanrdoesmc_ (with an underscore)
+[1]: http://tinyurl.com/gandalfios

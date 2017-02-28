@@ -1,9 +1,9 @@
 Package: com.github.ethanrdoesmc.gandalf
-Name: Gandalf
-Version: 0.0.0.1
-Architecture: iphoneos-arm
-Description: Prevents installation of conflicting Tweaks on iOS 10
+Version: 1.1.1
+Section: Tweaks
 Maintainer: EthanRDoesMC
+Architecture: iphoneos-arm
+Description: Bad tweaks shall not pass installation thanks to the conflicts section.
+Name: Gandalf for Yalu102
 Author: EthanRDoesMC
-Section: Tweak
-Depends: firmware (>= 10.0)
+Depends: firmware (>=10.2)

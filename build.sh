@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Settings
-basename="Gandalf10"
+basename="com.github.ethanrdoesmc.gandalf"
 conflictfile="conflicts.txt"
 
 # create control file and setup for conflicts
@@ -11,21 +11,21 @@ mkdir -p "$basename/DEBIAN/"
 cp control $controlfile
 
 
-echo -e "Conflicts: \c" >> $controlfile
+echo -n "Conflicts: " >> $controlfile
 
 
 # parse conflicts
 
 while IFS='' read -r line || [[ -n "$line" ]]; do
-	dt="$(echo "$line"|tr -d '\r\n')"
-    echo -e "$dt\c" >> $controlfile 
+    dt="$(echo "$line"|tr -d '\r\n')"
+    echo -n "$dt" >> $controlfile 
 done < "$conflictfile"
 echo "" >> $controlfile
 
 
 # make dummy file
 mkdir -p $basename/var/mobile/Downloads/
-echo "This is a dummy file from Gandalf iOS 10" >> $basename/var/mobile/Downloads/gandalf_10_dummy.txt
+echo "This is a test file from Gandalf, feel glad knowing you're protected :)" >> $basename/var/mobile/Downloads/gandalf_102_test.txt
 
 
 
