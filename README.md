@@ -18,11 +18,12 @@ Be sure the conflicts are in alphabetical order.
 
 Create a pull request. Most requests *will* be merged.
 
+If something is wrong, run `sh filestructure.sh` and see if you can figure it out.
 
 # Notes
 - You can test Gandalf using the *New Package* in my repo.
-- I have no idea what's up with the infinite update in my repo. 
+- Removing from repo. Will be in manager.
 
-Version 102-1.0.3
+2.0-Beta1
 
 [1]: http://tinyurl.com/gandalfios

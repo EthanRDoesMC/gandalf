@@ -2,6 +2,8 @@
 
 #Please run with a Linux flavor. macOS makes a lot of dummy files.
 
+#this script will show what the package file structure looks like. used for debugging.
+
 # Aliases
 basename="io.github.ethanrdoesmc.gandalf102"
 conflictfile="conflicts.txt"
@@ -29,12 +31,4 @@ echo -n "" >> $controlfile
 mkdir -p $basename/var/mobile/Downloads/ManagerList
 echo "Gandalf for Yalu102 (2.0 Beta 1) was installed via Manager." >> $basename/var/mobile/Downloads/ManagerList/io.github.ethanrdoesmc.gandalf102.txt
 
-
-# package
-echo "Creating package."
-dpkg-deb -Zgzip -b $basename
-
-
-# cleanup
-echo "Removing temporary folders and files."
-rm -r $basename
+echo "This is what the package file structure looks like."
