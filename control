@@ -1,9 +1,10 @@
-Package: com.github.ethanrdoesmc.gandalf
-Version: 1.1.1
-Section: Tweaks
-Maintainer: EthanRDoesMC
-Architecture: iphoneos-arm
-Description: Bad tweaks shall not pass installation thanks to the conflicts section.
+Package: io.github.ethanrdoesmc.gandalf102
 Name: Gandalf for Yalu102
-Author: EthanRDoesMC
-Depends: firmware (>=10.2)
+Version: 2.0-beta1
+Architecture: iphoneos-arm
+Description: Some tweaks may break jailbreaks. Let this tweak say "You Shall Not Pass!" to incompatible tweaks and you can sit back and have fun with your jailbreak. Don't install this if you're using 10.1.1.
+Homepage: https://ethanrdoesmc.github.io/Gandalf
+Maintainer: EthanRDoesMC <ethanrdoesmc@gmail.com>
+Author: EthanRDoesMC <ethanrdoesmc@gmail.com>
+Depends: firmware (>=10.0)
+Section: Manager_Addons

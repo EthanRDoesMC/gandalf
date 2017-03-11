@@ -1,17 +1,19 @@
 #!/bin/bash
 
-# Settings
-basename="com.github.ethanrdoesmc.gandalf"
+#Please run with a Linux flavor. macOS makes a lot of dummy files.
+
+# Aliases
+basename="io.github.ethanrdoesmc.gandalf102"
 conflictfile="conflicts.txt"
 
 # create control file and setup for conflicts
-echo "Setting up Files"
+echo "Creating directories and copying files."
 controlfile="$basename/DEBIAN/control"
 mkdir -p "$basename/DEBIAN/"
 cp control $controlfile
 
 
-echo -n "Conflicts: " >> $controlfile
+echo "Conflicts: " >> $controlfile
 
 
 # parse conflicts
@@ -20,20 +22,20 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
     dt="$(echo "$line"|tr -d '\r\n')"
     echo -n "$dt" >> $controlfile 
 done < "$conflictfile"
-echo "" >> $controlfile
+echo -n "" >> $controlfile
 
 
-# make dummy file
-mkdir -p $basename/var/mobile/Downloads/
-echo "This is a test file from Gandalf, feel glad knowing you're protected :)" >> $basename/var/mobile/Downloads/gandalf_102_test.txt
+# make managerlist file - make sure to update based on version
+mkdir -p $basename/var/mobile/Downloads/ManagerList
+echo "Gandalf for Yalu102 (2.0 Beta 1) was installed via Manager." >> $basename/var/mobile/Downloads/ManagerList/io.github.ethanrdoesmc.gandalf102.txt
 
 
 
 # package
-echo "Packaging"
+echo "Creating package."
 dpkg-deb -Zgzip -b $basename
 
 
 # cleanup
-echo "Cleaning up leftovers"
+echo "Removing temporary folders and files."
 rm -r $basename
