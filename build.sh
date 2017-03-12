@@ -13,7 +13,7 @@ mkdir -p "$basename/DEBIAN/"
 cp control $controlfile
 
 
-echo -n "Conflicts: " >> $controlfile
+echo -n "Breaks: " >> $controlfile
 
 
 # parse conflicts
@@ -24,15 +24,7 @@ while IFS='' read -r line || [[ "$line" ]]; do
 done < "$conflictfile"
 echo -n "" >> $controlfile
 
-#replace
 
-echo "Replaces: " >> $controlfile
-
-while IFS='' read -r line || [[ "$line" ]]; do
-    dt="$(echo "$line"|tr -d '\r\n')"
-    echo "$dt" >> $controlfile 
-done < "$conflictfile"
-echo -n "" >> $controlfile
 
 # make managerlist file - make sure to update based on version
 mkdir -p $basename/var/mobile/Downloads/ManagerList
