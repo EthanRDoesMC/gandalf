@@ -2,8 +2,6 @@
 
 #Please run with a Linux flavor. macOS makes a lot of dummy files.
 
-#this script will show what the package file structure looks like. used for debugging.
-
 # Aliases
 basename="io.github.ethanrdoesmc.gandalf102"
 conflictfile="conflicts.txt"
@@ -26,6 +24,15 @@ while IFS='' read -r line || [[ "$line" ]]; do
 done < "$conflictfile"
 echo -n "" >> $controlfile
 
+#replace
+
+echo "Replaces: " >> $controlfile
+
+while IFS='' read -r line || [[ "$line" ]]; do
+    dt="$(echo "$line"|tr -d '\r\n')"
+    echo "$dt" >> $controlfile 
+done < "$conflictfile"
+echo -n "" >> $controlfile
 
 # make managerlist file - make sure to update based on version
 mkdir -p $basename/var/mobile/Downloads/ManagerList
