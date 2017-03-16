@@ -1,6 +1,15 @@
 # Gandalf for Yalu102
 ### DANGEROUS TWEAKS SHALL NOT PASS
 
+Update: asked Saurik for suggestions, he recommended I try Pinning Gandalf. It's a dpkg setting that prevents a package from being installed, uninstalled and/or updated based on prioritization. I'm thinking of incorporating this via Manager or a post-installation script (which is ALSO a thing) but leaning toward Manager as Gandalf needs to update and I have no idea how I'd automatically unpin it. In manager I can incorporate a button!
+
+
+Hopefully that'll block packages. I'll go try it right now. If it does, we'll be back on track!
+
+also, i never thought i'd be where i am now. thank you guys so much. 
+
+
+
 Install via repo: https://ethanrdoesmc.github.io/repo
 Tap [this][1] to open in Cydia.
 
