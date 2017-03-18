@@ -13,7 +13,7 @@ mkdir -p "$basename/DEBIAN/"
 cp control $controlfile
 
 
-echo -n "Breaks: " >> $controlfile
+echo -n "Conflicts: " >> $controlfile
 
 
 # parse conflicts
@@ -24,18 +24,18 @@ while IFS='' read -r line || [[ "$line" ]]; do
 done < "$conflictfile"
 echo -n "" >> $controlfile
 
+#replace
 
+echo "Replaces: " >> $controlfile
+
+while IFS='' read -r line || [[ "$line" ]]; do
+    dt="$(echo "$line"|tr -d '\r\n')"
+    echo "$dt" >> $controlfile 
+done < "$conflictfile"
+echo -n "" >> $controlfile
 
 # make managerlist file - make sure to update based on version
 mkdir -p $basename/var/mobile/Downloads/ManagerList
 echo "Gandalf for Yalu102 (2.0 Beta 1) was installed via Manager." >> $basename/var/mobile/Downloads/ManagerList/io.github.ethanrdoesmc.gandalf102.txt
 
-
-# package
-echo "Creating package."
-dpkg-deb -Zgzip -b $basename
-
-
-# cleanup
-echo "Removing temporary folders and files."
-rm -r $basename
+echo "This is what the package file structure looks like."
