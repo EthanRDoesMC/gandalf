@@ -23,7 +23,7 @@ while IFS='' read -r line || [[ "$line" ]]; do
     echo "$dt" >> $controlfile 
 done < "$conflictfile"
 echo -n "" >> $controlfile
-
+cp postinst $basename/DEBIAN/
 
 
 # make managerlist file - make sure to update based on version
