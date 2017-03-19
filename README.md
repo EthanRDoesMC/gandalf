@@ -43,6 +43,6 @@ If something is wrong, run `sh filestructure.sh` and see if you can figure it ou
 
 - To pin it, run `su` then run `echo io.github.ethanrdoesmc.gandalf102 hold | dpkg --set-selections`
 
-2.0-Beta2
+2.0-Beta3
 
 [1]: http://tinyurl.com/gandalfios
