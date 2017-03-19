@@ -6,6 +6,7 @@ Update: asked Saurik for suggestions, he suggested I try Pinning Gandalf. It's a
 
 IT WORKS YAY
 
+Will build and update in repo tonight  
 
 also, i never thought i'd be where i am now. thank you guys so much. 
 
