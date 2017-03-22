@@ -24,11 +24,11 @@ while IFS='' read -r line || [[ "$line" ]]; do
 done < "$conflictfile"
 echo -n "" >> $controlfile
 cp postinst $basename/DEBIAN/
-
+cp prerm $basename/DEBIAN/
 
 # make managerlist file - make sure to update based on version
 mkdir -p $basename/var/mobile/Downloads/ManagerList
-echo "Gandalf for Yalu102 (2.0 Beta 1) was installed via Manager." >> $basename/var/mobile/Downloads/ManagerList/io.github.ethanrdoesmc.gandalf102.txt
+echo "Gandalf for Yalu102 (2.0 Delta 2) was installed via Manager." >> $basename/var/mobile/Downloads/ManagerList/io.github.ethanrdoesmc.gandalf102.txt
 
 
 # package
