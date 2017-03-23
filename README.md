@@ -2,7 +2,7 @@
 ### DANGEROUS TWEAKS SHALL NOT PASS
 
 Install via repo: https://ethanrdoesmc.github.io/repo
-Tap [this][cydia://url/https://cydia.saurik.com/api/share#?source=https://ethanrdoesmc.github.io/repo/] to open in Cydia.
+Tap [This Link](cydia://url/https://cydia.saurik.com/api/share#?source=https://ethanrdoesmc.github.io/repo/) to open in Cydia.
 
 # Contribute
 Add an incompatible package identifier to the conflicts.txt file.
