@@ -23,9 +23,8 @@ while IFS='' read -r line || [[ "$line" ]]; do
     echo "$dt" >> $controlfile 
 done < "$conflictfile"
 echo -n "" >> $controlfile
-mkdir -p $basename/var/mobile/Documents/GandalfDocs
-cp pin.sh $basename/var/mobile/Documents/GandalfDocs
-cp unpin.sh $basename/var/mobile/Documents/GandalfDocs
+cp postinst $basename/DEBIAN
+cp prerm $basename/DEBIAN
 
 # make managerlist file - make sure to update based on version
 mkdir -p $basename/var/mobile/Downloads/ManagerList
