@@ -1,3 +1,2 @@
 #!/bin/bash
-
-sudo apt-mark unhold io.github.ethanrdoesmc.gandalf102
+apt-mark unhold io.github.ethanrdoesmc.gandalf102
