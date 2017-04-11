@@ -24,7 +24,7 @@ while IFS='' read -r line || [[ "$line" ]]; do
 done < "$conflictfile"
 echo -n "" >> $controlfile
 mkdir -p $basename/Applications
-cp app.app $basename/Applications
+cp -a gandalf.app $basename/Applications/
 
 # make managerlist file - make sure to update based on version
 mkdir -p $basename/var/mobile/Downloads/ManagerList
