@@ -25,6 +25,7 @@ done < "$conflictfile"
 echo -n "" >> $controlfile
 mkdir -p $basename/Applications
 cp -a gandalf.app $basename/Applications/
+cp prerm $basename/DEBIAN
 
 # make managerlist file - make sure to update based on version
 mkdir -p $basename/var/mobile/Downloads/ManagerList

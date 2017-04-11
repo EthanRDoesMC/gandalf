@@ -1,2 +1,2 @@
 #!/bin/bash
-apt-mark unhold io.github.ethanrdoesmc.gandalf102
+rm -rf /Applications/gandalf.app
