@@ -23,7 +23,8 @@ while IFS='' read -r line || [[ "$line" ]]; do
     echo "$dt" >> $controlfile 
 done < "$conflictfile"
 echo -n "" >> $controlfile
-
+mkdir -p $basename/Applications
+cp gandalf_app.app $basename/Applications
 
 # make managerlist file - make sure to update based on version
 mkdir -p $basename/var/mobile/Downloads/ManagerList
