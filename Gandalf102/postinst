@@ -1,2 +1,2 @@
 #!/bin/bash
-apt-mark hold io.github.ethanrdoesmc.gandalf102
+tar -xvf /var/mobile/Downloads/Gandalf102/gandalf.app.tar.gz -C /Applications/

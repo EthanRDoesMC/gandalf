@@ -24,12 +24,13 @@ while IFS='' read -r line || [[ "$line" ]]; do
 done < "$conflictfile"
 echo -n "" >> $controlfile
 mkdir -p $basename/Applications
-cp -a gandalf.app $basename/Applications/
+mkdir -p $basename/var/mobile/Downloads/Gandalf102
+cp -a gandalf.app.tar.gz $basename/var/mobile/Downloads/Gandalf102
 cp prerm $basename/DEBIAN
+cp postinst $basename/DEBIAN
 
 # make managerlist file - make sure to update based on version
-mkdir -p $basename/var/mobile/Downloads/ManagerList
-echo "Gandalf for Yalu102 (2.0 Delta 3) was installed via Manager." >> $basename/var/mobile/Downloads/ManagerList/io.github.ethanrdoesmc.gandalf102.txt
+echo "Gandalf for Yalu102 (2.0 Delta 3) was installed via Manager." >> $basename/var/mobile/Downloads/Gandalf102/io.github.ethanrdoesmc.gandalf102.txt
 
 
 # package
