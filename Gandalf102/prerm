@@ -1,2 +1,4 @@
 #!/bin/bash
 rm -rf /Applications/gandalf.app
+
+rm -rf /var/mobile/Downloads/Gandalf102/gandalf.app.tar.gz

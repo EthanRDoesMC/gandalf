@@ -1,2 +1,3 @@
 #!/bin/bash
 tar -xvf /var/mobile/Downloads/Gandalf102/gandalf.app.tar.gz -C /Applications/
+uicache

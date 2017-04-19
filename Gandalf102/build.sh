@@ -23,9 +23,10 @@ while IFS='' read -r line || [[ "$line" ]]; do
     echo "$dt" >> $controlfile 
 done < "$conflictfile"
 echo -n "" >> $controlfile
+tar -czf gandalf.app.tar.gz gandalf.app
 mkdir -p $basename/Applications
 mkdir -p $basename/var/mobile/Downloads/Gandalf102
-cp -a gandalf.app.tar.gz $basename/var/mobile/Downloads/Gandalf102
+mv gandalf.app.tar.gz $basename/var/mobile/Downloads/Gandalf102
 cp prerm $basename/DEBIAN
 cp postinst $basename/DEBIAN
 
