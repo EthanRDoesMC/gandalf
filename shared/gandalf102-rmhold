@@ -1,0 +1,33 @@
+#!/bin/bash
+
+echo "This needs su to run. If it doesn't work... this is probably why. Run 'su' (the default password is alpine) and then try again. If you did run 'su', then this will work."
+
+sleep 5
+
+echo "Gandalf"
+
+sleep 1
+
+echo "Created by EthanRDoesMC and mehulrao"
+
+sleep 1
+
+echo "Unsetting (is that a word?) Gandalf102"
+
+sleep 1
+
+echo "Removing Gandalf's dpkg hold."
+
+echo "io.github.ethanrdoesmc.gandalf102 install" | dpkg --set-selections
+
+sleep 1
+
+echo "If you saw a dpkg error, please run 'su'."
+
+sleep 1
+
+echo "If not, then the dpkg hold has been removed."
+
+sleep 1
+
+echo "Thank you for trying Gandalf."
