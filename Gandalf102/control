@@ -1,6 +1,6 @@
 Package: io.github.ethanrdoesmc.gandalf102
 Name: Gandalf for Yalu102
-Version: 2.1.5
+Version: 2.1.6.1
 Architecture: iphoneos-arm
 Replaces: com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102
 Description: Some tweaks may break jailbreaks. Let this tweak say "You Shall Not Pass!" to incompatible tweaks and you can sit back and have fun with your jailbreak.
