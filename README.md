@@ -27,8 +27,6 @@ If something is wrong, run `sh filestructure.sh` and see if you can figure it ou
 # Notes
 - You can test Gandalf using the *New Package* in my repo. (removed! get it from https://supermamon.github.io/Reposi3 in Cydia.)
 
-- Installation will be finalized in Manager when Manager is a thing. Shell scripts are fine for us but not for the masses. 
-
-- Will be in both the repo and Manager. 
+- There are bin files! They go in /usr/bin
 
 - Porting to other versions. Gandalf Pangu 7 is a test. Was seeing if Gandalf had a point in time where it broke that I could get it to work. Nothing. Guess we'll never know why it worked for that time.
