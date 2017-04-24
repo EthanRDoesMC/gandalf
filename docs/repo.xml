@@ -1,0 +1,14 @@
+<repo>
+	<footerlinks>
+		<link>
+			<name>Check out the source</name>
+			<url>https://github.com/ethanrdoesmc/gandalf</url>
+			<iconclass>glyphicon glyphicon-github</iconclass>
+		</link>
+		<link>
+			<name>Donate to Gandalf</name>
+			<url>https://paypal.me/mehulrao</url>
+			<iconclass>glyphicon glyphicon-paypal</iconclass>
+		</link>
+	</footerlinks>
+</repo>

@@ -1,0 +1,1 @@
+Creates icons in Cydia for Manager.

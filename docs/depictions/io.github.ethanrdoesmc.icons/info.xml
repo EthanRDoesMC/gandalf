@@ -1,0 +1,17 @@
+<package>
+	<id>io.github.gandalf.icons</id>
+	<name>GDN Icons</name>
+	<version>2</version>
+	<dependencies>
+		<package>cydia</package>
+	</dependencies>
+	<descriptionlist>
+		<description>Icons</description>
+		<description>Icons for GDN</description>
+	</descriptionlist>
+	<changelog>
+		<change>Version 2</change>
+		<change>based on ethanrdoesmc.icons</change>
+		<change>Each version gets an icon</change>
+	</changelog>
+</package>

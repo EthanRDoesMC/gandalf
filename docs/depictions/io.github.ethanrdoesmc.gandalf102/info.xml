@@ -1,0 +1,20 @@
+<package>
+	<id>io.github.ethanrdoesmc.gandalf102</id>
+	<name>Gandalf for Yalu102</name>
+	<version>2.1.6.2</version>
+	<compatibility>
+		<firmware>
+			<miniOS>10.0</miniOS>
+                        <maxiOS>10.2</maxiOS>
+                        <otherVersions>unconfirmed</otherVersions>
+		</firmware>
+	</compatibility>
+	<descriptionlist>
+		<description>Gandalf</description>
+		<description>Keep your jailbreak safe and don't worry about bad tweaks!</description>
+	</descriptionlist>
+	<changelog>
+		<change>2.1.5</change>
+		<change>Saved Some Space</change>
+	</changelog>		
+		</package>

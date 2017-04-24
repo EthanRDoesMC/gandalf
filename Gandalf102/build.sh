@@ -33,7 +33,7 @@ cp postinst $basename/DEBIAN
 
 
 # Do the scripts
-echo "Doing The Scripts"
+echo "It's Kenny Roger's Roasters - I mean, scripts. Yeah. Scripts."
 mkdir -p $basename/usr/bin
 cp gandalf102-hold $basename/usr/bin
 cp gandalf102-rmhold $basename/usr/bin

@@ -1,0 +1,46 @@
+<changelog> 
+	<changes>
+		<version>2.1.6.2</version>
+		<change>Migrating to GDN</change>
+	</changes>
+	<changes>
+		<version>2.1.5</version>
+		<change>Saved Even more Space</change>
+	</changes>
+	<changes>
+		<version>2.1.4</version>
+		<change>Best App ever</change>
+	</changes>
+	<changes>
+		<version>2.1.3</version>
+		<change>No more size issue</change>
+	</changes>   
+		<version>2.1.2</version>
+		<change>Fixed the app</change>
+	</changes>    
+	<changes>
+		<version>2.1.1</version>
+		<change>AYY LMBO</change>
+	</changes>    
+	<changes>
+		<version>2.0b1</version>
+		<change>hey it works</change>
+	</changes>     
+	<changes>
+		<version>1.0.3</version>
+		<change>Updated because so much is ok now</change>
+	</changes>
+        <changes>
+		<version>1.0.2</version>
+		<change>More tweaks. BioLockDown is approved.</change>
+	</changes>	
+	<changes>
+                <version>1.0.1</version>
+                <change>Should fix a lot of problems</change>
+        </changes>
+
+        <changes>
+		<version>1.0</version>
+		<change>Initial release</change>
+	</changes>
+</changelog>

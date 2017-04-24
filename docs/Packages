@@ -1,0 +1,34 @@
+Package: io.github.ethanrdoesmc.gandalf102
+Version: 2.1.6.2
+Architecture: iphoneos-arm
+Maintainer: EthanRDoesMC <ethanrdoesmc@gmail.com>
+Depends: firmware (>=10.0), sudo, com.officialscheduler.mterminal
+Breaks: ch.sebikeller.automuter, com.a3tweaks.auxo3ios9, com.alexzielenski.tinybar, com.enduniverse.cydiaextenderplus, com.bolencki13.appendix, com.cpdigitaldarkroom.volumebanner, com.creatix.hoppin, com.creatix.carrot, com.fidele007.hotdog (<= 3.3.3-25), com.inasser.ariki, com.microseconds.iblank, com.strayadevteam.forcy, com.supermamon.newpackage, eu.heinelt.ifile, me.chewitt.cmc, me.chewitt.mcpro, me.chewitt.seng, net.angelxwind.appsyncunified (<= 5.8), openssh, org.coolstar.classicfolders, org.protectmyprivacy.pmp, org.thebigboss.andrios, org.thebigboss.protean, org.thebigboss.spin, org.thebigboss.vertex, com.bengiannis.nougatshortcuts
+Replaces: com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102
+Filename: debs/io.github.ethanrdoesmc.gandalf102.deb
+Size: 29754334
+MD5sum: af89040123741647cb39ddb4779617ea
+SHA1: 51151f33a08fd28b2a4f2ad1d461ecfaf52ae631
+SHA256: 5e7e546aee546ff040b54f96eea0d405bba8eb0dcae413beca59b7f127b08a4a
+Section: Manager_Addons
+Description: Some tweaks may break jailbreaks. Let this tweak say "You Shall Not Pass!" to incompatible tweaks and you can sit back and have fun with your jailbreak.
+Author: EthanRDoesMC <ethanrdoesmc@gmail.com>
+Depiction: https://ethanrdoesmc.github.io/gandalf/docs/depictions/?p=io.github.ethanrdoesmc.gandalf102
+Name: Gandalf for Yalu102
+
+Package: io.github.gandalf.icons
+Version: 2
+Architecture: iphoneos-arm
+Maintainer: EthanRDoesMC <ethanrdoesmc@gmail.com>
+Filename: debs/io.github.gandalf.icons.deb
+Size: 37370
+MD5sum: 73731dc00a4b2df53b12c9798343e971
+SHA1: fb7e7a737655e8139ce17f7f686a9b363f6b2d7e
+SHA256: 16ce98ddae80a2d2f05c65dde1c62f2bb0541bdb0881ad51a8387a5bdb794a6e
+Section: Packaging
+Priority: required
+Description: Installs GDN icons.
+Author: EthanRDoesMC <ethanrdoesmc@gmail.com>
+Depiction: https://ethanrdoesmc.github.io/gandalf/docs/depictions/?p=io.github.gandalf.icons
+Name: GDN Icons
+

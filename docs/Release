@@ -1,0 +1,8 @@
+Origin: Gandalf Repo
+Label: Gandalf Delivery Network (GDN)
+Suite: stable
+Version: 1.0
+Codename: ios
+Architectures: iphoneos-arm
+Components: main
+Description: Up-to-date versions of Gandalf.
