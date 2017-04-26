@@ -1,10 +1,12 @@
 #!/bin/bash
 
-echo "This needs su to run. If it doesn't work... this is probably why. Run 'su' (the default password is alpine) and then try again. If you did run 'su', then this will work."
+# Make sure only root can run this.
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root. Please run 'su' before ((the default password is alpine) and then try again." 1>&2 
+   exit 1
+fi
 
-sleep 2
-
-echo "Gandalf"
+echo "---Gandalf---"
 
 sleep 1
 
@@ -20,14 +22,5 @@ echo "Removing Gandalf's dpkg hold."
 
 echo "io.github.ethanrdoesmc.gandalf102 install" | dpkg --set-selections
 
-sleep 1
-
-echo "If you saw a dpkg error, please run 'su'."
-
-sleep 1
-
-echo "If not, then the dpkg hold has been removed."
-
-sleep 1
 
 echo "Thank you for trying Gandalf."
