@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Make sure only root can run this.
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root. Please run 'su' before (the default password is alpine) and then try again." 1>&2 
+   exit 1
+fi
+
+echo "---Gandalf---"
+
+sleep 1
+
+echo "Created by EthanRDoesMC and mehulrao"
+
+sleep 1
+
+echo "Unsetting (is that a word?) Gandalf"
+
+sleep 1
+
+echo "Removing Gandalf's dpkg hold."
+
+echo "io.github.gandalf.portal install" | dpkg --set-selections
+
+
+echo "Thank you for trying Gandalf."
