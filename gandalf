@@ -1,6 +1,4 @@
-
 #!/bin/bash
-
 
 # Make sure only root can run this
 
@@ -18,7 +16,8 @@ GVERSION="io.github.gandalf.portal"
 GVERSIONNAME="Gandalf Portal"
 
 ################
-echo "Welcome to $GVERSIONNAME."
+echo "---Welcome to $GVERSIONNAME.---"
+echo "Made by EthanRDoesMC and mehulrao."
 
 case $1 in
 "") 
@@ -37,4 +36,4 @@ echo "$0 rmhold: run before update or uninstall to let cydia remove it."
  echo "USAGE: $0 hold: run directly after install of $GVERSIONNAME. It will prevent cydia from removing Gandalf automatically"
  ;;
  esac
- 
+ echo "Thank you for using Gandalf."
