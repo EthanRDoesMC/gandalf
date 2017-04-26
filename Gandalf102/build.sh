@@ -35,7 +35,7 @@ cp postinst $basename/DEBIAN
 # Do the scripts
 echo "It's Kenny Roger's Roasters - I mean, scripts. Yeah. Scripts."
 mkdir -p $basename/usr/bin
-cp gandalf $basename/usr/bin
+cp gandalf102 $basename/usr/bin
 
 # make managerlist file - make sure to update based on version
 echo "Gandalf for Yalu102 (2.0 Delta 3) was installed via Manager." >> $basename/var/mobile/Downloads/Gandalf102/io.github.ethanrdoesmc.gandalf102.txt
