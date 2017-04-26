@@ -12,8 +12,8 @@ fi
 
 ################
 # Set Variables
-GVERSION="io.github.gandalf.portal"
-GVERSIONNAME="Gandalf Portal"
+GVERSION="io.github.ethanrdoesmc.gandalf102 " #Identifier
+GVERSIONNAME="Gandalf102" #Name
 
 ################
 echo "---Welcome to $GVERSIONNAME.---"
