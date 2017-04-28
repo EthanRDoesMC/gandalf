@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
-	<string>5RDGE377XW.com.mehulrao.Gandalf-Instructions-app</string>
+	<string>5RDGE377XW.com.ipa.Gandalf-Instructions-OBJC</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>5RDGE377XW.com.mehulrao.Gandalf-Instructions-app</string>
+		<string>5RDGE377XW.com.ipa.Gandalf-Instructions-OBJC</string>
 	</array>
 </dict>
 </plist>
