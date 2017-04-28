@@ -1,7 +1,18 @@
 # Gandalf
 DANGEROUS TWEAKS SHALL NOT PASS!
 
+RELEASED
 
-Migrating to a GitHub organization. Mainly so that we don't need a 400mb repo.
+Gandalf102
+
+WIP
+Gandalf-Portal (For YaluX also known as Mach_portal for some reason)
+
+Future
+IDK
+
+To do things open the folder Gandalf. 
+
+Repo/GDN is in docs.
 
 Also, jonisc, awesome work.
