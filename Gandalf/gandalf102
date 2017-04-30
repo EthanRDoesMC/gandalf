@@ -4,7 +4,9 @@
 
 if [[ $EUID -ne 0 ]]; then
 
-   echo "ERROR: This needs root permissions. Since you are not logged in as root run 'su' (default password is 'alpine' - it's wise to change this) and then try again." 1>&2 
+   echo "ERROR: This script needs root permissions."
+  echo
+  echo "Since you are not logged in as root run 'su' before. (Default password is 'alpine' - it's wise to change this) and then try again." 1>&2 
 
    exit 1
 
@@ -23,19 +25,29 @@ echo "Made by EthanRDoesMC and mehulrao."
 
 case $1 in
 "") 
-echo "USAGE: $0 hold: run directly after install of $GVERSIONNAME. It will prevent cydia from removing Gandalf automatically"
+echo
+echo "---USAGE---"
+echo
+echo "$0 hold: run directly after install of $GVERSIONNAME. It will prevent cydia from removing Gandalf automatically."
 echo
 echo "$0 rmhold: run before update or uninstall to let cydia remove it."
  ;;
 "hold")
-  echo "Add hold to $GVERSIONNAME..."
-  echo "$GVERSION hold" | dpkg --set-selections
+echo "Add hold to $GVERSIONNAME..."
+echo "$GVERSION hold" | dpkg --set-selections
  ;;
- "rmhold")echo "Remove hold from $GVERSIONNAME..."
- echo "$GVERSION install" | dpkg --set-selections
+ "rmhold")
+echo "Remove hold from $GVERSIONNAME..."
+echo "$GVERSION install" | dpkg --set-selections
  ;;
- *)echo "ERROR: invalid parameter $1"
- echo "USAGE: $0 hold: run directly after install of $GVERSIONNAME. It will prevent cydia from removing Gandalf automatically"
- ;;
+ *)
+echo "ERROR: invalid parameter $1"
+echo
+echo "---USAGE---"
+echo
+echo "$0 hold: run directly after install of $GVERSIONNAME. It will prevent cydia from removing Gandalf automatically"
+echo
+echo "$0 rmhold: run before update or uninstall to let cydia remove it."
+;;
  esac
  echo "Thank you for using Gandalf."
