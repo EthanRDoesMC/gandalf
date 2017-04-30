@@ -33,10 +33,15 @@ cp postinst $basename/DEBIAN
 
 
 # Do the scripts
+###
+scriptname="gandalf102"
+productname="Gandalf102"
 echo "Scripted Scripting is Scriptatious and Scriptmatic"
 mkdir -p $basename/usr/bin
-cp gandalf102 $basename/usr/bin
-
+cp $scriptname $basename/usr/bin
+sed -i 's/iDenT1FIEr/$basename/' $basename/usr/bin/$scriptname
+sed -i 's/vErs10Nname/$productname' $basename/usr/bin/$scriptname
+### might work with sed. I don't know sed so it might be compleatly wrong…
 #RIP GANDALF MANAGER
 #NOBODY LIKED YOU
 #LONG LIVE SETUP MANAGER
