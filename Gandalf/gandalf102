@@ -24,8 +24,9 @@ echo "---Welcome to $GVERSIONNAME.---"
 echo "Made by EthanRDoesMC and mehulrao."
 
 case $1 in
-"") 
+"") echo
 echo "---USAGE---"
+echo
 echo "$0 hold: run directly after install of $GVERSIONNAME. It will prevent cydia from removing Gandalf automatically"
 echo
 echo "$0 rmhold: run before update or uninstall to let cydia remove it."
