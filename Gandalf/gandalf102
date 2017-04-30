@@ -5,8 +5,8 @@
 if [[ $EUID -ne 0 ]]; then
 
    echo "ERROR: This script needs root permissions."
-echo
-   echo "Since you are not logged in as root run 'su' before. (Default password is 'alpine' - it's wise to change this) and then try again." 1>&2 
+  echo
+  echo "Since you are not logged in as root run 'su' before. (Default password is 'alpine' - it's wise to change this) and then try again." 1>&2 
 
    exit 1
 
