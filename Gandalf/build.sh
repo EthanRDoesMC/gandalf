@@ -3,8 +3,10 @@
 #Please run with a Linux flavor. macOS makes a lot of dummy files.
 
 # Aliases
-basename="io.github.ethanrdoesmc.gandalf102"
+basename="io.github.ethanrdoesmc.gandalf102" #IDENTIFIER
 conflictfile="conflicts102.txt"
+scriptname="gandalf102" #NAME OF THE SCRIPT
+productname="Gandalf 102" #NAME OF GANDALF SHOWN IN TERMINAL
 
 # create control file and setup for conflicts
 echo "Creating directories and copying files."
@@ -23,7 +25,7 @@ while IFS='' read -r line || [[ "$line" ]]; do
     echo "$dt" >> $controlfile 
 done < "$conflictfile"
 echo -n "" >> $controlfile
-echo "Making The Tar"
+echo "Making the TAR..."
 tar -czf gandalf.app.tar.gz gandalf.app
 mkdir -p $basename/Applications
 mkdir -p $basename/var/mobile/Downloads/Gandalf102
@@ -34,14 +36,13 @@ cp postinst $basename/DEBIAN
 
 # Do the scripts
 ###
-scriptname="gandalf102"
-productname="Gandalf102"
+
 echo "Scripted Scripting is Scriptatious and Scriptmatic"
 mkdir -p $basename/usr/bin
 cp $scriptname $basename/usr/bin
-sed -i 's/iDenT1FIEr/$basename/' $basename/usr/bin/$scriptname
-sed -i 's/vErs10Nname/$productname/' $basename/usr/bin/$scriptname
-### might work with sed. I don't know sed so it might be compleatly wrong…
+sed -i "s/iDenT1FIEr/$basename/" $basename/usr/bin/$scriptname
+sed -i "s/vErs10Nname/$productname/" $basename/usr/bin/$scriptname
+### might work with sed (works on UBUNTU)
 #RIP GANDALF MANAGER
 #NOBODY LIKED YOU
 #LONG LIVE SETUP MANAGER
