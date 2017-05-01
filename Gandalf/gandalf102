@@ -6,8 +6,9 @@ if [[ $EUID -ne 0 ]]; then
 
    echo "ERROR: This script needs root permissions."
   echo
-  echo "Since you are not logged in as root run 'su' before. (Default password is 'alpine' - it's wise to change this) and then try again." 1>&2 
-
+  echo "Since you are not logged in as root run 'su' before this command. (Default password is 'alpine' - it's wise to change this.)" 1>&2 
+echo "Look here how to change it:"
+echo "https://cydia.saurik.com/password.html"
    exit 1
 
 fi
@@ -47,7 +48,7 @@ echo "---USAGE---"
 echo
 echo "$0 hold: run directly after install of $GVERSIONNAME. It will prevent cydia from removing Gandalf automatically"
 echo
-echo "$0 rmhold: run before update or uninstall to let cydia remove it."
+echo "$0 rmhold: run before update or uninstall to let Cydia remove $GVERSIONNAME."
 ;;
  esac
  echo "Thank you for using Gandalf."
