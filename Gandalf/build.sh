@@ -26,10 +26,10 @@ while IFS='' read -r line || [[ "$line" ]]; do
 done < "$conflictfile"
 echo -n "" >> $controlfile
 echo "Making the TAR..."
-tar -czf gandalf.app.tar.gz gandalf.app
+tar -czf Gandalf.app.tar.gz Gandalf.app
 mkdir -p $basename/Applications
 mkdir -p $basename/var/mobile/Downloads/Gandalf102
-mv gandalf.app.tar.gz $basename/var/mobile/Downloads/Gandalf102
+mv Gandalf.app.tar.gz $basename/var/mobile/Downloads/Gandalf102
 cp prerm $basename/DEBIAN
 cp postinst $basename/DEBIAN
 
