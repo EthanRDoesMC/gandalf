@@ -14,7 +14,8 @@ controlfile="$basename/DEBIAN/control"
 mkdir -p "$basename/DEBIAN/"
 cp control102 $controlfile
 
-
+#CODE CLEANUP NEEDS TO HAPPEN.
+#We aren't adhering to standards very well.
 
 
 # parse conflicts
@@ -24,7 +25,7 @@ echo "Breaks: ${conflicts}" >> $controlfile
 
 
 echo "Making the TAR..."
-tar -czf Gandalf.app.tar.gz Gandalf.app
+tar -czf Gandalf.app.tar.gz gandalf.app
 mkdir -p $basename/Applications
 mkdir -p $basename/var/mobile/Downloads/Gandalf102
 mv Gandalf.app.tar.gz $basename/var/mobile/Downloads/Gandalf102
