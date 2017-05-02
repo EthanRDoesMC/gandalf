@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Unpacking…"
-tar -xvf /var/mobile/Downloads/Gandalf102/gandalf.app.tar.gz -C /Applications/
+tar -xvf /var/mobile/Downloads/Gandalf102/Gandalf.app.tar.gz -C /Applications/
 echo "App Installed"
 echo "Please Wait... running uicache…"
 uicache
