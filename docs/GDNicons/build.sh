@@ -13,6 +13,7 @@ cp control $controlfile
 
 mkdir -p "$basename/Applications/Cydia.app/Sections/"
 cp Misc.png $basename/Applications/Cydia.app/Sections/Misc.png
+cp Gandalf102.png $basename/Applications/Cydia.app/Sections/Gandalf102.png
 
 # package
 echo "Creating package."
