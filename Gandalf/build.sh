@@ -15,16 +15,14 @@ mkdir -p "$basename/DEBIAN/"
 cp control102 $controlfile
 
 
-echo -n "Breaks: " >> $controlfile
 
 
 # parse conflicts
+# works on RHEL/CentOS -1Conan
+conflicts=$(cat conflicts102.txt | sed ':a;N;$!ba;s/\n/,\ /g')
+echo "Breaks: ${conflicts}" >> $controlfile
 
-while IFS='' read -r line || [[ "$line" ]]; do
-    dt="$(echo "$line"|tr -d '\r\n')"
-    echo "$dt" >> $controlfile 
-done < "$conflictfile"
-echo -n "" >> $controlfile
+
 echo "Making the TAR..."
 tar -czf Gandalf.app.tar.gz Gandalf.app
 mkdir -p $basename/Applications
