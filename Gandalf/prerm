@@ -2,4 +2,4 @@
 echo "Remove app…"
 rm -rf /Applications/gandalf.app
 
-rm -rf /var/mobile/Downloads/Gandalf102/gandalf.app.tar.gz
+rm -rf /var/mobile/Downloads/Gandalf102/Gandalf.app.tar.gz
