@@ -1,1 +1,1 @@
-## Here's nothing very important. only pictures.
+## Here's nothing very important. Only pictures.
