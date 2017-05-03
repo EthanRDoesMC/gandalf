@@ -1,7 +1,17 @@
 #!/bin/bash
+
+#Declare variables
+
+RED='\033[0;31m' # Define RED as red
+NC='\033[0m' # Define NC as no color
+echo "Installing Gandalf..."
 echo "Unpacking…"
 tar -xvf /var/mobile/Downloads/Gandalf102/Gandalf.app.tar.gz -C /Applications/
-echo "App Installed"
-echo "Please Wait... running uicache…"
+echo "App installed..."
+echo "Please Wait... running uicache..."
 uicache
-echo "Done"
+echo
+echo -e "${RED}--- Now please run 'gAndAlfh0LdC0mMand hold'! Just to be save. ---${NC}"
+echo
+echo "This command has to run after 'su' have logged in as root, so run it after 'su' in e.g. MTerminal."
+

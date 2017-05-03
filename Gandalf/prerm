@@ -1,5 +1,5 @@
 #!/bin/bash
 echo "Remove app…"
-rm -rf /Applications/Gandalf.app
+rm -rf /Applications/gandalf.app
 
 rm -rf /var/mobile/Downloads/Gandalf102/Gandalf.app.tar.gz

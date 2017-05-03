@@ -15,13 +15,11 @@ fi
 
 ################
 # Set Variables
-GVERSION="iDenT1FIEr" #Identifier
-# it would be awesome to have one script then have build.sh add the identifier to the script depending on what
-# version is being built. there will be MANNNNY versions.
-GVERSIONNAME="vErs10Nname" #Name
+gversion="iDenT1FIEr" #Identifier
+gversionname="vErs10Nname" #Name
 
 ################
-echo "---Welcome to $GVERSIONNAME.---"
+echo "---Welcome to $gversionname.---"
 echo "Made by EthanRDoesMC and mehulrao."
 
 case $1 in
@@ -29,26 +27,26 @@ case $1 in
 echo
 echo "---USAGE---"
 echo
-echo "$0 hold: run directly after install of $GVERSIONNAME. It will prevent cydia from removing Gandalf automatically."
+echo "$0 hold: run directly after install of $gversionname. It will prevent cydia from removing Gandalf automatically."
 echo
-echo "$0 rmhold: run before update or uninstall to let Cydia remove $GVERSIONNAME."
+echo "$0 rmhold: run before update or uninstall to let Cydia remove $gversionname."
  ;;
 "hold")
-echo "Add hold to $GVERSIONNAME..."
-echo "$GVERSION hold" | dpkg --set-selections
+echo "Add hold to $gversionname..."
+echo "$gversion hold" | dpkg --set-selections
  ;;
  "rmhold")
-echo "Remove hold from $GVERSIONNAME..."
-echo "$GVERSION install" | dpkg --set-selections
+echo "Remove hold from $gversionname..."
+echo "$gversion install" | dpkg --set-selections
  ;;
  *)
 echo "ERROR: invalid parameter $1"
 echo
 echo "---USAGE---"
 echo
-echo "$0 hold: run directly after install of $GVERSIONNAME. It will prevent cydia from removing Gandalf automatically"
+echo "$0 hold: run directly after install of $gversionname. It will prevent cydia from removing Gandalf automatically"
 echo
-echo "$0 rmhold: run before update or uninstall to let Cydia remove $GVERSIONNAME."
+echo "$0 rmhold: run before update or uninstall to let Cydia remove $gversionname."
 ;;
  esac
  echo "Thank you for using Gandalf."
