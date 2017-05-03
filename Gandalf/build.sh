@@ -4,10 +4,10 @@
 
 # Aliases
 
-basename="io.github.ethanrdoesmc.gandalf102" #IDENTIFIER
+basename="io.github.ethanrdoesmc.gandalf102" #identifier (ios internal name)
 conflictfile="conflicts102.txt" # Name of conflictsfile
-scriptname="gandalf102" #NAME OF THE SCRIPT
-productname="Gandalf 102" #NAME OF GANDALF SHOWN IN TERMINAL
+scriptname="gandalf102" #name of hold script
+productname="Gandalf 102" #name of gandalf for user (shown in terminal)
 
 # create control file and setup for conflicts
 echo "Creating directories and copying files..."
@@ -26,6 +26,7 @@ echo "Breaks: ${conflicts}" >> $controlfile
 
 
 echo "Making the TAR..."
+# better name everything lowercase (you might know the small fiasco with Gandalf.app and gandalf.app? -jonisc)
 tar -czf Gandalf.app.tar.gz gandalf.app
 echo "Creating folders..."
 mkdir -p $basename/Applications
@@ -69,7 +70,7 @@ rm -r $basename
 
 sleep 1
 
-echo "YOU DID IT"
+echo "YOU DID IT!"
 
 sleep 1
 
