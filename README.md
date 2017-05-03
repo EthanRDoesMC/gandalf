@@ -1,18 +1,20 @@
-# Gandalf
-DANGEROUS TWEAKS SHALL NOT PASS!
+FORMATTING YAY
 
-RELEASED
+###Gandalf for Cydia
+#Broken tweaks shall not pass!
 
-Gandalf102
+/docs is where the repo lives.
 
-WIP
-Gandalf-Portal (For YaluX also known as Mach_portal for some reason)
+/Gandalf is where development of the actual tweak happens.
 
-Future
-IDK
+/Images is where logos are made.
 
-To do things open the folder Gandalf. 
+/.git is a living testament to how bad version control can be. It's the reason the repo's so big. Best to have one clone and git pull.
 
-Repo/GDN is in docs.
+Each folder has its own README.md. They'll guide you from there.
 
-Also, jonisc, awesome work.
+#Important things
+
+- gandalf.app would be much better if the script could be done automatically within the app. The script requires root access because of dpkg.
+
+- Overall, Gandalf could use a facelift. 
