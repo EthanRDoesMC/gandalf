@@ -9,11 +9,43 @@ conflictfile="conflicts102.txt" # Name of conflictsfile
 scriptname="gandalf102" #name of hold script
 productname="Gandalf 102" #name of gandalf for user (shown in terminal)
 
+# Define controlfile (set variables)
+packagename="Gandalf for Yalu102" # Name shown in Cydia
+
+########################
+packageversion="2.3.5" # Here edit the versionnumber
+########################
+
+packagereplaces="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102"
+packagedescription='Some tweaks may break jailbreaks. Let this tweak say "You Shall Not Pass!" to incompatible tweaks and you can sit back and have fun with your jailbreak.'
+packagedepiction='https://ethanrdoesmc.github.io/gandalf/docs/depictions/?p=io.github.ethanrdoesmc.gandalf102'
+maintainer="EthanRDoesMC <ethanrdoesmc@gmail.com>"
+author="EthanRDoesMC <ethanrdoesmc@gmail.com>"
+depends="firmware (>=10.0), sudo, com.officialscheduler.mterminal"
+section="Manager_Addons"
+
 # create control file and setup for conflicts
 echo "Creating directories and copying files..."
-controlfile="$basename/DEBIAN/control"
+# Create control file
 mkdir -p "$basename/DEBIAN/"
-cp control102 $controlfile
+controlfile="$basename/DEBIAN/control"
+touch $controlfile #create it (just for sure)
+echo "Package: $basename" > $controlfile #Delete whole content of the file and add identifier
+echo "Name: $packagename" >> $controlfile
+echo "Version: $packageversion" >> $controlfile
+echo "Architecture: iphoneos-arm" >> $controlfile #better not to change this...
+echo "Replaces: $packagereplaces" >> $controlfile
+echo "Description: $packagedescription" >> $controlfile
+echo "Depiction: $packagedepiction" >> $controlfile
+echo "Maintainer: $maintainer" >> $controlfile
+echo "Author: $author" >> $controlfile
+echo "Depends: $depends" >> $controlfile
+echo "Section: $section" >> $controlfile
+
+#for debugging:
+# cat $controlfile
+
+# cp control102 $controlfile
 
 #CODE CLEANUP NEEDS TO HAPPEN. -> Define all variables at beginning?
 #We aren't adhering to standards very well.
@@ -21,8 +53,11 @@ cp control102 $controlfile
 
 # parse conflicts
 # works on RHEL/CentOS -1Conan
-conflicts=$(cat conflicts102.txt | sed ':a;N;$!ba;s/\n/,\ /g')
+conflicts=$(cat $conflictfile | sed ':a;N;$!ba;s/\n/,\ /g')
 echo "Breaks: ${conflicts}" >> $controlfile
+#for debugging:
+
+#cat $controlfile
 
 
 echo "Making the TAR..."
