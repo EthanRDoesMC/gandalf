@@ -24,6 +24,13 @@ author="EthanRDoesMC <ethanrdoesmc@gmail.com>"
 depends="firmware (>=10.0), sudo, com.officialscheduler.mterminal"
 section="Manager_Addons"
 
+# Show user what he's trying to compile
+
+
+echo "Welcome to $productname! You are now compiling $basename; Version $packageversion. The name '$packagename' will be shown in Cydia. The name of the hold script will be '$scriptname'. I hope that's all correct. If not: please abort this script within 3 seconds. Otherwise just wait."
+
+sleep 3
+
 # create control file and setup for conflicts
 echo "Creating directories and copying files..."
 # Create control file
