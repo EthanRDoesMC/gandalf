@@ -13,7 +13,7 @@ productname="Gandalf 102" #name of gandalf for user (shown in terminal)
 packagename="Gandalf for Yalu102" # Name shown in Cydia
 
 ########################
-packageversion="2.3.5" # Here edit the versionnumber
+packageversion="2.4" # Here edit the versionnumber
 ########################
 
 packagereplaces="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102"
