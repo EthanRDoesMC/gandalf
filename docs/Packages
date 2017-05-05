@@ -1,15 +1,15 @@
 Package: io.github.ethanrdoesmc.gandalf102
-Version: 2.4.3
+Version: 2.4.4
 Architecture: iphoneos-arm
 Maintainer: EthanRDoesMC <ethanrdoesmc@gmail.com>
 Depends: firmware (>=10.0), sudo, com.officialscheduler.mterminal
 Breaks: ch.sebikeller.automuter, com.a3tweaks.auxo3ios9, com.alexzielenski.tinybar, com.enduniverse.cydiaextenderplus, com.bolencki13.appendix, com.cpdigitaldarkroom.volumebanner, com.creatix.hoppin, com.creatix.carrot, com.fidele007.hotdog (<= 3.3.3-25), com.inasser.ariki, com.microseconds.iblank, com.strayadevteam.forcy, com.supermamon.newpackage, eu.heinelt.ifile, me.chewitt.cmc, me.chewitt.mcpro, me.chewitt.seng, net.angelxwind.appsyncunified (<= 5.8), openssh, org.coolstar.classicfolders, org.protectmyprivacy.pmp, org.thebigboss.andrios, org.thebigboss.protean, org.thebigboss.spin, org.thebigboss.vertex, com.bengiannis.nougatshortcuts, com.enduniverse.priorityhub, com.xx.XModGame5x, com.xx.XModGame, com.xx.XMIDEHelper
 Replaces: com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102
 Filename: debs/io.github.ethanrdoesmc.gandalf102.deb
-Size: 16549378
-MD5sum: fe1ed9b0c9471ba610fd86eedb3abb45
-SHA1: 6a8ea98db931a098cf0e79abb9baee26e64dc9b9
-SHA256: f98487e1a1a64d2b2b75531bb93967d0bb9382ce370a33d9f6d9a3e1190b9bee
+Size: 16549488
+MD5sum: b8fb704afe816cb22d01471da7d362fe
+SHA1: 17cb01538098a2b6f5b903f6b8931a10c6a4d79c
+SHA256: d20e9a2dce9ec800551391a53f130f864c60bd6b4ab96b496f93eee0a6e26aa6
 Section: Gandalf102
 Description: Some tweaks may break jailbreaks. Let this tweak say
   "You Shall Not Pass!" to incompatible tweaks and you can sit back and have
@@ -18,15 +18,35 @@ Author: EthanRDoesMC <ethanrdoesmc@gmail.com>
 Depiction: https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalf102
 Name: Gandalf for Yalu102
 
+Package: io.github.ethanrdoesmc.gandalfx
+Version: 1.0
+Architecture: iphoneos-arm
+Maintainer: EthanRDoesMC <ethanrdoesmc@gmail.com>
+Depends: firmware (>=10.1), sudo, com.officialscheduler.mterminal
+Breaks: ch.sebikeller.automuter, com.a3tweaks.auxo3ios9, com.alexzielenski.tinybar, com.enduniverse.cydiaextenderplus, com.bolencki13.appendix, com.cpdigitaldarkroom.volumebanner, com.creatix.hoppin, com.creatix.carrot, com.fidele007.hotdog (<= 3.3.3-25), com.inasser.ariki, com.microseconds.iblank, com.strayadevteam.forcy, com.supermamon.newpackage, eu.heinelt.ifile, me.chewitt.cmc, me.chewitt.mcpro, me.chewitt.seng, net.angelxwind.appsyncunified (<= 5.8), openssh, org.coolstar.classicfolders, org.protectmyprivacy.pmp, org.thebigboss.andrios, org.thebigboss.protean, org.thebigboss.spin, org.thebigboss.vertex, com.bengiannis.nougatshortcuts, com.rpetrich.littlebrother, io.github.ethanrdoesmc.gandalf102, com.enduniverse.priorityhub, com.xx.XModGame5x, com.xx.XModGame, com.xx.XMIDEHelper
+Replaces: com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102
+Filename: debs/io.github.ethanrdoesmc.gandalfx.deb
+Size: 16549524
+MD5sum: 50a8a92024c6c5687b6a1a3a62c6ee0b
+SHA1: 11f1f36c19f3196a4e197e1007f765dc54f9a222
+SHA256: 709693c93b6de035ec4de1e2ff970a63d1f23bac3428a645e7ba044322527262
+Section: Gandalf_For_YaluX_(Mach_Portal)
+Description: Some tweaks may break jailbreaks. Let this tweak say
+  "You Shall Not Pass!" to incompatible tweaks and you can sit back and have
+  fun with your jailbreak.
+Author: EthanRDoesMC <ethanrdoesmc@gmail.com>
+Depiction: https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalf102
+Name: Gandalf for YaluX (Mach_Portal)
+
 Package: io.github.gandalf.icons
-Version: 2.0.1
+Version: 2.1
 Architecture: iphoneos-arm
 Maintainer: EthanRDoesMC <ethanrdoesmc@gmail.com>
 Filename: debs/io.github.gandalf.icons.deb
-Size: 88182
-MD5sum: dfadc23a103d49d031bb99936ef131c6
-SHA1: d0aa3eb8bacd64f6a867d0386efe241ba8bc788b
-SHA256: 0c6dbab3bd76ac0d8c8223425fb9e0e6e42c7468c83524f3ad02d86b5e7c6b7c
+Size: 143252
+MD5sum: 2f13f51ebe733a7d8ee4ce61ed1a3b0f
+SHA1: 9b3e0f42103b23e6a5dec6b79775d49ced5a284a
+SHA256: 67a6db80e0fa60f477c417c8f22bf5e32e57f5b485718213f90875c96ed6a9b7
 Section: Misc
 Priority: required
 Description: Installs icons.

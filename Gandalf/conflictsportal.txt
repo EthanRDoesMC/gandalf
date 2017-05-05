@@ -24,3 +24,9 @@ org.thebigboss.protean
 org.thebigboss.spin
 org.thebigboss.vertex
 com.bengiannis.nougatshortcuts
+com.rpetrich.littlebrother
+io.github.ethanrdoesmc.gandalf102
+com.enduniverse.priorityhub
+com.xx.XModGame5x
+com.xx.XModGame
+com.xx.XMIDEHelper

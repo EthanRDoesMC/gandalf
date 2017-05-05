@@ -6,7 +6,7 @@
 # for the most part (You can ignore some, like error checking for mv)
 
 # Config
-PKG_VERSION="2.4.3" #Bump this everytime you update something.
+PKG_VERSION="2.4.4" #Bump this everytime you update something.
 CONFLICTS_FILE="conflicts102.txt"
 
 #DO NOT TOUCH! (Unless you have a good reason...)
@@ -76,6 +76,10 @@ cat "gandalf102" \
   | sed "s/vErs10Nname/${PKG_NAME}/" \
   > "${PKG_PACKAGE}/usr/bin/${GANDALF_COMMAND_NAME}"
 
+#OKAYEY PLZE WORK
+#DOIN ME A SIGNIFICATE FRUSTRATE
+
+chmod 0775 "${PKG_PACKAGE}/usr/bin/${GANDALF_COMMAND_NAME}"
 
 #Copy the DEBIAN scripts
 echo "Copying the DEBIAN scripts"
