@@ -21,8 +21,7 @@ PKG_MAINTAINER="EthanRDoesMC <ethanrdoesmc@gmail.com>"
 PKG_AUTHOR="EthanRDoesMC <ethanrdoesmc@gmail.com>"
 PKG_SECTION="Manager_addons"
 PKG_DEPENDS="firmware (>=10.0), sudo, com.officialscheduler.mterminal"
-PKG_REPLACES="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf,
-  com.github.ethanrdoesmc.gandalf102"
+PKG_REPLACES="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102"
 PKG_ARCHITECTURE='iphoneos-arm'
 PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
 
@@ -58,6 +57,7 @@ Maintainer: ${PKG_MAINTAINER}
 Author: ${PKG_AUTHOR}
 Depends: ${PKG_DEPENDS}
 Section: ${PKG_SECTION}
+Breaks: ${PKG_BREAKS}
 EOF
 
 
