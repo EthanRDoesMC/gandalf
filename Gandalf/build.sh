@@ -16,7 +16,7 @@ PKG_NAME="Gandalf for Yalu102"
 PKG_DESCRIPTION="Some tweaks may break jailbreaks. Let this tweak say
   \"You Shall Not Pass!\" to incompatible tweaks and you can sit back and have
   fun with your jailbreak."
-PKG_DEPICTION="https://ethanrdoesmc.github.io/gandalf/docs/depictions/?p=io.github.ethanrdoesmc.gandalf102"
+PKG_DEPICTION="https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalf102"
 PKG_MAINTAINER="EthanRDoesMC <ethanrdoesmc@gmail.com>"
 PKG_AUTHOR="EthanRDoesMC <ethanrdoesmc@gmail.com>"
 PKG_SECTION="Manager_addons"
