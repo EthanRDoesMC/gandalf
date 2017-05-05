@@ -1,15 +1,15 @@
 Package: io.github.ethanrdoesmc.gandalf102
-Version: 2.4.2
+Version: 2.4.3
 Architecture: iphoneos-arm
 Maintainer: EthanRDoesMC <ethanrdoesmc@gmail.com>
 Depends: firmware (>=10.0), sudo, com.officialscheduler.mterminal
 Breaks: ch.sebikeller.automuter, com.a3tweaks.auxo3ios9, com.alexzielenski.tinybar, com.enduniverse.cydiaextenderplus, com.bolencki13.appendix, com.cpdigitaldarkroom.volumebanner, com.creatix.hoppin, com.creatix.carrot, com.fidele007.hotdog (<= 3.3.3-25), com.inasser.ariki, com.microseconds.iblank, com.strayadevteam.forcy, com.supermamon.newpackage, eu.heinelt.ifile, me.chewitt.cmc, me.chewitt.mcpro, me.chewitt.seng, net.angelxwind.appsyncunified (<= 5.8), openssh, org.coolstar.classicfolders, org.protectmyprivacy.pmp, org.thebigboss.andrios, org.thebigboss.protean, org.thebigboss.spin, org.thebigboss.vertex, com.bengiannis.nougatshortcuts, com.enduniverse.priorityhub, com.xx.XModGame5x, com.xx.XModGame, com.xx.XMIDEHelper
 Replaces: com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102
 Filename: debs/io.github.ethanrdoesmc.gandalf102.deb
-Size: 16549380
-MD5sum: aa5508b57be9223a79c841e5c0383055
-SHA1: 415614c0948acb98eec5e234f79ca60cd7f3fc5e
-SHA256: 303c52bfeff1bfb05badeea153c6284ea0c8cd26aaa6736c692fc033410c8ec1
+Size: 16549378
+MD5sum: fe1ed9b0c9471ba610fd86eedb3abb45
+SHA1: 6a8ea98db931a098cf0e79abb9baee26e64dc9b9
+SHA256: f98487e1a1a64d2b2b75531bb93967d0bb9382ce370a33d9f6d9a3e1190b9bee
 Section: Gandalf102
 Description: Some tweaks may break jailbreaks. Let this tweak say
   "You Shall Not Pass!" to incompatible tweaks and you can sit back and have
