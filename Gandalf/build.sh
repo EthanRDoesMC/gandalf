@@ -31,6 +31,8 @@ GANDALF_COMMAND_NAME="gandalf102"
 
 #Main script
 
+#Start message
+echo "Started packaging ${PKG_NAME}"
 
 #Prepare the package structure
 echo "Creating package structure..."
