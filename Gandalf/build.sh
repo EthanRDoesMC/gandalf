@@ -19,7 +19,7 @@ PKG_DESCRIPTION="Some tweaks may break jailbreaks. Let this tweak say
 PKG_DEPICTION="https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalf102"
 PKG_MAINTAINER="EthanRDoesMC <ethanrdoesmc@gmail.com>"
 PKG_AUTHOR="EthanRDoesMC <ethanrdoesmc@gmail.com>"
-PKG_SECTION="Manager_addons"
+PKG_SECTION="Gandalf102"
 PKG_DEPENDS="firmware (>=10.0), sudo, com.officialscheduler.mterminal"
 PKG_REPLACES="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102"
 PKG_ARCHITECTURE='iphoneos-arm'

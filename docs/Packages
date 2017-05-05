@@ -6,11 +6,11 @@ Depends: firmware (>=10.0), sudo, com.officialscheduler.mterminal
 Breaks: ch.sebikeller.automuter, com.a3tweaks.auxo3ios9, com.alexzielenski.tinybar, com.enduniverse.cydiaextenderplus, com.bolencki13.appendix, com.cpdigitaldarkroom.volumebanner, com.creatix.hoppin, com.creatix.carrot, com.fidele007.hotdog (<= 3.3.3-25), com.inasser.ariki, com.microseconds.iblank, com.strayadevteam.forcy, com.supermamon.newpackage, eu.heinelt.ifile, me.chewitt.cmc, me.chewitt.mcpro, me.chewitt.seng, net.angelxwind.appsyncunified (<= 5.8), openssh, org.coolstar.classicfolders, org.protectmyprivacy.pmp, org.thebigboss.andrios, org.thebigboss.protean, org.thebigboss.spin, org.thebigboss.vertex, com.bengiannis.nougatshortcuts, com.enduniverse.priorityhub, com.xx.XModGame5x, com.xx.XModGame, com.xx.XMIDEHelper
 Replaces: com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102
 Filename: debs/io.github.ethanrdoesmc.gandalf102.deb
-Size: 16549316
-MD5sum: ed87d253d2f008c488a18314e47190c6
-SHA1: 0a10f1c09bea5a692fe2960b200af62b80904da4
-SHA256: b179c10054d63c2d44c5a8326fcbb4bf92ce6d70c353cc8a2a85d76beb532309
-Section: Manager_addons
+Size: 16549308
+MD5sum: 3d8b72903fa8a8eb4d6ad7b8472cfffd
+SHA1: 596e72b68770c63aa506a19d4525359b533cb5aa
+SHA256: e3cbf8cbf9b94d6f1974faf0581af3ae6a8759fd36e12a83acbf99e2e32ff5a9
+Section: Gandalf102
 Description: Some tweaks may break jailbreaks. Let this tweak say
   "You Shall Not Pass!" to incompatible tweaks and you can sit back and have
   fun with your jailbreak.
