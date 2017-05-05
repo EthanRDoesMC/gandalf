@@ -1,7 +1,8 @@
 FORMATTING YAY
 
-###Gandalf for Cydia
-#Broken tweaks shall not pass!
+# Gandalf for Cydia
+
+### Broken tweaks shall not pass!
 
 /docs is where the repo lives.
 
