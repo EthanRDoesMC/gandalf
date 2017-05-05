@@ -1,119 +1,98 @@
 #!/bin/bash
+# 
+# Packages "Gandalf" into a deb
+#
+# Follow https://google.github.io/styleguide/shell.xml
+# for the most part (You can ignore some, like error checking for mv)
 
-#Please run with a Linux flavor. macOS makes a lot of dummy files.
+# Config
+PKG_VERSION="2.4" #Bump this everytime you update something.
+CONFLICTS_FILE="conflicts102.txt"
 
-# Aliases
+#DO NOT TOUCH! (Unless you have a good reason...)
+#Variable format is "PKG_FIELDNAME"
+PKG_PACKAGE="io.github.ethanrdoesmc.gandalf102"
+PKG_NAME="Gandalf for Yalu102"
+PKG_DESCRIPTION="Some tweaks may break jailbreaks. Let this tweak say
+  \"You Shall Not Pass!\" to incompatible tweaks and you can sit back and have
+  fun with your jailbreak."
+PKG_DEPICTION="https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalf102"
+PKG_MAINTAINER="EthanRDoesMC <ethanrdoesmc@gmail.com>"
+PKG_AUTHOR="EthanRDoesMC <ethanrdoesmc@gmail.com>"
+PKG_SECTION="Manager_addons"
+PKG_DEPENDS="firmware (>=10.0), sudo, com.officialscheduler.mterminal"
+PKG_REPLACES="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102"
+PKG_ARCHITECTURE='iphoneos-arm'
+PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
 
-basename="io.github.ethanrdoesmc.gandalf102" #identifier (ios internal name)
-conflictfile="conflicts102.txt" # Name of conflictsfile
-scriptname="gandalf102" #name of hold script
-productname="Gandalf 102" #name of gandalf for user (shown in terminal)
+#Script specific variables.
+GANDALF_COMMAND_NAME="gandalf102"
 
-# Define controlfile (set variables)
-packagename="Gandalf for Yalu102" # Name shown in Cydia
+#Main script
 
-########################
-packageversion="2.4" # Here edit the versionnumber
-########################
+#Start message
+echo "Started packaging ${PKG_NAME}"
 
-packagereplaces="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102"
-packagedescription='Some tweaks may break jailbreaks. Let this tweak say "You Shall Not Pass!" to incompatible tweaks and you can sit back and have fun with your jailbreak.'
-packagedepiction='https://ethanrdoesmc.github.io/gandalf/docs/depictions/?p=io.github.ethanrdoesmc.gandalf102'
-maintainer="EthanRDoesMC <ethanrdoesmc@gmail.com>"
-author="EthanRDoesMC <ethanrdoesmc@gmail.com>"
-depends="firmware (>=10.0), sudo, com.officialscheduler.mterminal"
-section="Manager_Addons"
+#Prepare the package structure
+echo "Creating package structure..."
 
-# Show user what he's trying to compile
-
-
-echo "Welcome to $productname! You are now compiling $basename; Version $packageversion. The name '$packagename' will be shown in Cydia. The name of the hold script will be '$scriptname'. I hope that's all correct. If not: please abort this script within 3 seconds. Otherwise just wait."
-
-sleep 3
-
-# create control file and setup for conflicts
-echo "Creating directories and copying files..."
-# Create control file
-mkdir -p "$basename/DEBIAN/"
-controlfile="$basename/DEBIAN/control"
-touch $controlfile #create it (just for sure)
-echo "Package: $basename" > $controlfile #Delete whole content of the file and add identifier
-echo "Name: $packagename" >> $controlfile
-echo "Version: $packageversion" >> $controlfile
-echo "Architecture: iphoneos-arm" >> $controlfile #better not to change this...
-echo "Replaces: $packagereplaces" >> $controlfile
-echo "Description: $packagedescription" >> $controlfile
-echo "Depiction: $packagedepiction" >> $controlfile
-echo "Maintainer: $maintainer" >> $controlfile
-echo "Author: $author" >> $controlfile
-echo "Depends: $depends" >> $controlfile
-echo "Section: $section" >> $controlfile
-
-#for debugging:
-# cat $controlfile
-
-# cp control102 $controlfile
-
-#CODE CLEANUP NEEDS TO HAPPEN. -> Define all variables at beginning?
-#We aren't adhering to standards very well.
+mkdir "${PKG_PACKAGE}"
+mkdir "${PKG_PACKAGE}/DEBIAN"
+mkdir -p "${PKG_PACKAGE}/usr/bin"
+mkdir -p "${PKG_PACKAGE}/var/mobile/Downloads/Gandalf102"
 
 
-# parse conflicts
-# works on RHEL/CentOS -1Conan
-conflicts=$(cat $conflictfile | sed ':a;N;$!ba;s/\n/,\ /g')
-echo "Breaks: ${conflicts}" >> $controlfile
-#for debugging:
+#Create the control file
+echo "Creating the control file..."
 
-#cat $controlfile
-
-
-echo "Making the TAR..."
-# better name everything lowercase (you might know the small fiasco with Gandalf.app and gandalf.app? -jonisc)
-tar -czf Gandalf.app.tar.gz gandalf.app
-echo "Creating folders..."
-mkdir -p $basename/Applications
-mkdir -p $basename/var/mobile/Downloads/Gandalf102
-echo "Moving TAR around..."
-mv Gandalf.app.tar.gz $basename/var/mobile/Downloads/Gandalf102
-echo "Copying remove and install scripts..."
-cp prerm $basename/DEBIAN
-cp postinst $basename/DEBIAN
-# edit postinst
-echo "Adding right hold command to install script..."
-sed -i "s/gAndAlfh0LdC0mMand/$scriptname/" $basename/DEBIAN/postinst
+cat <<EOF > "${PKG_PACKAGE}/DEBIAN/control";
+Package: ${PKG_PACKAGE}
+Name: ${PKG_NAME}
+Version: ${PKG_VERSION}
+Architecture: ${PKG_ARCHITECTURE}
+Replaces: ${PKG_REPLACES}
+Description: ${PKG_DESCRIPTION}
+Depiction: ${PKG_DEPICTION}
+Maintainer: ${PKG_MAINTAINER}
+Author: ${PKG_AUTHOR}
+Depends: ${PKG_DEPENDS}
+Section: ${PKG_SECTION}
+Breaks: ${PKG_BREAKS}
+EOF
 
 
-# Do the scripts
-###
+#Compress the application
+echo "Compressing and moving Gandalf.app..."
 
-echo "Scripted Scripting is Scriptatious and Scriptmatic"
-echo "or simply: Messing around with the hold script..."
-mkdir -p $basename/usr/bin
-cp $scriptname $basename/usr/bin
-echo "Editing hold script..."
-sed -i "s/iDenT1FIEr/$basename/" $basename/usr/bin/$scriptname
-sed -i "s/vErs10Nname/$productname/" $basename/usr/bin/$scriptname
-### might work with sed (works on UBUNTU)
-#RIP GANDALF MANAGER
-#NOBODY LIKED YOU
-#LONG LIVE SETUP MANAGER
-#/kill gandalfmanager
+tar -czf "Gandalf.app.tar.gz" "gandalf.app"
+mv "Gandalf.app.tar.gz" "${PKG_PACKAGE}/var/mobile/Downloads/Gandalf102"
 
 
-# package
-echo "Almost finished..."
-echo "Creating package..."
-dpkg-deb -Zgzip -b $basename
+#Copy over the executable
+echo "Bundling ${GANDALF_COMMAND_NAME}..."
+
+cat "gandalf102" \
+  | sed "s/iDenT1FIEr/${PKG_PACKAGE}/" \
+  | sed "s/vErs10Nname/${PKG_NAME}/" \
+  > "${PKG_PACKAGE}/usr/bin/${GANDALF_COMMAND_NAME}"
 
 
-# cleanup
-echo "Removing temporary folders and files..."
-rm -r $basename
+#Copy the DEBIAN scripts
+echo "Copying the DEBIAN scripts"
 
-sleep 1
+cp "prerm" "${PKG_PACKAGE}/DEBIAN"
+cp "postinst" "${PKG_PACKAGE}/DEBIAN"
 
-echo "YOU DID IT!"
 
-sleep 1
+#Create the package
+echo "Creating the package..."
 
-echo "YOU AWESOME ROBOCRAFTER"
+dpkg-deb -Zgzip -b "${PKG_PACKAGE}"
+
+
+#Clean up
+echo "Cleaning up temporary files and folders..."
+rm -rf "${PKG_PACKAGE}"
+
+echo "Packaging done."
+echo "Filename: ${PKG_PACKAGE}.deb"

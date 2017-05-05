@@ -1,34 +1,36 @@
 Package: io.github.ethanrdoesmc.gandalf102
-Version: 2.3.4
+Version: 2.4
 Architecture: iphoneos-arm
 Maintainer: EthanRDoesMC <ethanrdoesmc@gmail.com>
 Depends: firmware (>=10.0), sudo, com.officialscheduler.mterminal
-Breaks: ch.sebikeller.automuter, com.a3tweaks.auxo3ios9, com.alexzielenski.tinybar, com.enduniverse.cydiaextenderplus, com.bolencki13.appendix, com.cpdigitaldarkroom.volumebanner, com.creatix.hoppin, com.creatix.carrot, com.fidele007.hotdog (<= 3.3.3-25), com.inasser.ariki, com.microseconds.iblank, com.strayadevteam.forcy, com.supermamon.newpackage, eu.heinelt.ifile, me.chewitt.cmc, me.chewitt.mcpro, me.chewitt.seng, net.angelxwind.appsyncunified (<= 5.8), openssh, org.coolstar.classicfolders, org.protectmyprivacy.pmp, org.thebigboss.andrios, org.thebigboss.protean, org.thebigboss.spin, org.thebigboss.vertex, com.bengiannis.nougatshortcuts, com.enduniverse.priorityhub
+Breaks: ch.sebikeller.automuter, com.a3tweaks.auxo3ios9, com.alexzielenski.tinybar, com.enduniverse.cydiaextenderplus, com.bolencki13.appendix, com.cpdigitaldarkroom.volumebanner, com.creatix.hoppin, com.creatix.carrot, com.fidele007.hotdog (<= 3.3.3-25), com.inasser.ariki, com.microseconds.iblank, com.strayadevteam.forcy, com.supermamon.newpackage, eu.heinelt.ifile, me.chewitt.cmc, me.chewitt.mcpro, me.chewitt.seng, net.angelxwind.appsyncunified (<= 5.8), openssh, org.coolstar.classicfolders, org.protectmyprivacy.pmp, org.thebigboss.andrios, org.thebigboss.protean, org.thebigboss.spin, org.thebigboss.vertex, com.bengiannis.nougatshortcuts, com.enduniverse.priorityhub, com.xx.XModGame5x, com.xx.XModGame, com.xx.XMIDEHelper
 Replaces: com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102
 Filename: debs/io.github.ethanrdoesmc.gandalf102.deb
-Size: 2503602
-MD5sum: 27339f00f696697ec68358d19cab85df
-SHA1: ed081d5037fda5f0634a26a0b5bceac270dde378
-SHA256: 3e4ff6301d56c3e7e48cf144edc4b22f75b4db473f6353c63c8b8d6f9d8cc97f
-Section: Manager_Addons
-Description: Some tweaks may break jailbreaks. Let this tweak say "You Shall Not Pass!" to incompatible tweaks and you can sit back and have fun with your jailbreak.
+Size: 16549460
+MD5sum: cad56212d663a82fe8e3f5828ecda2c2
+SHA1: bc1e0a0961a177f479200a998bc65c3cad3c6f5b
+SHA256: b8dd16ae1ad295d0aa08c85cbb8ef6545ab0c900bdd7fbdeccb8f79ffb903ac0
+Section: Manager_addons
+Description: Some tweaks may break jailbreaks. Let this tweak say
+  "You Shall Not Pass!" to incompatible tweaks and you can sit back and have
+  fun with your jailbreak.
 Author: EthanRDoesMC <ethanrdoesmc@gmail.com>
-Depiction: https://ethanrdoesmc.github.io/gandalf/docs/depictions/?p=io.github.ethanrdoesmc.gandalf102
+Depiction: https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalf102
 Name: Gandalf for Yalu102
 
 Package: io.github.gandalf.icons
-Version: 2
+Version: 2.0.1
 Architecture: iphoneos-arm
 Maintainer: EthanRDoesMC <ethanrdoesmc@gmail.com>
 Filename: debs/io.github.gandalf.icons.deb
-Size: 37370
-MD5sum: 73731dc00a4b2df53b12c9798343e971
-SHA1: fb7e7a737655e8139ce17f7f686a9b363f6b2d7e
-SHA256: 16ce98ddae80a2d2f05c65dde1c62f2bb0541bdb0881ad51a8387a5bdb794a6e
-Section: Packaging
+Size: 88182
+MD5sum: dfadc23a103d49d031bb99936ef131c6
+SHA1: d0aa3eb8bacd64f6a867d0386efe241ba8bc788b
+SHA256: 0c6dbab3bd76ac0d8c8223425fb9e0e6e42c7468c83524f3ad02d86b5e7c6b7c
+Section: Misc
 Priority: required
-Description: Installs GDN icons.
+Description: Installs icons.
 Author: EthanRDoesMC <ethanrdoesmc@gmail.com>
-Depiction: https://ethanrdoesmc.github.io/gandalf/docs/depictions/?p=io.github.gandalf.icons
+Depiction: https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.gandalf.icons/
 Name: GDN Icons
 
