@@ -5,8 +5,8 @@
 # provides an easy way for them to block removal of the package
 
 #Variables
-PKG_PACKAGE="iDenT1FIEr"
-PKG_NAME="vErs10Nname"
+PKG_PACKAGE="io.github.ethanrdoesmc.gandalf102"
+PKG_NAME="Gandalf for Yalu102"
 
 
 #Main script

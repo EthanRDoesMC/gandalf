@@ -6,7 +6,7 @@
 # for the most part (You can ignore some, like error checking for mv)
 
 # Config
-PKG_VERSION="2.4" #Bump this everytime you update something.
+PKG_VERSION="2.4.1" #Bump this everytime you update something.
 CONFLICTS_FILE="conflicts102.txt"
 
 #DO NOT TOUCH! (Unless you have a good reason...)
