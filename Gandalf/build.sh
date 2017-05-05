@@ -24,7 +24,7 @@ PKG_DEPENDS="firmware (>=10.0), sudo, com.officialscheduler.mterminal"
 PKG_REPLACES="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf,
   com.github.ethanrdoesmc.gandalf102"
 PKG_ARCHITECTURE='iphoneos-arm'
-PKG_BREAKS=$(cat ${CONFLICTS_FILIE} | sed ':a;N;$!ba;s/\n/,\ /g')
+PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
 
 #Script specific variables.
 GANDALF_COMMAND_NAME="gandalf102"
