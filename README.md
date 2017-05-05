@@ -1,7 +1,8 @@
 FORMATTING YAY
 
-###Gandalf for Cydia
-#Broken tweaks shall not pass!
+# Gandalf for Cydia
+
+### Broken tweaks shall not pass!
 
 /docs is where the repo lives.
 
@@ -13,7 +14,7 @@ FORMATTING YAY
 
 Each folder has its own README.md. They'll guide you from there.
 
-#Important things
+#### Important things
 
 - gandalf.app would be much better if the script could be done automatically within the app. The script requires root access because of dpkg.
 
