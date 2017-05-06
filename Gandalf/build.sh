@@ -6,7 +6,7 @@
 # for the most part (You can ignore some, like error checking for mv)
 
 # Config
-PKG_VERSION="2.4.5" #Bump this everytime you update something.
+PKG_VERSION="2.4.7" #Bump this everytime you update something.
 CONFLICTS_FILE="conflicts102.txt"
 
 #DO NOT TOUCH! (Unless you have a good reason...)
@@ -87,6 +87,8 @@ echo "Copying the DEBIAN scripts"
 cp "prerm" "${PKG_PACKAGE}/DEBIAN"
 cp "postinst" "${PKG_PACKAGE}/DEBIAN"
 
+echo "If you have anything else you need to put into Gandalf, now's the time. You have 15 seconds from the moment this message appears."
+sleep 15
 
 #Create the package
 echo "Creating the package..."
