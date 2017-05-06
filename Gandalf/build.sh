@@ -71,10 +71,8 @@ echo "Bundling ${GANDALF_COMMAND_NAME}..."
 
 cp "gandalf" "${PKG_PACKAGE}/usr/bin"
 
-#OKAYEY PLZE WORK
-#DOIN ME A SIGNIFICATE FRUSTRATE
-
-chmod 0775 "${PKG_PACKAGE}/usr/bin/${GANDALF_COMMAND_NAME}"
+#Make it executable 
+chmod +x "${PKG_PACKAGE}/usr/bin/gandalf"
 
 #Copy the DEBIAN scripts
 echo "Copying the DEBIAN scripts"
