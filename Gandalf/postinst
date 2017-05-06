@@ -30,7 +30,7 @@ echo
 echo "This command has to run after 'su' have logged in as root, so run it after 'su' in e.g. MTerminal."
 
 echo "temporary command permissions fix running"
-chmod 0755 usr/bin/gandalf
+chmod 0755 /usr/bin/gandalf
 echo "done, in the future you won't have to see this"
 echo
 echo "Thanks for using Gandalf!"
