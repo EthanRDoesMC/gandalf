@@ -64,7 +64,7 @@ EOF
 #Compress the application
 echo "Compressing and moving Gandalf.app..."
 
-tar -czf "Gandalf.app.tar.gz" "Gandalf.app"
+tar -czf "Gandalf.app.tar.gz" "gandalf.app"
 mv "Gandalf.app.tar.gz" "${PKG_PACKAGE}/var/mobile/Downloads/Gandalf102"
 
 
