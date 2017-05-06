@@ -9,7 +9,7 @@
 # In other words, it's a temporary solution.
 # Can we start working towards an all-in-one build.sh that you choose the version in the terminal?
 # Config
-PKG_VERSION="1.0" #Bump this everytime you update something.
+PKG_VERSION="1.0.1" #Bump this everytime you update something.
 CONFLICTS_FILE="conflictsportal.txt"
 
 #DO NOT TOUCH! (Unless you have a good reason...)
@@ -22,7 +22,7 @@ PKG_DESCRIPTION="Some tweaks may break jailbreaks. Let this tweak say
 PKG_DEPICTION="https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalf102"
 PKG_MAINTAINER="EthanRDoesMC <ethanrdoesmc@gmail.com>"
 PKG_AUTHOR="EthanRDoesMC <ethanrdoesmc@gmail.com>"
-PKG_SECTION="Gandalf_For_YaluX_(Mach_Portal)"
+PKG_SECTION="Gandalf_For_YaluX_AKA_Mach_Portal"
 PKG_DEPENDS="firmware (>=10.1), sudo, com.officialscheduler.mterminal"
 PKG_REPLACES="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102"
 PKG_ARCHITECTURE='iphoneos-arm'

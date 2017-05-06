@@ -19,18 +19,18 @@ Depiction: https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanr
 Name: Gandalf for Yalu102
 
 Package: io.github.ethanrdoesmc.gandalfx
-Version: 1.0
+Version: 1.0.1
 Architecture: iphoneos-arm
 Maintainer: EthanRDoesMC <ethanrdoesmc@gmail.com>
 Depends: firmware (>=10.1), sudo, com.officialscheduler.mterminal
 Breaks: ch.sebikeller.automuter, com.a3tweaks.auxo3ios9, com.alexzielenski.tinybar, com.enduniverse.cydiaextenderplus, com.bolencki13.appendix, com.cpdigitaldarkroom.volumebanner, com.creatix.hoppin, com.creatix.carrot, com.fidele007.hotdog (<= 3.3.3-25), com.inasser.ariki, com.microseconds.iblank, com.strayadevteam.forcy, com.supermamon.newpackage, eu.heinelt.ifile, me.chewitt.cmc, me.chewitt.mcpro, me.chewitt.seng, net.angelxwind.appsyncunified (<= 5.8), openssh, org.coolstar.classicfolders, org.protectmyprivacy.pmp, org.thebigboss.andrios, org.thebigboss.protean, org.thebigboss.spin, org.thebigboss.vertex, com.bengiannis.nougatshortcuts, com.rpetrich.littlebrother, io.github.ethanrdoesmc.gandalf102, com.enduniverse.priorityhub, com.xx.XModGame5x, com.xx.XModGame, com.xx.XMIDEHelper
 Replaces: com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102
 Filename: debs/io.github.ethanrdoesmc.gandalfx.deb
-Size: 16549524
-MD5sum: 50a8a92024c6c5687b6a1a3a62c6ee0b
-SHA1: 11f1f36c19f3196a4e197e1007f765dc54f9a222
-SHA256: 709693c93b6de035ec4de1e2ff970a63d1f23bac3428a645e7ba044322527262
-Section: Gandalf_For_YaluX_(Mach_Portal)
+Size: 16549526
+MD5sum: e58f578c363c5a5095c15d378140a2d3
+SHA1: cb76578d47a240ab36a7ae32c7897e2ac0a40f7c
+SHA256: 99803b55ed9ca2b9c5ddc3ee968686f320ca1f3064f9c0bf5e6400fd5db665a9
+Section: Gandalf_For_YaluX_AKA_Mach_Portal
 Description: Some tweaks may break jailbreaks. Let this tweak say
   "You Shall Not Pass!" to incompatible tweaks and you can sit back and have
   fun with your jailbreak.
@@ -39,14 +39,14 @@ Depiction: https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanr
 Name: Gandalf for YaluX (Mach_Portal)
 
 Package: io.github.gandalf.icons
-Version: 2.1
+Version: 2.1.1
 Architecture: iphoneos-arm
 Maintainer: EthanRDoesMC <ethanrdoesmc@gmail.com>
 Filename: debs/io.github.gandalf.icons.deb
-Size: 143252
-MD5sum: 2f13f51ebe733a7d8ee4ce61ed1a3b0f
-SHA1: 9b3e0f42103b23e6a5dec6b79775d49ced5a284a
-SHA256: 67a6db80e0fa60f477c417c8f22bf5e32e57f5b485718213f90875c96ed6a9b7
+Size: 143256
+MD5sum: 7ad2afa0cf6f449e30223a52a61b300f
+SHA1: 5520c2b2fb869f8c21caf0f178ea69f325e2a36e
+SHA256: a79150f425a8950d45147f821f99ab0e2a3af857ba42a1153111fe2feeea7e21
 Section: Misc
 Priority: required
 Description: Installs icons.
