@@ -9,7 +9,7 @@
 # In other words, it's a temporary solution.
 # Can we start working towards an all-in-one build.sh that you choose the version in the terminal?
 # Config
-PKG_VERSION="1.0.1" #Bump this everytime you update something.
+PKG_VERSION="1.0.2" #Bump this everytime you update something.
 CONFLICTS_FILE="conflictsportal.txt"
 
 #DO NOT TOUCH! (Unless you have a good reason...)

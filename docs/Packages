@@ -1,15 +1,15 @@
 Package: io.github.ethanrdoesmc.gandalf102
-Version: 2.4.4
+Version: 2.4.5
 Architecture: iphoneos-arm
 Maintainer: EthanRDoesMC <ethanrdoesmc@gmail.com>
 Depends: firmware (>=10.0), sudo, com.officialscheduler.mterminal
 Breaks: ch.sebikeller.automuter, com.a3tweaks.auxo3ios9, com.alexzielenski.tinybar, com.enduniverse.cydiaextenderplus, com.bolencki13.appendix, com.cpdigitaldarkroom.volumebanner, com.creatix.hoppin, com.creatix.carrot, com.fidele007.hotdog (<= 3.3.3-25), com.inasser.ariki, com.microseconds.iblank, com.strayadevteam.forcy, com.supermamon.newpackage, eu.heinelt.ifile, me.chewitt.cmc, me.chewitt.mcpro, me.chewitt.seng, net.angelxwind.appsyncunified (<= 5.8), openssh, org.coolstar.classicfolders, org.protectmyprivacy.pmp, org.thebigboss.andrios, org.thebigboss.protean, org.thebigboss.spin, org.thebigboss.vertex, com.bengiannis.nougatshortcuts, com.enduniverse.priorityhub, com.xx.XModGame5x, com.xx.XModGame, com.xx.XMIDEHelper
 Replaces: com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102
 Filename: debs/io.github.ethanrdoesmc.gandalf102.deb
-Size: 16549488
-MD5sum: b8fb704afe816cb22d01471da7d362fe
-SHA1: 17cb01538098a2b6f5b903f6b8931a10c6a4d79c
-SHA256: d20e9a2dce9ec800551391a53f130f864c60bd6b4ab96b496f93eee0a6e26aa6
+Size: 3388
+MD5sum: 0d322bea5c4aaa2e3bbfb5e20d64103a
+SHA1: c1670187db3e1bd06cc71e26d5550e8b59b5b53d
+SHA256: 913de995dba3b88ba0fdd872f1f8cb973f79ca4f85fa851deee37e6c9653ecf1
 Section: Gandalf102
 Description: Some tweaks may break jailbreaks. Let this tweak say
   "You Shall Not Pass!" to incompatible tweaks and you can sit back and have
@@ -19,17 +19,17 @@ Depiction: https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanr
 Name: Gandalf for Yalu102
 
 Package: io.github.ethanrdoesmc.gandalfx
-Version: 1.0.1
+Version: 1.0.2
 Architecture: iphoneos-arm
 Maintainer: EthanRDoesMC <ethanrdoesmc@gmail.com>
 Depends: firmware (>=10.1), sudo, com.officialscheduler.mterminal
 Breaks: ch.sebikeller.automuter, com.a3tweaks.auxo3ios9, com.alexzielenski.tinybar, com.enduniverse.cydiaextenderplus, com.bolencki13.appendix, com.cpdigitaldarkroom.volumebanner, com.creatix.hoppin, com.creatix.carrot, com.fidele007.hotdog (<= 3.3.3-25), com.inasser.ariki, com.microseconds.iblank, com.strayadevteam.forcy, com.supermamon.newpackage, eu.heinelt.ifile, me.chewitt.cmc, me.chewitt.mcpro, me.chewitt.seng, net.angelxwind.appsyncunified (<= 5.8), openssh, org.coolstar.classicfolders, org.protectmyprivacy.pmp, org.thebigboss.andrios, org.thebigboss.protean, org.thebigboss.spin, org.thebigboss.vertex, com.bengiannis.nougatshortcuts, com.rpetrich.littlebrother, io.github.ethanrdoesmc.gandalf102, com.enduniverse.priorityhub, com.xx.XModGame5x, com.xx.XModGame, com.xx.XMIDEHelper
 Replaces: com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102
 Filename: debs/io.github.ethanrdoesmc.gandalfx.deb
-Size: 16549526
-MD5sum: e58f578c363c5a5095c15d378140a2d3
-SHA1: cb76578d47a240ab36a7ae32c7897e2ac0a40f7c
-SHA256: 99803b55ed9ca2b9c5ddc3ee968686f320ca1f3064f9c0bf5e6400fd5db665a9
+Size: 16550168
+MD5sum: 8243620db182aeac9d46fa352e7ee020
+SHA1: d4e94bad9b2854cefbf65cd5db0bdd432b258c7b
+SHA256: a8869b52eec8943c44a9e0c9cbc91062c79cedf74062b22304fd6f76cf7d61da
 Section: Gandalf_For_YaluX_AKA_Mach_Portal
 Description: Some tweaks may break jailbreaks. Let this tweak say
   "You Shall Not Pass!" to incompatible tweaks and you can sit back and have
