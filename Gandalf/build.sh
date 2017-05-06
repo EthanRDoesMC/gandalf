@@ -25,8 +25,6 @@ PKG_REPLACES="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf
 PKG_ARCHITECTURE='iphoneos-arm'
 PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
 
-#Script specific variables.
-GANDALF_COMMAND_NAME="gandalf102"
 
 #Main script
 
@@ -71,10 +69,7 @@ mv "Gandalf.app.tar.gz" "${PKG_PACKAGE}/var/mobile/Downloads/Gandalf102"
 #Copy over the executable
 echo "Bundling ${GANDALF_COMMAND_NAME}..."
 
-cat "gandalf102" \
-  | sed "s/iDenT1FIEr/${PKG_PACKAGE}/" \
-  | sed "s/vErs10Nname/${PKG_NAME}/" \
-  > "${PKG_PACKAGE}/usr/bin/${GANDALF_COMMAND_NAME}"
+cp "gandalf" "${PKG_PACKAGE}/usr/bin"
 
 #OKAYEY PLZE WORK
 #DOIN ME A SIGNIFICATE FRUSTRATE

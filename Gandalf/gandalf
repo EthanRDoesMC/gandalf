@@ -5,8 +5,8 @@
 # provides an easy way for them to block removal of the package
 
 #Variables
-PKG_PACKAGE="io.github.ethanrdoesmc.gandalf102"
-PKG_NAME="Gandalf for Yalu102"
+PKG_PACKAGE=$(dpkg-query -f '${binary:Package}\n' -W | grep io.github.ethanrdoesmc.gandalf | head -n 1)
+PKG_NAME="Gandalf"
 
 
 #Main script
