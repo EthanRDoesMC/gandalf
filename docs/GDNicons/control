@@ -1,10 +1,10 @@
 Package: io.github.gandalf.icons
 Name: GDN Icons
-Version: 2.1.1
+Version: 2.1.2
 Architecture: iphoneos-arm
 Description: Installs icons.
 Depiction: https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.gandalf.icons/
 Maintainer: EthanRDoesMC <ethanrdoesmc@gmail.com>
 Author: EthanRDoesMC <ethanrdoesmc@gmail.com>
-Section: Misc
+Section: Other
 Priority: required

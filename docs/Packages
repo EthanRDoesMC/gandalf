@@ -1,15 +1,15 @@
 Package: io.github.ethanrdoesmc.gandalf102
-Version: 2.4.5
+Version: 2.4.8
 Architecture: iphoneos-arm
 Maintainer: EthanRDoesMC <ethanrdoesmc@gmail.com>
-Depends: firmware (>=10.0), sudo, com.officialscheduler.mterminal
+Depends: firmware (>=10.0), sudo, com.officialscheduler.mterminal, mobilesubstrate
 Breaks: ch.sebikeller.automuter, com.a3tweaks.auxo3ios9, com.alexzielenski.tinybar, com.enduniverse.cydiaextenderplus, com.bolencki13.appendix, com.cpdigitaldarkroom.volumebanner, com.creatix.hoppin, com.creatix.carrot, com.fidele007.hotdog (<= 3.3.3-25), com.inasser.ariki, com.microseconds.iblank, com.strayadevteam.forcy, com.supermamon.newpackage, eu.heinelt.ifile, me.chewitt.cmc, me.chewitt.mcpro, me.chewitt.seng, net.angelxwind.appsyncunified (<= 5.8), openssh, org.coolstar.classicfolders, org.protectmyprivacy.pmp, org.thebigboss.andrios, org.thebigboss.protean, org.thebigboss.spin, org.thebigboss.vertex, com.bengiannis.nougatshortcuts, com.enduniverse.priorityhub, com.xx.XModGame5x, com.xx.XModGame, com.xx.XMIDEHelper
 Replaces: com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102
 Filename: debs/io.github.ethanrdoesmc.gandalf102.deb
-Size: 16550122
-MD5sum: 3fd5a657d30094b7c0dec64e246062a9
-SHA1: cd43b435206a02f814a459e4bd36cfd00214dc95
-SHA256: e50b4082bd819179c8f9c5447c05a3def6da8220d41cfa129000cb62700a68e2
+Size: 16550130
+MD5sum: 0751d3e59f8e05d51aad9f2021f9f705
+SHA1: 39c76b9e14b41dfea45a028e43d9bedf2d5dc724
+SHA256: 51b99ab9dba9c3e64d19eef3b277d14210e9a9444ad731d890f4b5d39e6c48f9
 Section: Gandalf102
 Description: Some tweaks may break jailbreaks. Let this tweak say
   "You Shall Not Pass!" to incompatible tweaks and you can sit back and have
@@ -39,15 +39,15 @@ Depiction: https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanr
 Name: Gandalf for YaluX (Mach_Portal)
 
 Package: io.github.gandalf.icons
-Version: 2.1.1
+Version: 2.1.2
 Architecture: iphoneos-arm
 Maintainer: EthanRDoesMC <ethanrdoesmc@gmail.com>
 Filename: debs/io.github.gandalf.icons.deb
-Size: 143256
-MD5sum: 7ad2afa0cf6f449e30223a52a61b300f
-SHA1: 5520c2b2fb869f8c21caf0f178ea69f325e2a36e
-SHA256: a79150f425a8950d45147f821f99ab0e2a3af857ba42a1153111fe2feeea7e21
-Section: Misc
+Size: 143260
+MD5sum: 89cddf78ce8458f45ebc65b3294c2254
+SHA1: 35af4aaa27102fa931f85631e66dc86f756ad684
+SHA256: 6a785fc613eae0e50203e0c40b8437fd95953579f0c9a3e144027b6ab1711509
+Section: Other
 Priority: required
 Description: Installs icons.
 Author: EthanRDoesMC <ethanrdoesmc@gmail.com>

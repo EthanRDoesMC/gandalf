@@ -6,7 +6,7 @@
 # for the most part (You can ignore some, like error checking for mv)
 
 # Config
-PKG_VERSION="2.4.5" #Bump this everytime you update something.
+PKG_VERSION="2.4.8" #Bump this everytime you update something.
 CONFLICTS_FILE="conflicts102.txt"
 
 #DO NOT TOUCH! (Unless you have a good reason...)
@@ -20,7 +20,7 @@ PKG_DEPICTION="https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.et
 PKG_MAINTAINER="EthanRDoesMC <ethanrdoesmc@gmail.com>"
 PKG_AUTHOR="EthanRDoesMC <ethanrdoesmc@gmail.com>"
 PKG_SECTION="Gandalf102"
-PKG_DEPENDS="firmware (>=10.0), sudo, com.officialscheduler.mterminal"
+PKG_DEPENDS="firmware (>=10.0), sudo, com.officialscheduler.mterminal, mobilesubstrate"
 PKG_REPLACES="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102"
 PKG_ARCHITECTURE='iphoneos-arm'
 PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
@@ -87,6 +87,8 @@ echo "Copying the DEBIAN scripts"
 cp "prerm" "${PKG_PACKAGE}/DEBIAN"
 cp "postinst" "${PKG_PACKAGE}/DEBIAN"
 
+echo "If you have anything else you need to put into Gandalf, now's the time. You have 15 seconds from the moment this message appears."
+sleep 15
 
 #Create the package
 echo "Creating the package..."
