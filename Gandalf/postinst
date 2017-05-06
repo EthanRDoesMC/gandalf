@@ -1,17 +1,36 @@
 #!/bin/bash
 
-#Declare variables
 
+#Variables
 RED='\033[0;31m' # Define RED as red
 NC='\033[0m' # Define NC as no color
-echo "Installing Gandalf..."
+
+#Main script
+echo "Installing the Gandalf application..."
 echo "Unpacking…"
+
 tar -xvf /var/mobile/Downloads/Gandalf102/Gandalf.app.tar.gz -C /Applications/
 echo "App installed..."
+
+
+echo "Cleaning up files.."
+
+rm -rf /var/mobile/Downloads/Gandalf102
+
+
 echo "Please Wait... running uicache..."
 uicache
+
+
 echo
-echo -e "${RED}--- Now please run 'gAndAlfh0LdC0mMand hold'! Just to be save. ---${NC}"
+echo -e "${RED}--- Now please run 'gAndAlfh0LdC0mMand hold'! Just to be safe. ---${NC}"
+echo
+echo "The app has the command, if you forget."
 echo
 echo "This command has to run after 'su' have logged in as root, so run it after 'su' in e.g. MTerminal."
 
+echo "temporary command permissions fix running"
+chmod 0775 usr/bin/gandalf102
+echo "done, in the future you won't have to see this"
+echo
+echo "Thanks for using Gandalf!"

@@ -14,6 +14,7 @@ cp control $controlfile
 mkdir -p "$basename/Applications/Cydia.app/Sections/"
 cp Misc.png $basename/Applications/Cydia.app/Sections/Misc.png
 cp Gandalf102.png $basename/Applications/Cydia.app/Sections/Gandalf102.png
+cp Portal.png $basename/Applications/Cydia.app/Sections/Gandalf_For_YaluX_AKA_Mach_Portal.png
 
 # package
 echo "Creating package."

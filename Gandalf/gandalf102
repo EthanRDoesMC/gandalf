@@ -1,52 +1,40 @@
 #!/bin/bash
+#
+# Gandalf executable
+# A script for endusers to manage the package.
+# provides an easy way for them to block removal of the package
 
-# Make sure only root can run this
+#Variables
+PKG_PACKAGE="io.github.ethanrdoesmc.gandalf102"
+PKG_NAME="Gandalf for Yalu102"
 
-if [[ $EUID -ne 0 ]]; then
 
-   echo "ERROR: This script needs root permissions."
+#Main script
+
+#Check for root
+if [[ ${EUID} -ne 0 ]]; then
+  echo "ERROR: This script needs root permissions."
   echo
-  echo "Since you are not logged in as root run 'su' before this command. (Default password is 'alpine' - it's wise to change this.)" 1>&2 
-echo "Look here how to change it:"
-echo "https://cydia.saurik.com/password.html"
-   exit 1
-
+  echo "Please run 'su' before running this command. (Default password is 'alpine' - it's wise to change this.)"
+  echo "Reference for changing root password: https://cydia.saurik.com/password.html"
 fi
 
-################
-# Set Variables
-gversion="iDenT1FIEr" #Identifier
-gversionname="vErs10Nname" #Name
+echo "${PKG_NAME} - Let this tweak say \"You shall not pass!\" to incompatible tweaks"
 
-################
-echo "---Welcome to $gversionname.---"
-echo "Made by EthanRDoesMC and mehulrao."
-
+#Main switc
 case $1 in
-"") 
-echo
-echo "---USAGE---"
-echo
-echo "$0 hold: run directly after install of $gversionname. It will prevent cydia from removing Gandalf automatically."
-echo
-echo "$0 rmhold: run before update or uninstall to let Cydia remove $gversionname."
- ;;
-"hold")
-echo "Add hold to $gversionname..."
-echo "$gversion hold" | dpkg --set-selections
- ;;
- "rmhold")
-echo "Remove hold from $gversionname..."
-echo "$gversion install" | dpkg --set-selections
- ;;
- *)
-echo "ERROR: invalid parameter $1"
-echo
-echo "---USAGE---"
-echo
-echo "$0 hold: run directly after install of $gversionname. It will prevent cydia from removing Gandalf automatically"
-echo
-echo "$0 rmhold: run before update or uninstall to let Cydia remove $gversionname."
-;;
- esac
- echo "Thank you for using Gandalf."
+  "hold")
+    echo "Adding hold status to ${PKG_NAME}"
+	echo "${PKG_PACKAGE} hold" | dpkg --set-selections
+	;;
+  "rmhold")
+    echo "Removing hold status to ${PKG_NAME}"
+	echo "${PKG_PACKGE} install" | dpkg --set-selections
+	;;
+  *)
+    echo "Usage:"
+	echo "$0 hold - Adds the \"Hold\" status to ${PKG_NAME} to block removal of the package"
+	echo
+	echo "$0 rmhold - removes the \"Hold\" status to allow removal of ${PKG_NAME}"
+	;;
+esac

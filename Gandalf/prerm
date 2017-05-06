@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Remove app…"
+echo "Removing the Gandalf application…"
 rm -rf /Applications/gandalf.app
-
-rm -rf /var/mobile/Downloads/Gandalf102/Gandalf.app.tar.gz
+echo "Finished removing the Gandalf application"
+#really, you forgot the quotation mark? ugh... thank goodness dpkg tries the prerm from the newpackage if the old package prerm fails... -ethan
