@@ -74,11 +74,11 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		LgtNVysGqZoCU2zjq05joQK8Vm0=
+		t9oTDD2vUigLsB/Ro/m3cwYoWRo=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		lh1v2cm/SoJmomst2m/Af/FI1VI=
+		e3dwwg9ekv6iUnv6XXrPF7uCS1w=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -86,11 +86,11 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		x6M4TnnWtHKJvje8UhOPnLXL4ls=
+		R7bFxeDRPCWMh0FSNRrJTqsAb0g=
 		</data>
 		<key>Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib</key>
 		<data>
-		/vDJcGC5KmlmfOVvgZ/pQGVidk8=
+		qgYlKbgjxZadWGQjMzBiVrE7wcA=
 		</data>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
@@ -98,15 +98,15 @@
 		</data>
 		<key>Base.lproj/Main.storyboardc/UIViewController-BYZ-38-t0r.nib</key>
 		<data>
-		AHyjcaPqKKcQKDoR2bws/zFcgI0=
+		t0uwazU0/MmSgan0dEPBMijiXrg=
 		</data>
 		<key>Base.lproj/Main.storyboardc/UIViewController-l8y-In-pHx.nib</key>
 		<data>
-		v+vEE0ZoG4dWgaGy8qIhD9Yupic=
+		6HV96lV8oKkS7eYvI4RXJRln4uQ=
 		</data>
 		<key>Base.lproj/Main.storyboardc/l8y-In-pHx-view-R7t-EY-Lzf.nib</key>
 		<data>
-		/kD79q7ws0m9Hwf8UgtNavDsASE=
+		T3Q1x0NGzOIU9V9UBQb4mbU8wvY=
 		</data>
 		<key>GoogleService-Info.plist</key>
 		<data>
@@ -114,7 +114,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Yr8y6wS6oRVTFupN9luQ+m4V/6s=
+		QafoW/f5eT3XTKRYF0Kjb7vM59c=
 		</data>
 		<key>New_Gandalf.momd/New_Gandalf.mom</key>
 		<data>
@@ -131,10 +131,6 @@
 		<key>PkgInfo</key>
 		<data>
 		n57qDP4tZfLD1rCS43W0B4LQjzE=
-		</data>
-		<key>archived-expanded-entitlements.xcent</key>
-		<data>
-		fcywPL1AnP8ZPVdBPAnYP/kh8v4=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
@@ -334,22 +330,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LgtNVysGqZoCU2zjq05joQK8Vm0=
+			t9oTDD2vUigLsB/Ro/m3cwYoWRo=
 			</data>
 			<key>hash2</key>
 			<data>
-			MS3UiJJ3t7+GRuhqB7vIqvY34Q6HHLyVTcEc+AeihQ8=
+			7E04qibfUNFqMfDtWAWTP0N6ac5VyGq7ro4kNkBkuEA=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lh1v2cm/SoJmomst2m/Af/FI1VI=
+			e3dwwg9ekv6iUnv6XXrPF7uCS1w=
 			</data>
 			<key>hash2</key>
 			<data>
-			KEpT6Q9okE65vak6AbYWlvkfZWVuUn9/73kutCwmof8=
+			XOQArcSd5IpZ+9r/GrmiBU0+kPl7W54cikWeejmyvj4=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
@@ -367,22 +363,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			x6M4TnnWtHKJvje8UhOPnLXL4ls=
+			R7bFxeDRPCWMh0FSNRrJTqsAb0g=
 			</data>
 			<key>hash2</key>
 			<data>
-			GnQTBaNNZD7sOyi7PUedYeQNm/u6Zf8GtFMUvP7GBK8=
+			c3flCy9+VzCK73ziz87l1x6JPxj6yYRSr/vp9R7f2jY=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			/vDJcGC5KmlmfOVvgZ/pQGVidk8=
+			qgYlKbgjxZadWGQjMzBiVrE7wcA=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZmU9nPcVFyghMxjVSfKqnlFa4bHoqnFn9vwghLxvI2U=
+			vJXC9zWN7pa+1ACjRKPQbbov6b1DNru+4YediLEc8uM=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
@@ -400,33 +396,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			AHyjcaPqKKcQKDoR2bws/zFcgI0=
+			t0uwazU0/MmSgan0dEPBMijiXrg=
 			</data>
 			<key>hash2</key>
 			<data>
-			2Xt4EPTJFgEDP+ABk84kw/K8QNfwPwofypfpMggxi6o=
+			qR4ZwEFecbkt0U/MC6efRFhLF/8t+p7rpYQ836qvQu8=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/UIViewController-l8y-In-pHx.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			v+vEE0ZoG4dWgaGy8qIhD9Yupic=
+			6HV96lV8oKkS7eYvI4RXJRln4uQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			fipEaNcoLcVkidQbXLCjKFByOZvoAVQnXSC6vTyyBdU=
+			9/3ZV/WoJSrA/h7eYg3vQg7lLBeYw9z9B1gN6lMjV/U=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/l8y-In-pHx-view-R7t-EY-Lzf.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			/kD79q7ws0m9Hwf8UgtNavDsASE=
+			T3Q1x0NGzOIU9V9UBQb4mbU8wvY=
 			</data>
 			<key>hash2</key>
 			<data>
-			QbG9XwutYg8dSOpvvditCCA0vKr7PAcIosE3i6I35ZY=
+			MvT2YveMnp0HQiesRwLZOErV41v+G7WDnvfjcuOVbAQ=
 			</data>
 		</dict>
 		<key>GoogleService-Info.plist</key>
@@ -471,17 +467,6 @@
 			<key>hash2</key>
 			<data>
 			sDEkTLt051cIdPLL+84wsTl394NZ17PYvA3ojD7MeoY=
-			</data>
-		</dict>
-		<key>archived-expanded-entitlements.xcent</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			fcywPL1AnP8ZPVdBPAnYP/kh8v4=
-			</data>
-			<key>hash2</key>
-			<data>
-			x8zfONMoTfMO8U0I+2CBgsmI8m8Yz88krF+JQfiXEbI=
 			</data>
 		</dict>
 		<key>embedded.mobileprovision</key>
