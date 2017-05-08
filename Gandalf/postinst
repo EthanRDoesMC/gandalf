@@ -9,7 +9,7 @@ NC='\033[0m' # Define NC as no color
 echo "Installing the Gandalf application..."
 echo "Unpacking…"
 
-tar -xvf /var/mobile/Downloads/Gandalf102/Gandalf.app.tar.gz -C /Applications/
+tar -xvf /var/mobile/Downloads/Gandalf/Gandalf.app.tar.gz -C /Applications/
 echo "App installed..."
 
 

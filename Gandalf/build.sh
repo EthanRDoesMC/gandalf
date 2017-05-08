@@ -10,7 +10,7 @@ sleep 5
 VER=$(cat version.txt)
 
 # Config
-PKG_VERSION="2.5" #Bump this everytime you update something.
+PKG_VERSION="2.5.1" #Bump this everytime you update something.
 CONFLICTS_FILE="$VER/conflicts.txt"
 NAME=$(cat $VER/name.txt)
 FIRM=$(cat $VER/firmware.txt)
