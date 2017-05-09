@@ -4,11 +4,20 @@
 #
 # Follow https://google.github.io/styleguide/shell.xml
 # for the most part (You can ignore some, like error checking for mv)
-echo "We're trying something new! Put in the version you want in version.txt (either as 'x' or 102) and we'll have one build.sh script!"
-echo "sleeping for 5 seconds"
-sleep 5
-VER=$(cat version.txt)
-
+case $1 in 
+"") 
+ echo "ERROR: Configuration file missing. Please specify one: './build.sh 102.conf'"
+ exit 1
+ ;;
+*) echo "Checking for file $1..."
+ if [ ! -f $1 ]
+then
+    echo "File $1 doesn't exist. Make sure you have tiped everything correctly."
+    exit 1
+fi
+;;
+esac
+ 
 # Config
 PKG_VERSION="2.5.1" #Bump this everytime you update something.
 CONFLICTS_FILE="$VER/conflicts.txt"
