@@ -74,11 +74,11 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		BBxUd60w8dBcjjk3qsT+v1IgsGc=
+		t9oTDD2vUigLsB/Ro/m3cwYoWRo=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		63XqsIQdk3OzBojIwOwsrV3RVi0=
+		e3dwwg9ekv6iUnv6XXrPF7uCS1w=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -86,47 +86,55 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		D+pSI1Sn7RFPSH0qv5LM8VwM9ik=
-		</data>
-		<key>Base.lproj/Main.storyboardc/10C-12-uaq-view-AeT-70-kvn.nib</key>
-		<data>
-		QKhR5PsjqDIif//+1Sbnu/LN/Dw=
+		R7bFxeDRPCWMh0FSNRrJTqsAb0g=
 		</data>
 		<key>Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib</key>
 		<data>
-		2LoMlFCgSX37axbUMRj8Cwn8eRQ=
+		qgYlKbgjxZadWGQjMzBiVrE7wcA=
 		</data>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
-		PopMVTT5Z+F7PhPFnDQPHCmctOY=
-		</data>
-		<key>Base.lproj/Main.storyboardc/UIViewController-10C-12-uaq.nib</key>
-		<data>
-		7ECqPQcM88W7m1sWMU5HCZeuU/g=
+		LcGfonT8mgNkr1coNIKs4LVu3Ic=
 		</data>
 		<key>Base.lproj/Main.storyboardc/UIViewController-BYZ-38-t0r.nib</key>
 		<data>
-		okyY7E4AzKwVbOep7X35Ivrqx3s=
+		t0uwazU0/MmSgan0dEPBMijiXrg=
+		</data>
+		<key>Base.lproj/Main.storyboardc/UIViewController-l8y-In-pHx.nib</key>
+		<data>
+		6HV96lV8oKkS7eYvI4RXJRln4uQ=
+		</data>
+		<key>Base.lproj/Main.storyboardc/l8y-In-pHx-view-R7t-EY-Lzf.nib</key>
+		<data>
+		T3Q1x0NGzOIU9V9UBQb4mbU8wvY=
 		</data>
 		<key>GoogleService-Info.plist</key>
 		<data>
-		+QjjTYztL9o/0tPHMkJKlzfOcS0=
+		/Ycvkhcvrqlfeiql8R0riBCKALo=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		2lauRQl+4fHBXgNNI131PCLxZ6E=
+		QafoW/f5eT3XTKRYF0Kjb7vM59c=
+		</data>
+		<key>New_Gandalf.momd/New_Gandalf.mom</key>
+		<data>
+		C8SP2EBQStUqy0AFfJa15twaDcc=
+		</data>
+		<key>New_Gandalf.momd/New_Gandalf.omo</key>
+		<data>
+		BM3Ddtnoy4L+yP9G5ZuhB8dL0cw=
+		</data>
+		<key>New_Gandalf.momd/VersionInfo.plist</key>
+		<data>
+		mu5IXs41gY9Kz3txGNJQFYFZeVo=
 		</data>
 		<key>PkgInfo</key>
 		<data>
 		n57qDP4tZfLD1rCS43W0B4LQjzE=
 		</data>
-		<key>archived-expanded-entitlements.xcent</key>
-		<data>
-		G5/1OHUB91Y9MILY8w4nLdIUoGs=
-		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		YsGBSNllLoVcnO7qs4xFWPYaLy0=
+		5nvZ/yE+7TtyW/3WAh8uoVkU2rg=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -322,22 +330,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BBxUd60w8dBcjjk3qsT+v1IgsGc=
+			t9oTDD2vUigLsB/Ro/m3cwYoWRo=
 			</data>
 			<key>hash2</key>
 			<data>
-			q2LRaPfxVBEZXiA0nvy4gB9k08Q8pQ5cHw9qLmdYEIs=
+			7E04qibfUNFqMfDtWAWTP0N6ac5VyGq7ro4kNkBkuEA=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			63XqsIQdk3OzBojIwOwsrV3RVi0=
+			e3dwwg9ekv6iUnv6XXrPF7uCS1w=
 			</data>
 			<key>hash2</key>
 			<data>
-			KyPScx6l5KZQa7klrQM+bIOckrFjdZF6/uRf/L6RPK4=
+			XOQArcSd5IpZ+9r/GrmiBU0+kPl7W54cikWeejmyvj4=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
@@ -355,99 +363,121 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			D+pSI1Sn7RFPSH0qv5LM8VwM9ik=
+			R7bFxeDRPCWMh0FSNRrJTqsAb0g=
 			</data>
 			<key>hash2</key>
 			<data>
-			4aikKez3fIAyi76iOCdEuWlNntKATVankuQsWPjUpSI=
-			</data>
-		</dict>
-		<key>Base.lproj/Main.storyboardc/10C-12-uaq-view-AeT-70-kvn.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QKhR5PsjqDIif//+1Sbnu/LN/Dw=
-			</data>
-			<key>hash2</key>
-			<data>
-			3sSiAJ1PZEVb4niCiZWEbMS/2rGTIAIpDcsmj1qgTEc=
+			c3flCy9+VzCK73ziz87l1x6JPxj6yYRSr/vp9R7f2jY=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2LoMlFCgSX37axbUMRj8Cwn8eRQ=
+			qgYlKbgjxZadWGQjMzBiVrE7wcA=
 			</data>
 			<key>hash2</key>
 			<data>
-			m9ggbF9ENN3KlqnHpz/zictR0SF9hajPJ6Phd9/60bo=
+			vJXC9zWN7pa+1ACjRKPQbbov6b1DNru+4YediLEc8uM=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			PopMVTT5Z+F7PhPFnDQPHCmctOY=
+			LcGfonT8mgNkr1coNIKs4LVu3Ic=
 			</data>
 			<key>hash2</key>
 			<data>
-			PsJhtJUZIhrHepvls6V2s1+j0gHrBf4O7LhcYQJ5juA=
-			</data>
-		</dict>
-		<key>Base.lproj/Main.storyboardc/UIViewController-10C-12-uaq.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			7ECqPQcM88W7m1sWMU5HCZeuU/g=
-			</data>
-			<key>hash2</key>
-			<data>
-			UO9UUDQwFi9ean1EWXdWwzTtnCfkYThv/FPAJlqSVUY=
+			A/t1Zj/AWuIIAqKc4WqtVbDDPeDC9wv9VqYhLCX1Izs=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/UIViewController-BYZ-38-t0r.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			okyY7E4AzKwVbOep7X35Ivrqx3s=
+			t0uwazU0/MmSgan0dEPBMijiXrg=
 			</data>
 			<key>hash2</key>
 			<data>
-			zYPsO7XB6Clo5veG8jZdBqRowfUafdqczD1NlL3PuPA=
+			qR4ZwEFecbkt0U/MC6efRFhLF/8t+p7rpYQ836qvQu8=
+			</data>
+		</dict>
+		<key>Base.lproj/Main.storyboardc/UIViewController-l8y-In-pHx.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			6HV96lV8oKkS7eYvI4RXJRln4uQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			9/3ZV/WoJSrA/h7eYg3vQg7lLBeYw9z9B1gN6lMjV/U=
+			</data>
+		</dict>
+		<key>Base.lproj/Main.storyboardc/l8y-In-pHx-view-R7t-EY-Lzf.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			T3Q1x0NGzOIU9V9UBQb4mbU8wvY=
+			</data>
+			<key>hash2</key>
+			<data>
+			MvT2YveMnp0HQiesRwLZOErV41v+G7WDnvfjcuOVbAQ=
 			</data>
 		</dict>
 		<key>GoogleService-Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+QjjTYztL9o/0tPHMkJKlzfOcS0=
+			/Ycvkhcvrqlfeiql8R0riBCKALo=
 			</data>
 			<key>hash2</key>
 			<data>
-			+ZM6PoAIHoMtVdxFdbFJmKvOSwU9oa8m5BBjXTrWEYU=
+			9+iUXel2P3OdREkcMUgCnBjv11Lbt5EjjTIR577m0V8=
 			</data>
 		</dict>
-		<key>archived-expanded-entitlements.xcent</key>
+		<key>New_Gandalf.momd/New_Gandalf.mom</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			G5/1OHUB91Y9MILY8w4nLdIUoGs=
+			C8SP2EBQStUqy0AFfJa15twaDcc=
 			</data>
 			<key>hash2</key>
 			<data>
-			g1YleqpQRVfX5pLJqf8noW1YITDLKSZHOISA1N4wl5w=
+			YJ+L+TDd7J4oi9W+uFAlKafj68wvIGRZpDCK9zE5vwI=
+			</data>
+		</dict>
+		<key>New_Gandalf.momd/New_Gandalf.omo</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			BM3Ddtnoy4L+yP9G5ZuhB8dL0cw=
+			</data>
+			<key>hash2</key>
+			<data>
+			hEddJfY/Lfl/ayrxaG5JcW2HZ0aWcjTqF2H+9+mF6yA=
+			</data>
+		</dict>
+		<key>New_Gandalf.momd/VersionInfo.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mu5IXs41gY9Kz3txGNJQFYFZeVo=
+			</data>
+			<key>hash2</key>
+			<data>
+			sDEkTLt051cIdPLL+84wsTl394NZ17PYvA3ojD7MeoY=
 			</data>
 		</dict>
 		<key>embedded.mobileprovision</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			YsGBSNllLoVcnO7qs4xFWPYaLy0=
+			5nvZ/yE+7TtyW/3WAh8uoVkU2rg=
 			</data>
 			<key>hash2</key>
 			<data>
-			Epgplxy2c+W6X3YJ26rJiUV3XOS31YG0wxlA3G0Yr8M=
+			H5CkVfGAg7LHiSa6WwK+U2bLyoqTpYNfFvCU9YHQfKY=
 			</data>
 		</dict>
 	</dict>

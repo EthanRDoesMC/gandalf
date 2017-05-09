@@ -4,29 +4,32 @@
 #
 # Follow https://google.github.io/styleguide/shell.xml
 # for the most part (You can ignore some, like error checking for mv)
+echo "We're trying something new! Put in the version you want in version.txt (either as 'x' or 102) and we'll have one build.sh script!"
+echo "sleeping for 5 seconds"
+sleep 5
+VER=$(cat version.txt)
 
 # Config
-PKG_VERSION="2.4.8" #Bump this everytime you update something.
-CONFLICTS_FILE="conflicts102.txt"
-
+PKG_VERSION="2.5.1" #Bump this everytime you update something.
+CONFLICTS_FILE="$VER/conflicts.txt"
+NAME=$(cat $VER/name.txt)
+FIRM=$(cat $VER/firmware.txt)
 #DO NOT TOUCH! (Unless you have a good reason...)
 #Variable format is "PKG_FIELDNAME"
-PKG_PACKAGE="io.github.ethanrdoesmc.gandalf102"
-PKG_NAME="Gandalf for Yalu102"
+PKG_PACKAGE="io.github.ethanrdoesmc.gandalf$VER"
+PKG_NAME="Gandalf for $NAME"
 PKG_DESCRIPTION="Some tweaks may break jailbreaks. Let this tweak say
   \"You Shall Not Pass!\" to incompatible tweaks and you can sit back and have
   fun with your jailbreak."
 PKG_DEPICTION="https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalf102"
 PKG_MAINTAINER="EthanRDoesMC <ethanrdoesmc@gmail.com>"
 PKG_AUTHOR="EthanRDoesMC <ethanrdoesmc@gmail.com>"
-PKG_SECTION="Gandalf102"
-PKG_DEPENDS="firmware (>=10.0), sudo, com.officialscheduler.mterminal, mobilesubstrate"
+PKG_SECTION=$(cat $VER/section.txt)
+PKG_DEPENDS="firmware $FIRM, sudo, com.officialscheduler.mterminal, mobilesubstrate"
 PKG_REPLACES="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102"
 PKG_ARCHITECTURE='iphoneos-arm'
 PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
 
-#Script specific variables.
-GANDALF_COMMAND_NAME="gandalf102"
 
 #Main script
 
@@ -39,7 +42,7 @@ echo "Creating package structure..."
 mkdir "${PKG_PACKAGE}"
 mkdir "${PKG_PACKAGE}/DEBIAN"
 mkdir -p "${PKG_PACKAGE}/usr/bin"
-mkdir -p "${PKG_PACKAGE}/var/mobile/Downloads/Gandalf102"
+mkdir -p "${PKG_PACKAGE}/var/mobile/Downloads/Gandalf"
 
 
 #Create the control file
@@ -64,22 +67,17 @@ EOF
 #Compress the application
 echo "Compressing and moving Gandalf.app..."
 
-tar -czf "Gandalf.app.tar.gz" "gandalf.app"
-mv "Gandalf.app.tar.gz" "${PKG_PACKAGE}/var/mobile/Downloads/Gandalf102"
+tar -czf "Gandalf.app.tar.gz" "Gandalf.app"
+mv "Gandalf.app.tar.gz" "${PKG_PACKAGE}/var/mobile/Downloads/Gandalf"
 
 
 #Copy over the executable
 echo "Bundling ${GANDALF_COMMAND_NAME}..."
 
-cat "gandalf102" \
-  | sed "s/iDenT1FIEr/${PKG_PACKAGE}/" \
-  | sed "s/vErs10Nname/${PKG_NAME}/" \
-  > "${PKG_PACKAGE}/usr/bin/${GANDALF_COMMAND_NAME}"
+cp "gandalf" "${PKG_PACKAGE}/usr/bin"
 
-#OKAYEY PLZE WORK
-#DOIN ME A SIGNIFICATE FRUSTRATE
-
-chmod 0775 "${PKG_PACKAGE}/usr/bin/${GANDALF_COMMAND_NAME}"
+#Make it executable 
+chmod +x "${PKG_PACKAGE}/usr/bin/gandalf"
 
 #Copy the DEBIAN scripts
 echo "Copying the DEBIAN scripts"
