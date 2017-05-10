@@ -4,30 +4,59 @@
 #
 # Follow https://google.github.io/styleguide/shell.xml
 # for the most part (You can ignore some, like error checking for mv)
-echo "We're trying something new! Put in the version you want in version.txt (either as 'x' or 102) and we'll have one build.sh script!"
-echo "sleeping for 5 seconds"
-sleep 5
-VER=$(cat version.txt)
 
-# Config
-PKG_VERSION="2.5.1" #Bump this everytime you update something.
-CONFLICTS_FILE="$VER/conflicts.txt"
-NAME=$(cat $VER/name.txt)
-FIRM=$(cat $VER/firmware.txt)
-#DO NOT TOUCH! (Unless you have a good reason...)
-#Variable format is "PKG_FIELDNAME"
-PKG_PACKAGE="io.github.ethanrdoesmc.gandalf$VER"
-PKG_NAME="Gandalf for $NAME"
-PKG_DESCRIPTION="Some tweaks may break jailbreaks. Let this tweak say
-  \"You Shall Not Pass!\" to incompatible tweaks and you can sit back and have
-  fun with your jailbreak."
-PKG_DEPICTION="https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalf102"
-PKG_MAINTAINER="EthanRDoesMC <ethanrdoesmc@gmail.com>"
-PKG_AUTHOR="EthanRDoesMC <ethanrdoesmc@gmail.com>"
-PKG_SECTION=$(cat $VER/section.txt)
-PKG_DEPENDS="firmware $FIRM, sudo, com.officialscheduler.mterminal, mobilesubstrate"
-PKG_REPLACES="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102"
-PKG_ARCHITECTURE='iphoneos-arm'
+if [ "${1}" == "" ]
+ then
+	echo "USAGE: './build.sh version.conf conflictsfile.txt'"
+	echo "ERROR: please specify the version."
+	exit 1
+ elif [ -f "${1}" ]
+
+  then
+	echo "${1} found."
+        echo "Specified '${1}' as config file."
+  else
+	echo
+	echo "--- ERROR ---"
+	echo
+	echo "You now have following files in the current directory:"
+	echo "----------"
+	ls
+	echo "----------"
+	echo "FATAL ERROR: ${1} not found. Please check if you have typed correctly."
+	echo "Abort."
+	exit 1
+fi
+
+if [ "${2}" == "" ]
+ then
+	echo "USAGE: './build.sh version.conf conflictsfile.txt'"
+	echo "ERROR: please specify the conflicts file."
+	exit 1
+ elif [ -f "${2}" ]
+
+  then
+	echo "${2} found."
+        echo "Specified '${2}' as conflicts file."
+  else
+	echo
+	echo "--- ERROR ---"
+	echo
+	echo "You now have following files in the current directory:"
+	echo "----------"
+	ls
+	echo "----------"
+	echo "FATAL ERROR: ${2} not found. Please check if you have typed correctly."
+	echo "Abort."
+	exit 1
+fi
+
+
+# Get configuration
+
+source ${1}
+# Parse conflicts
+CONFLICTS_FILE="${2}"
 PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
 
 
