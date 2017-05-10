@@ -4,16 +4,12 @@
 #
 # Follow https://google.github.io/styleguide/shell.xml
 # for the most part (You can ignore some, like error checking for mv)
-echo "We're trying something new! Put in the version you want in version.txt (either as 'x' or 102) and we'll have one build.sh script!"
-echo "sleeping for 5 seconds"
-sleep 5
-VER=$(cat version.txt)
+
+
 
 # Config
 PKG_VERSION="2.5.1" #Bump this everytime you update something.
-CONFLICTS_FILE="$VER/conflicts.txt"
-NAME=$(cat $VER/name.txt)
-FIRM=$(cat $VER/firmware.txt)
+
 #DO NOT TOUCH! (Unless you have a good reason...)
 #Variable format is "PKG_FIELDNAME"
 PKG_PACKAGE="io.github.ethanrdoesmc.gandalf$VER"
@@ -30,8 +26,31 @@ PKG_REPLACES="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf
 PKG_ARCHITECTURE='iphoneos-arm'
 PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
 
+#script specific variables
+VER=$(cat version.txt)
+CONFLICTS_FILE="${VER}/conflicts.txt"
+NAME=$(cat ${VER}/name.txt)
+FIRM=$(cat ${VER}/firmware.txt)
+
 
 #Main script
+
+#Confirm before running
+echo "We're trying something new! Put in the version you want in version.txt (either as 'x' or 102) and we'll have one build.sh script!"
+read -p "Continue? [Y/n]: " cont
+case $cont in 
+    [Yy]* )
+		continue
+    ;;
+    [Nn]* )
+		echo "Exiting..."
+		exit 0
+	;;
+	* ) 
+	    echo "Cancelled."
+		exit 0
+	;;
+esac
 
 #Start message
 echo "Started packaging ${PKG_NAME}"
@@ -84,9 +103,6 @@ echo "Copying the DEBIAN scripts"
 
 cp "prerm" "${PKG_PACKAGE}/DEBIAN"
 cp "postinst" "${PKG_PACKAGE}/DEBIAN"
-
-echo "If you have anything else you need to put into Gandalf, now's the time. You have 15 seconds from the moment this message appears."
-sleep 15
 
 #Create the package
 echo "Creating the package..."
