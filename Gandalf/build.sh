@@ -104,6 +104,10 @@ echo "Copying the DEBIAN scripts"
 cp "prerm" "${PKG_PACKAGE}/DEBIAN"
 cp "postinst" "${PKG_PACKAGE}/DEBIAN"
 
+#Remove macOS related stuff to avoid braking packages
+
+find . -type f -name '.DS_STORE' -exec rm {} +
+
 #Create the package
 echo "Creating the package..."
 
