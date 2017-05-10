@@ -7,56 +7,30 @@
 
 if [ "${1}" == "" ]
  then
-	echo "USAGE: './build.sh version.conf conflictsfile.txt'"
+	echo "USAGE: './build.sh version (directory name)'"
 	echo "ERROR: please specify the version."
 	exit 1
- elif [ -f "${1}" ]
-
-  then
-	echo "${1} found."
-        echo "Specified '${1}' as config file."
-  else
-	echo
-	echo "--- ERROR ---"
-	echo
-	echo "You now have following files in the current directory:"
-	echo "----------"
-	ls
-	echo "----------"
-	echo "FATAL ERROR: ${1} not found. Please check if you have typed correctly."
-	echo "Abort."
-	exit 1
 fi
+# Check if directory exists
 
-if [ "${2}" == "" ]
+if [ ! -d "${1}" ] 
  then
-	echo "USAGE: './build.sh version.conf conflictsfile.txt'"
-	echo "ERROR: please specify the conflicts file."
-	exit 1
- elif [ -f "${2}" ]
-
-  then
-	echo "${2} found."
-        echo "Specified '${2}' as conflicts file."
-  else
-	echo
-	echo "--- ERROR ---"
-	echo
-	echo "You now have following files in the current directory:"
-	echo "----------"
-	ls
-	echo "----------"
-	echo "FATAL ERROR: ${2} not found. Please check if you have typed correctly."
+	echo "FATAL ERROR: Directory ${1} doesn't exist."
+	echo "Please check your spelling (linux is case sensitive)."
 	echo "Abort."
 	exit 1
 fi
 
-
+# change directory
+cd ${1}
 # Get configuration
-
-source ${1}
+source config.conf
+# Set variables
+PKG_MAINTAINER="EthanRDoesMC <ethanrdoesmc@gmail.com>"
+PKG_AUTHOR="EthanRDoesMC <ethanrdoesmc@gmail.com>"
+PKG_ARCHITECTURE='iphoneos-arm'
 # Parse conflicts
-CONFLICTS_FILE="${2}"
+CONFLICTS_FILE="conflicts.txt"
 PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
 
 
@@ -95,15 +69,17 @@ EOF
 
 #Compress the application
 echo "Compressing and moving Gandalf.app..."
-
-tar -czf "Gandalf.app.tar.gz" "Gandalf.app"
+# Workaround for tar
+cd ..
+tar -czf "${1}/Gandalf.app.tar.gz" "Gandalf.app"
+cd ${1}
 mv "Gandalf.app.tar.gz" "${PKG_PACKAGE}/var/mobile/Downloads/Gandalf"
 
 
 #Copy over the executable
 echo "Bundling ${GANDALF_COMMAND_NAME}..."
 
-cp "gandalf" "${PKG_PACKAGE}/usr/bin"
+cp "../gandalf" "${PKG_PACKAGE}/usr/bin"
 
 #Make it executable 
 chmod +x "${PKG_PACKAGE}/usr/bin/gandalf"
@@ -111,8 +87,8 @@ chmod +x "${PKG_PACKAGE}/usr/bin/gandalf"
 #Copy the DEBIAN scripts
 echo "Copying the DEBIAN scripts"
 
-cp "prerm" "${PKG_PACKAGE}/DEBIAN"
-cp "postinst" "${PKG_PACKAGE}/DEBIAN"
+cp "../prerm" "${PKG_PACKAGE}/DEBIAN"
+cp "../postinst" "${PKG_PACKAGE}/DEBIAN"
 
 echo "If you have anything else you need to put into Gandalf, now's the time. You have 15 seconds from the moment this message appears."
 sleep 15
@@ -129,3 +105,5 @@ rm -rf "${PKG_PACKAGE}"
 
 echo "Packaging done."
 echo "Filename: ${PKG_PACKAGE}.deb"
+echo "Move ${PKG_PACKAGE}.deb to Gandalf folder..."
+mv ${PKG_PACKAGE}.deb ../${PKG_PACKAGE}.deb
