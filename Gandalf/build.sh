@@ -90,9 +90,20 @@ echo "Copying the DEBIAN scripts"
 cp "../prerm" "${PKG_PACKAGE}/DEBIAN"
 cp "../postinst" "${PKG_PACKAGE}/DEBIAN"
 
-echo "If you have anything else you need to put into Gandalf, now's the time. You have 15 seconds from the moment this message appears."
-sleep 15
-
+bold=$(tput bold)
+normal=$(tput sgr0)
+echo 
+echo "|"
+echo "|--- If you have anything else you need to put into Gandalf, just add it now. ---"
+echo "|"
+echo "| --- ${bold}If you're finished press any key to continue. If you don't want to add anything just press any key now. ---${normal}"
+echo "|"
+echo
+read -p "Press any key to continue... "
+echo
+ 
+#Remove macOS related stuff to avoid braking packages - thanks to 1Conan
+find . -type f -name '.DS_STORE' -exec rm {} +
 #Create the package
 echo "Creating the package..."
 
