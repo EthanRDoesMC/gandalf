@@ -7,24 +7,26 @@
 
 if [ "${1}" == "" ]
  then
-	echo "USAGE: './build.sh version (directory name)'"
-	echo "ERROR: please specify the version."
-	exit 1
+   echo "USAGE: './build.sh version (directory name)'"
+   echo "ERROR: please specify the version."
+   exit 1
 fi
-# Check if directory exists
 
+# Check if directory exists
 if [ ! -d "${1}" ] 
  then
-	echo "FATAL ERROR: Directory ${1} doesn't exist."
-	echo "Please check your spelling (linux is case sensitive)."
-	echo "Abort."
-	exit 1
+   echo "FATAL ERROR: Directory ${1} doesn't exist."
+   echo "Please check your spelling (linux is case sensitive)."
+   echo "Abort."
+   exit 1
 fi
 
 # change directory
 cd ${1}
+
 # Get configuration
 source config.conf
+
 # Set variables
 PKG_MAINTAINER="EthanRDoesMC <ethanrdoesmc@gmail.com>"
 PKG_AUTHOR="EthanRDoesMC <ethanrdoesmc@gmail.com>"
