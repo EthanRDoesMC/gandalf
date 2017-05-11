@@ -22,17 +22,17 @@ if [ ! -d "${1}" ]
 fi
 
 # change directory
-cd ${1}
+# cd ${1}
 
 # Get configuration
-source config.conf
+source ${1}/config.conf
 
 # Set variables
 PKG_MAINTAINER="EthanRDoesMC <ethanrdoesmc@gmail.com>"
 PKG_AUTHOR="EthanRDoesMC <ethanrdoesmc@gmail.com>"
 PKG_ARCHITECTURE='iphoneos-arm'
 # Parse conflicts
-CONFLICTS_FILE="conflicts.txt"
+CONFLICTS_FILE="${1}/conflicts.txt"
 PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
 
 
@@ -42,6 +42,7 @@ PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
 echo "Started packaging ${PKG_NAME}"
 
 #Prepare the package structure
+# In /Gandalf or in /Gandalf/${1} ? What's better?
 echo "Creating package structure..."
 
 mkdir "${PKG_PACKAGE}"
@@ -71,17 +72,14 @@ EOF
 
 #Compress the application
 echo "Compressing and moving Gandalf.app..."
-# Workaround for tar
-cd ..
-tar -czf "${1}/Gandalf.app.tar.gz" "Gandalf.app"
-cd ${1}
+tar -czf "Gandalf.app.tar.gz" "Gandalf.app"
 mv "Gandalf.app.tar.gz" "${PKG_PACKAGE}/var/mobile/Downloads/Gandalf"
 
 
 #Copy over the executable
 echo "Bundling ${GANDALF_COMMAND_NAME}..."
 
-cp "../gandalf" "${PKG_PACKAGE}/usr/bin"
+cp "gandalf" "${PKG_PACKAGE}/usr/bin"
 
 #Make it executable 
 chmod +x "${PKG_PACKAGE}/usr/bin/gandalf"
@@ -89,8 +87,8 @@ chmod +x "${PKG_PACKAGE}/usr/bin/gandalf"
 #Copy the DEBIAN scripts
 echo "Copying the DEBIAN scripts"
 
-cp "../prerm" "${PKG_PACKAGE}/DEBIAN"
-cp "../postinst" "${PKG_PACKAGE}/DEBIAN"
+cp "prerm" "${PKG_PACKAGE}/DEBIAN"
+cp "postinst" "${PKG_PACKAGE}/DEBIAN"
 
 bold=$(tput bold)
 normal=$(tput sgr0)
@@ -118,5 +116,3 @@ rm -rf "${PKG_PACKAGE}"
 
 echo "Packaging done."
 echo "Filename: ${PKG_PACKAGE}.deb"
-echo "Move ${PKG_PACKAGE}.deb to Gandalf folder..."
-mv ${PKG_PACKAGE}.deb ../${PKG_PACKAGE}.deb
