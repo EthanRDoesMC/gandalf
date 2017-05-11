@@ -4,30 +4,35 @@
 #
 # Follow https://google.github.io/styleguide/shell.xml
 # for the most part (You can ignore some, like error checking for mv)
-echo "We're trying something new! Put in the version you want in version.txt (either as 'x' or 102) and we'll have one build.sh script!"
-echo "sleeping for 5 seconds"
-sleep 5
-VER=$(cat version.txt)
 
-# Config
-PKG_VERSION="2.5.1" #Bump this everytime you update something.
-CONFLICTS_FILE="$VER/conflicts.txt"
-NAME=$(cat $VER/name.txt)
-FIRM=$(cat $VER/firmware.txt)
-#DO NOT TOUCH! (Unless you have a good reason...)
-#Variable format is "PKG_FIELDNAME"
-PKG_PACKAGE="io.github.ethanrdoesmc.gandalf$VER"
-PKG_NAME="Gandalf for $NAME"
-PKG_DESCRIPTION="Some tweaks may break jailbreaks. Let this tweak say
-  \"You Shall Not Pass!\" to incompatible tweaks and you can sit back and have
-  fun with your jailbreak."
-PKG_DEPICTION="https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalf102"
+if [ "${1}" == "" ]
+ then
+   echo "USAGE: './build.sh version (directory name)'"
+   echo "ERROR: please specify the version."
+   exit 1
+fi
+
+# Check if directory exists
+if [ ! -d "${1}" ] 
+ then
+   echo "FATAL ERROR: Directory ${1} doesn't exist."
+   echo "Please check your spelling (linux is case sensitive)."
+   echo "Abort."
+   exit 1
+fi
+
+# change directory
+# cd ${1}
+
+# Get configuration
+source ${1}/config.conf
+
+# Set variables
 PKG_MAINTAINER="EthanRDoesMC <ethanrdoesmc@gmail.com>"
 PKG_AUTHOR="EthanRDoesMC <ethanrdoesmc@gmail.com>"
-PKG_SECTION=$(cat $VER/section.txt)
-PKG_DEPENDS="firmware $FIRM, sudo, com.officialscheduler.mterminal, mobilesubstrate"
-PKG_REPLACES="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102"
 PKG_ARCHITECTURE='iphoneos-arm'
+# Parse conflicts
+CONFLICTS_FILE="${1}/conflicts.txt"
 PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
 
 
@@ -37,6 +42,7 @@ PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
 echo "Started packaging ${PKG_NAME}"
 
 #Prepare the package structure
+# In /Gandalf or in /Gandalf/${1} ? What's better?
 echo "Creating package structure..."
 
 mkdir "${PKG_PACKAGE}"
@@ -66,7 +72,6 @@ EOF
 
 #Compress the application
 echo "Compressing and moving Gandalf.app..."
-
 tar -czf "Gandalf.app.tar.gz" "Gandalf.app"
 mv "Gandalf.app.tar.gz" "${PKG_PACKAGE}/var/mobile/Downloads/Gandalf"
 
@@ -85,9 +90,20 @@ echo "Copying the DEBIAN scripts"
 cp "prerm" "${PKG_PACKAGE}/DEBIAN"
 cp "postinst" "${PKG_PACKAGE}/DEBIAN"
 
-echo "If you have anything else you need to put into Gandalf, now's the time. You have 15 seconds from the moment this message appears."
-sleep 15
-
+bold=$(tput bold)
+normal=$(tput sgr0)
+echo 
+echo "|"
+echo "|--- If you have anything else you need to put into Gandalf, just add it now. ---"
+echo "|"
+echo "| --- ${bold}If you're finished press any key to continue. If you don't want to add anything just press any key now. ---${normal}"
+echo "|"
+echo
+read -p "Press any key to continue... "
+echo
+ 
+#Remove macOS related stuff to avoid braking packages - thanks to 1Conan
+find . -type f -name '.DS_STORE' -exec rm {} +
 #Create the package
 echo "Creating the package..."
 
