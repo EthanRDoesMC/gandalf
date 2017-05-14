@@ -29,7 +29,7 @@ case $1 in
 	;;
   "rmhold")
     echo "Removing hold status to ${PKG_NAME}"
-	echo "${PKG_PACKGE} install" | dpkg --set-selections
+	echo "${PKG_PACKAGE} install" | dpkg --set-selections
 	;;
   *)
     echo "Usage:"
