@@ -1,31 +1,42 @@
 #!/bin/bash
-# 
+#
 # Packages "Gandalf" into a deb
 #
 # Follow https://google.github.io/styleguide/shell.xml
 # for the most part (You can ignore some, like error checking for mv)
-echo "We're trying something new! Put in the version you want in version.txt (either as 'x' or 102) and we'll have one build.sh script!"
-echo "sleeping for 5 seconds"
-sleep 5
-VER=$(cat version.txt)
+# Check if started without parameters
+if [ "${1}" = "" ]
+  then
+   echo "USAGE: './build.sh <versionfolder>'"
+   exit 0
+fi
+# Check if folder exists
+if [ ! -d ${1} ]
+  then
+   echo "FATAL: There's no folder called '${1}'. You have either misstiped something (Linux us case sensitive) or '${1}' just simply doesn't exist."
+   echo "ABORT"
+   exit 1
+fi
+# Specify  that first parameter is version
 
+VER=${1}
 # Config
 PKG_VERSION="2.5.5" #Bump this everytime you update something.
-CONFLICTS_FILE="$VER/conflicts.txt"
-NAME=$(cat $VER/name.txt)
-FIRM=$(cat $VER/firmware.txt)
+CONFLICTS_FILE="${VER}/conflicts.txt"
+NAME=$(cat ${VER}/name.txt)
+FIRM=$(cat ${VER}/firmware.txt)
 #DO NOT TOUCH! (Unless you have a good reason...)
 #Variable format is "PKG_FIELDNAME"
-PKG_PACKAGE="io.github.ethanrdoesmc.gandalf$VER"
-PKG_NAME="Gandalf for $NAME"
+PKG_PACKAGE="io.github.ethanrdoesmc.gandalf${VER}"
+PKG_NAME="Gandalf for ${NAME}"
 PKG_DESCRIPTION="Some tweaks may break jailbreaks. Let this tweak say
   \"You Shall Not Pass!\" to incompatible tweaks and you can sit back and have
   fun with your jailbreak."
 PKG_DEPICTION="https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalf102"
 PKG_MAINTAINER="EthanRDoesMC <ethanrdoesmc@gmail.com>"
 PKG_AUTHOR="EthanRDoesMC <ethanrdoesmc@gmail.com>"
-PKG_SECTION=$(cat $VER/section.txt)
-PKG_DEPENDS="firmware $FIRM, sudo, com.officialscheduler.mterminal, mobilesubstrate"
+PKG_SECTION=$(cat ${VER}/section.txt)
+PKG_DEPENDS="firmware ${FIRM}, sudo, com.officialscheduler.mterminal, mobilesubstrate"
 PKG_REPLACES="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102"
 PKG_ARCHITECTURE='iphoneos-arm'
 PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
