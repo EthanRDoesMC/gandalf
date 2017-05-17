@@ -95,9 +95,7 @@ echo "Copying the DEBIAN scripts"
 
 cp "prerm" "${PKG_PACKAGE}/DEBIAN"
 cp "postinst" "${PKG_PACKAGE}/DEBIAN"
-
-echo "If you have anything else you need to put into Gandalf, now's the time. You have 15 seconds from the moment this message appears."
-sleep 15
+read -p  "--- If you have anything else you need to put into Gandalf, now's the time. If you're finished or you don't want to add something press any key to continue. ---"
 
 #Create the package
 echo "Creating the package..."
