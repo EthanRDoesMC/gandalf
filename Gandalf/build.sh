@@ -15,39 +15,39 @@ NORMAL=$(tput sgr0)
 RED=$(tput setaf 1)
 
 # Check if started without parameters
-if [ "${1}" = "" ]; then
+if [ "$1" = "" ]; then
    echo "${BOLD}USAGE:${NORMAL} './build.sh <versionfolder>'"
    exit 0
 fi
 
 # Check if folder exists
 
-if [ ! -d ${1} ]; then
-   echo "${BOLD}${RED}FATAL:${NORMAL} There's no folder called '${1}'. You have either misstiped something ${BOLD}(Linux is case-sensitive)${NORMAL} or the folder '${1}' simply doesn't exist."
+if [ ! -d $1 ]; then
+   echo "${BOLD}${RED}FATAL:${NORMAL} There's no folder called '$1'. You have either misstiped something ${BOLD}(Linux is case-sensitive)${NORMAL} or the folder '$1' simply doesn't exist."
    echo "ABORT."
    exit 1
 fi
 
 # Check filestructure
-if [ ! -f ${1}/conflicts.txt ] || [ ! -f ${1}/firmware.txt ] || [ ! -f ${1}/name.txt ] || [ ! -f ${1}/section.txt ]; then
-   echo "${BOLD}${RED}FATAL:${NORMAL} Please check folder '${1}'. There's either something missing or misstiped. Be sure you have the files"
+if [ ! -f $1/conflicts.txt ] || [ ! -f $1/firmware.txt ] || [ ! -f $1/name.txt ] || [ ! -f $1/section.txt ]; then
+   echo "${BOLD}${RED}FATAL:${NORMAL} Please check folder '$1'. There's either something missing or misstiped. Be sure you have the files"
    echo
    echo "  - conflicts.txt"
    echo "  - firmware.txt"
    echo "  - name.txt"
    echo "  - section.txt"
    echo
-   echo "in folder '${1}'."
+   echo "in folder '$1'."
 
     # Test if folder is empty
-    if test "$(ls -A "${1}")"; then
-       echo "Currently there are the following files in folder '${1}':"
+    if test "$(ls -A "$1")"; then
+       echo "Currently there are the following files in folder '$1':"
        echo "---"
-       ls -la ${1}
+       ls -la $1
        echo "---"
        echo "${BOLD}Linux is case-sensitive!${NORMAL}"
      else
-       echo "${BOLD}ERROR:${NORMAL} The folder '${1}' is empty!"
+       echo "${BOLD}ERROR:${NORMAL} The folder '$1' is empty!"
    fi
 
    echo "${BOLD}ABORT.${NORMAL}"
@@ -55,12 +55,12 @@ if [ ! -f ${1}/conflicts.txt ] || [ ! -f ${1}/firmware.txt ] || [ ! -f ${1}/name
 fi
 
 # Config
-CONFLICTS_FILE="${1}/conflicts.txt"
-GDN_NAME=$(cat ${1}/name.txt)
-GDN_FIRM=$(cat ${1}/firmware.txt)
+CONFLICTS_FILE="$1/conflicts.txt"
+GDN_NAME=$(cat $1/name.txt)
+GDN_FIRM=$(cat $1/firmware.txt)
 #DO NOT TOUCH! (Unless you have a good reason...)
 #Variable format is "PKG_FIELDNAME"
-PKG_PACKAGE="io.github.ethanrdoesmc.gandalf${1}"
+PKG_PACKAGE="io.github.ethanrdoesmc.gandalf$1"
 PKG_NAME="Gandalf for ${GDN_NAME}"
 PKG_DESCRIPTION="Some tweaks may break jailbreaks. Let this tweak say
   \"You Shall Not Pass!\" to incompatible tweaks and you can sit back and have
@@ -68,7 +68,7 @@ PKG_DESCRIPTION="Some tweaks may break jailbreaks. Let this tweak say
 PKG_DEPICTION="https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalf102"
 PKG_MAINTAINER="EthanRDoesMC <ethanrdoesmc@gmail.com>"
 PKG_AUTHOR="EthanRDoesMC <ethanrdoesmc@gmail.com>"
-PKG_SECTION=$(cat ${1}/section.txt)
+PKG_SECTION=$(cat $1/section.txt)
 PKG_DEPENDS="firmware ${GDN_FIRM}, sudo, com.officialscheduler.mterminal, mobilesubstrate"
 PKG_REPLACES="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102"
 PKG_ARCHITECTURE='iphoneos-arm'
