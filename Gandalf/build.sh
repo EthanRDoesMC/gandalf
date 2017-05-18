@@ -90,7 +90,6 @@ mkdir "${PKG_PACKAGE}/DEBIAN"
 mkdir -p "${PKG_PACKAGE}/usr/bin"
 mkdir -p "${PKG_PACKAGE}/var/mobile/Downloads/Gandalf"
 
-
 #Create the control file
 echo "Creating the control file..."
 
@@ -136,8 +135,7 @@ echo
 
 # Remove .DS_Store created by macOS (experimental)
 
-find . -name '.DS_Store' -type f -delete
-
+find . -type f -name '.DS_STORE' -exec rm {} +
 #Create the package
 echo "Creating the package..."
 
