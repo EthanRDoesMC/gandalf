@@ -133,6 +133,10 @@ echo
 read -p  "${BOLD}${RED}--- If you have anything else you need to put into Gandalf, now's the time. If you're finished or you don't want to add something press any key to continue. ---${NORMAL}"
 echo
 
+# Remove .DS_Store created by macOS (experimental)
+
+find . -name '.DS_Store' -type f -delete
+
 #Create the package
 echo "Creating the package..."
 
