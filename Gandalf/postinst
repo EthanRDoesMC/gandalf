@@ -1,10 +1,5 @@
 #!/bin/bash
 
-
-#Variables
-RED='\033[0;31m' # Define RED as red
-NC='\033[0m' # Define NC as no color
-
 #Main script
 echo "Installing the Gandalf application..."
 echo "Unpacking…"
@@ -23,7 +18,7 @@ uicache
 
 
 echo
-echo -e "${RED}--- Now please run 'gandalf hold'! Just to be safe. ---${NC}"
+echo "--- Now please run 'gandalf hold'! Just to be safe. ---"
 echo
 echo "The app has the command, if you forget."
 echo
