@@ -10,27 +10,27 @@ PKG_VERSION="2.5.5" #Bump this everytime you update something.
 
 # Define script styling (tput)
 
-BOLD=$(tput bold)
-NORMAL=$(tput sgr0)
-RED=$(tput setaf 1)
+bold=$(tput bold)
+normal=$(tput sgr0)
+red=$(tput setaf 1)
 
 # Check if started without parameters
 if [ "$1" = "" ]; then
-   echo "${BOLD}USAGE:${NORMAL} './build.sh <versionfolder>'"
+   echo "${bold}USAGE:${normal} './build.sh <versionfolder>'"
    exit 0
 fi
 
 # Check if folder exists
 
 if [ ! -d $1 ]; then
-   echo "${BOLD}${RED}FATAL:${NORMAL} There's no folder called '$1'. You have either misstiped something ${BOLD}(Linux is case-sensitive)${NORMAL} or the folder '$1' simply doesn't exist."
+   echo "${bold}${red}FATAL:${normal} There's no folder called '$1'. You have either misstyped something ${bold}(Linux is case-sensitive)${normal} or the folder '$1' simply doesn't exist."
    echo "ABORT."
    exit 1
 fi
 
 # Check filestructure
 if [ ! -f $1/conflicts.txt ] || [ ! -f $1/firmware.txt ] || [ ! -f $1/name.txt ] || [ ! -f $1/section.txt ]; then
-   echo "${BOLD}${RED}FATAL:${NORMAL} Please check folder '$1'. There's either something missing or misstiped. Be sure you have the files"
+   echo "${bold}${red}FATAL:${normal} Please check folder '$1'. There's either something missing or misstyped. Be sure you have the files"
    echo
    echo "  - conflicts.txt"
    echo "  - firmware.txt"
@@ -45,12 +45,12 @@ if [ ! -f $1/conflicts.txt ] || [ ! -f $1/firmware.txt ] || [ ! -f $1/name.txt ]
        echo "---"
        ls -la $1
        echo "---"
-       echo "${BOLD}Linux is case-sensitive!${NORMAL}"
+       echo "${bold}Linux is case-sensitive!${normal}"
      else
-       echo "${BOLD}ERROR:${NORMAL} The folder '$1' is empty!"
+       echo "${bold}ERROR:${normal} The folder '$1' is empty!"
    fi
 
-   echo "${BOLD}ABORT.${NORMAL}"
+   echo "${bold}ABORT.${normal}"
    exit 1
 fi
 
@@ -121,7 +121,7 @@ echo "Bundling ${GANDALF_COMMAND_NAME}..."
 
 cp "gandalf" "${PKG_PACKAGE}/usr/bin"
 
-#Make it executable 
+#Make it executable
 chmod +x "${PKG_PACKAGE}/usr/bin/gandalf"
 
 #Copy the DEBIAN scripts
@@ -130,7 +130,7 @@ echo "Copying the DEBIAN scripts"
 cp "prerm" "${PKG_PACKAGE}/DEBIAN"
 cp "postinst" "${PKG_PACKAGE}/DEBIAN"
 echo
-read -p  "${BOLD}${RED}--- If you have anything else you need to put into Gandalf, now's the time. If you're finished or you don't want to add something press any key to continue. ---${NORMAL}"
+read -p  "${bold}${red}--- If you have anything else you need to put into Gandalf, now's the time. If you're finished or you don't want to add something press any key to continue. ---${normal}"
 echo
 
 # Remove .DS_Store created by macOS (experimental)
@@ -148,4 +148,4 @@ echo "Cleaning up temporary files and folders..."
 rm -rf "${PKG_PACKAGE}"
 
 echo "Packaging done."
-echo "Filename: ${BOLD}${PKG_PACKAGE}.deb${NORMAL}"
+echo "Filename: ${bold}${PKG_PACKAGE}.deb${normal}"
