@@ -14,6 +14,28 @@ bold=$(tput bold)
 normal=$(tput sgr0)
 red=$(tput setaf 1)
 
+# Config
+CONFLICTS_FILE="$1/conflicts.txt"
+GDN_NAME=$(cat $1/name.txt)
+GDN_FIRM=$(cat $1/firmware.txt)
+#DO NOT TOUCH! (Unless you have a good reason...)
+#Variable format is "PKG_FIELDNAME"
+PKG_PACKAGE="io.github.ethanrdoesmc.gandalf$1"
+PKG_NAME="Gandalf for ${GDN_NAME}"
+PKG_DESCRIPTION="Some tweaks may break jailbreaks. Let this tweak say
+  \"You Shall Not Pass!\" to incompatible tweaks and you can sit back and have
+  fun with your jailbreak."
+PKG_DEPICTION="https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalf102"
+PKG_MAINTAINER="EthanRDoesMC <ethanrdoesmc@gmail.com>"
+PKG_AUTHOR="EthanRDoesMC <ethanrdoesmc@gmail.com>"
+PKG_SECTION=$(cat $1/section.txt)
+PKG_DEPENDS="firmware ${GDN_FIRM}, sudo, com.officialscheduler.mterminal, mobilesubstrate"
+PKG_REPLACES="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102"
+PKG_ARCHITECTURE='iphoneos-arm'
+PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
+
+# Check if everything is ok
+
 # Check if started without parameters
 if [ "$1" = "" ]; then
    echo "${bold}USAGE:${normal} './build.sh <versionfolder>'"
@@ -53,27 +75,6 @@ if [ ! -f $1/conflicts.txt ] || [ ! -f $1/firmware.txt ] || [ ! -f $1/name.txt ]
    echo "${bold}ABORT.${normal}"
    exit 1
 fi
-
-# Config
-CONFLICTS_FILE="$1/conflicts.txt"
-GDN_NAME=$(cat $1/name.txt)
-GDN_FIRM=$(cat $1/firmware.txt)
-#DO NOT TOUCH! (Unless you have a good reason...)
-#Variable format is "PKG_FIELDNAME"
-PKG_PACKAGE="io.github.ethanrdoesmc.gandalf$1"
-PKG_NAME="Gandalf for ${GDN_NAME}"
-PKG_DESCRIPTION="Some tweaks may break jailbreaks. Let this tweak say
-  \"You Shall Not Pass!\" to incompatible tweaks and you can sit back and have
-  fun with your jailbreak."
-PKG_DEPICTION="https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalf102"
-PKG_MAINTAINER="EthanRDoesMC <ethanrdoesmc@gmail.com>"
-PKG_AUTHOR="EthanRDoesMC <ethanrdoesmc@gmail.com>"
-PKG_SECTION=$(cat $1/section.txt)
-PKG_DEPENDS="firmware ${GDN_FIRM}, sudo, com.officialscheduler.mterminal, mobilesubstrate"
-PKG_REPLACES="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102"
-PKG_ARCHITECTURE='iphoneos-arm'
-PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
-
 
 # --- --- --- --- --- --- --- --- --- --- 
 #Main script
