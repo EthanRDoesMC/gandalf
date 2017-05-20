@@ -1,0 +1,3 @@
+com.enduniverse.cydiaextenderplus
+com.github.ethanrdoesmc.gandalf
+com.github.ethanrdoesmc.gandalf102

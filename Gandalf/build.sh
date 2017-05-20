@@ -18,7 +18,6 @@ PKG_DESCRIPTION="Some tweaks may break jailbreaks. Let this tweak say
 PKG_DEPICTION="https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalf102"
 PKG_MAINTAINER="EthanRDoesMC <ethanrdoesmc@gmail.com>"
 PKG_AUTHOR="EthanRDoesMC <ethanrdoesmc@gmail.com>"
-PKG_REPLACES="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102"
 PKG_ARCHITECTURE='iphoneos-arm'
 
 BOLD=$(tput bold)
@@ -34,13 +33,14 @@ if [ -z "$1" ]; then
   exit 0
 fi
 
-if [ ! -d "$1" ] || [ ! -f "$1/conflicts.txt" ] || [ ! -f "$1/firmware.txt" ] || [ ! -f "$1/name.txt" ] || [ ! -f "$1/section.txt" ]; then
+if [ ! -d "$1" ] || [ ! -f "$1/conflicts.txt" ] || [ ! -f "$1/firmware.txt" ] || [ ! -f "$1/name.txt" ] || [ ! -f "$1/replaces.txt" ] || [ ! -f "$1/section.txt" ]; then
 	echo "${BOLD}${RED}ERROR:${NORMAL} Please check if these files or folders exists"
 	echo 
 	echo " - $1"
 	echo " - $1/conflicts.txt"
 	echo " - $1/firmware.txt"
 	echo " - $1/name.txt"
+	echo " - $1/replaces.txt"
 	echo " - $1/section.txt"
 	exit 1
 fi
@@ -50,6 +50,7 @@ CONFLICTS_FILE="$1/conflicts.txt"
 
 PKG_PACKAGE="io.github.ethanrdoesmc.gandalf$1"
 PKG_NAME=$(cat $1/name.txt)
+PKG_REPLACES=$(cat $1/replaces.txt | sed ':a;N;$!ba;s/\n/,\ /g')
 PKG_SECTION=$(cat $1/section.txt)
 PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
 PKG_DEPENDS="firmware ${FIRMWARE}, sudo, com.officialscheduler.mterminal, mobilesubstrate"
