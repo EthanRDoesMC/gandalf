@@ -26,7 +26,7 @@ RED=$(tput setaf 1)
 
 
 #Main script
-	
+
 #Sanity Checks
 if [ -z "$1" ]; then
   echo "${BOLD}Usage:${NORMAL} './build.sh <version>"
@@ -67,7 +67,7 @@ echo "Creating package structure..."
 mkdir "${PKG_PACKAGE}"
 mkdir "${PKG_PACKAGE}/DEBIAN"
 mkdir -p "${PKG_PACKAGE}/usr/bin"
-mkdir -p "${PKG_PACKAGE}/var/mobile/Downloads/Gandalf102"
+mkdir -p "${PKG_PACKAGE}/var/mobile/Downloads/Gandalf"
 
 
 #Create the control file
@@ -88,13 +88,11 @@ Section: ${PKG_SECTION}
 Breaks: ${PKG_BREAKS}
 EOF
 
-
 #Compress the application
 echo "Compressing and moving Gandalf.app..."
 
 tar -czf "Gandalf.app.tar.gz" "Gandalf.app"
-mv "Gandalf.app.tar.gz" "${PKG_PACKAGE}/var/mobile/Downloads/Gandalf"
-
+mv "Gandalf.app.tar.gz" "${PKG_PACKAGE}/var/mobile/Downloads/Gandalf/"
 
 #Copy over the executable
 echo "Bundling ${GANDALF_COMMAND_NAME}..."
