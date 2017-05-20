@@ -34,7 +34,7 @@ if [ -z "$1" ]; then
 fi
 
 if [ ! -d "$1" ] || [ ! -f "$1/conflicts.txt" ] || [ ! -f "$1/firmware.txt" ] || [ ! -f "$1/name.txt" ] || [ ! -f "$1/replaces.txt" ] || [ ! -f "$1/section.txt" ]; then
-	echo "${BOLD}${RED}ERROR:${NORMAL} Please check if these files or folders exists"
+	echo "${BOLD}${RED}ERROR:${NORMAL} Please check if these files or folders exist"
 	echo 
 	echo " - $1"
 	echo " - $1/conflicts.txt"
