@@ -34,7 +34,7 @@ if [ -z "$1" ]; then
 fi
 
 if [ ! -d "$1" ] || [ ! -f "$1/conflicts.txt" ] || [ ! -f "$1/firmware.txt" ] || [ ! -f "$1/name.txt" ] || [ ! -f "$1/replaces.txt" ] || [ ! -f "$1/section.txt" ]; then
-	echo "${BOLD}${RED}ERROR:${NORMAL} Please check if these files or folders exist"
+	echo "${BOLD}${RED}ERROR:${NORMAL} Please check if these files or folders exist:"
 	echo 
 	echo " - $1"
 	echo " - $1/conflicts.txt"
@@ -49,14 +49,14 @@ FIRMWARE=$(cat $1/firmware.txt)
 CONFLICTS_FILE="$1/conflicts.txt"
 
 PKG_PACKAGE="io.github.ethanrdoesmc.gandalf$1"
-PKG_NAME=$(cat $1/name.txt)
+PKG_NAME="Gandalf for $(cat $1/name.txt)"
 PKG_REPLACES=$(cat $1/replaces.txt | sed ':a;N;$!ba;s/\n/,\ /g')
 PKG_SECTION=$(cat $1/section.txt)
 PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
 PKG_DEPENDS="firmware ${FIRMWARE}, sudo, com.officialscheduler.mterminal, mobilesubstrate"
 
 #Confirmation to continue
-read -p "${BOLD}Packaging Gandalf$1 will start. Press any key to continue...${NORMAL}"
+read -p "${BOLD}Packaging ${PKG_NAME} will start. Press any key to continue...${NORMAL}"
 
 #Start message
 echo "Started packaging ${PKG_NAME}"
