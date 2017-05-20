@@ -17,6 +17,7 @@ if [[ ${EUID} -ne 0 ]]; then
   echo
   echo "Please run 'su' before running this command. (Default password is 'alpine' - it's wise to change this.)"
   echo "Reference for changing root password: https://cydia.saurik.com/password.html"
+exit 1
 fi
 
 echo "${PKG_NAME} - Let this tweak say \"You shall not pass!\" to incompatible tweaks"
@@ -36,5 +37,6 @@ case $1 in
 	echo "$0 hold - Adds the \"Hold\" status to ${PKG_NAME} to block removal of the package"
 	echo
 	echo "$0 rmhold - removes the \"Hold\" status to allow removal of ${PKG_NAME}"
+exit 0
 	;;
 esac
