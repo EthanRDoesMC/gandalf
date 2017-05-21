@@ -4,34 +4,59 @@
 #
 # Follow https://google.github.io/styleguide/shell.xml
 # for the most part (You can ignore some, like error checking for mv)
-echo "We're trying something new! Put in the version you want in version.txt (either as 'x' or 102) and we'll have one build.sh script!"
-echo "sleeping for 5 seconds"
-sleep 5
-VER=$(cat version.txt)
 
 # Config
 PKG_VERSION="2.5.5" #Bump this everytime you update something.
-CONFLICTS_FILE="$VER/conflicts.txt"
-NAME=$(cat $VER/name.txt)
-FIRM=$(cat $VER/firmware.txt)
+
+
 #DO NOT TOUCH! (Unless you have a good reason...)
 #Variable format is "PKG_FIELDNAME"
-PKG_PACKAGE="io.github.ethanrdoesmc.gandalf$VER"
-PKG_NAME="Gandalf for $NAME"
+
 PKG_DESCRIPTION="Some tweaks may break jailbreaks. Let this tweak say
   \"You Shall Not Pass!\" to incompatible tweaks and you can sit back and have
   fun with your jailbreak."
 PKG_DEPICTION="https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalf102"
 PKG_MAINTAINER="EthanRDoesMC <ethanrdoesmc@gmail.com>"
 PKG_AUTHOR="EthanRDoesMC <ethanrdoesmc@gmail.com>"
-PKG_SECTION=$(cat $VER/section.txt)
-PKG_DEPENDS="firmware $FIRM, sudo, com.officialscheduler.mterminal, mobilesubstrate"
-PKG_REPLACES="com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102"
 PKG_ARCHITECTURE='iphoneos-arm'
-PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
+
+BOLD=$(tput bold)
+NORMAL=$(tput sgr0)
+RED=$(tput setaf 1)
 
 
 #Main script
+
+#Sanity Checks
+if [ -z "$1" ]; then
+  echo "${BOLD}Usage:${NORMAL} './build.sh <version>"
+  exit 0
+fi
+
+if [ ! -d "$1" ] || [ ! -f "$1/conflicts.txt" ] || [ ! -f "$1/firmware.txt" ] || [ ! -f "$1/name.txt" ] || [ ! -f "$1/replaces.txt" ] || [ ! -f "$1/section.txt" ]; then
+	echo "${BOLD}${RED}ERROR:${NORMAL} Please check if these files or folders exist:"
+	echo 
+	echo " - $1"
+	echo " - $1/conflicts.txt"
+	echo " - $1/firmware.txt"
+	echo " - $1/name.txt"
+	echo " - $1/replaces.txt"
+	echo " - $1/section.txt"
+	exit 1
+fi
+
+FIRMWARE=$(cat $1/firmware.txt)
+CONFLICTS_FILE="$1/conflicts.txt"
+
+PKG_PACKAGE="io.github.ethanrdoesmc.gandalf$1"
+PKG_NAME="Gandalf for $(cat $1/name.txt)"
+PKG_REPLACES=$(cat $1/replaces.txt | sed ':a;N;$!ba;s/\n/,\ /g')
+PKG_SECTION=$(cat $1/section.txt)
+PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
+PKG_DEPENDS="firmware ${FIRMWARE}, sudo, com.officialscheduler.mterminal, mobilesubstrate"
+
+#Confirmation to continue
+read -p "${BOLD}Packaging ${PKG_NAME} will start. Press any key to continue...${NORMAL}"
 
 #Start message
 echo "Started packaging ${PKG_NAME}"
@@ -63,13 +88,11 @@ Section: ${PKG_SECTION}
 Breaks: ${PKG_BREAKS}
 EOF
 
-
 #Compress the application
 echo "Compressing and moving Gandalf.app..."
 
 tar -czf "Gandalf.app.tar.gz" "Gandalf.app"
-mv "Gandalf.app.tar.gz" "${PKG_PACKAGE}/var/mobile/Downloads/Gandalf"
-
+mv "Gandalf.app.tar.gz" "${PKG_PACKAGE}/var/mobile/Downloads/Gandalf/"
 
 #Copy over the executable
 echo "Bundling ${GANDALF_COMMAND_NAME}..."
@@ -85,8 +108,8 @@ echo "Copying the DEBIAN scripts"
 cp "prerm" "${PKG_PACKAGE}/DEBIAN"
 cp "postinst" "${PKG_PACKAGE}/DEBIAN"
 
-echo "If you have anything else you need to put into Gandalf, now's the time. You have 15 seconds from the moment this message appears."
-sleep 15
+#macOS issues fix
+find . -type f -name '.DS_Store' -exec rm {} +
 
 #Create the package
 echo "Creating the package..."
@@ -99,4 +122,4 @@ echo "Cleaning up temporary files and folders..."
 rm -rf "${PKG_PACKAGE}"
 
 echo "Packaging done."
-echo "Filename: ${PKG_PACKAGE}.deb"
+echo "Filename: ${BOLD}${PKG_PACKAGE}.deb${NORMAL}"

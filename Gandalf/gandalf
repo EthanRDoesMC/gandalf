@@ -17,6 +17,7 @@ if [[ ${EUID} -ne 0 ]]; then
   echo
   echo "Please run 'su' before running this command. (Default password is 'alpine' - it's wise to change this.)"
   echo "Reference for changing root password: https://cydia.saurik.com/password.html"
+exit 1
 fi
 
 echo "${PKG_NAME} - Let this tweak say \"You shall not pass!\" to incompatible tweaks"
@@ -26,15 +27,18 @@ case $1 in
   "hold")
     echo "Adding hold status to ${PKG_NAME}"
 	echo "${PKG_PACKAGE} hold" | dpkg --set-selections
+echo "Done! If there was no error you're good to go!"
 	;;
   "rmhold")
     echo "Removing hold status to ${PKG_NAME}"
 	echo "${PKG_PACKAGE} install" | dpkg --set-selections
+echo "Done! If there was no error you're good to go!"
 	;;
   *)
     echo "Usage:"
 	echo "$0 hold - Adds the \"Hold\" status to ${PKG_NAME} to block removal of the package"
 	echo
 	echo "$0 rmhold - removes the \"Hold\" status to allow removal of ${PKG_NAME}"
+exit 0
 	;;
 esac

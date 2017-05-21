@@ -1,10 +1,5 @@
 #!/bin/bash
 
-
-#Variables
-RED='\033[0;31m' # Define RED as red
-NC='\033[0m' # Define NC as no color
-
 #Main script
 echo "Installing the Gandalf application..."
 echo "Unpacking…"
@@ -15,22 +10,31 @@ echo "App installed..."
 
 echo "Cleaning up files.."
 
-rm -rf /var/mobile/Downloads/Gandalf102
+rm -rf /var/mobile/Downloads/Gandalf
 
 
 echo "Please Wait... running uicache..."
 uicache
 
-
-echo
-echo -e "${RED}--- Now please run 'gandalf hold'! Just to be safe. ---${NC}"
-echo
-echo "The app has the command, if you forget."
-echo
-echo "This command has to run after 'su' have logged in as root, so run it after 'su' in e.g. MTerminal."
-
-echo "temporary command permissions fix running"
+echo "Temporary command permissions fix running"
 chmod 0755 /usr/bin/gandalf
-echo "done, in the future you won't have to see this"
+echo "Done! In the future you (hopefully) won't have to see this."
 echo
-echo "Thanks for using Gandalf!"
+echo "--- Now please run 'gandalf hold'! Just to be safe. ---"
+echo
+echo "--Why should you do that?--"
+echo "This command prevents Cydia (better dpkg) from removing Gandalf automatically. If you don't execute this command you could install tweaks usually blocked by Gandalf if something removed Gandalf."
+echo
+echo "--How to do that?--"
+echo
+echo "In a terminal emulator like 'MTerminal' execute following commands:"
+echo 
+echo "   'su' to login as root (Administrator / superuser) default password: 'alpine'"
+echo "   'gandalf hold' (to prevent other tweaks from removing Gandalf)"
+echo
+echo "That's it. After you have executed these commands you can close MTerminal."
+echo "Afraid of forgetting them? There is an app on your Homescreen with the command!"
+sleep 5
+echo
+echo "Thanks for using Gandalf! (Wow you read this!)"
+sleep 2
