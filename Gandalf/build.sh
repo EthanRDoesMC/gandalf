@@ -24,12 +24,11 @@ BOLD=$(tput bold)
 NORMAL=$(tput sgr0)
 RED=$(tput setaf 1)
 
-
 #Main script
 
 #Sanity Checks
 if [ -z "$1" ]; then
-  echo "${BOLD}Usage:${NORMAL} './build.sh <version>"
+  echo "${BOLD}Usage:${NORMAL} './build.sh <version>'"
   exit 0
 fi
 
@@ -45,18 +44,55 @@ if [ ! -d "$1" ] || [ ! -f "$1/conflicts.txt" ] || [ ! -f "$1/firmware.txt" ] ||
 	exit 1
 fi
 
+#Confirmation to continue
+read -p "${BOLD}Packaging ${PKG_NAME} will start. Press any key to continue...${NORMAL}"
+
 FIRMWARE=$(cat $1/firmware.txt)
 CONFLICTS_FILE="$1/conflicts.txt"
 
 PKG_PACKAGE="io.github.ethanrdoesmc.gandalf$1"
+PKG_PACKAGE_REGEX="io\.github\.ethanrdoesmc\.gandalf$1"
 PKG_NAME="Gandalf for $(cat $1/name.txt)"
-PKG_REPLACES=$(cat $1/replaces.txt | sed ':a;N;$!ba;s/\n/,\ /g')
+# Check if the version we are currently building is added to all_versions.txt
+
+# First remove all possible spaces at the end of the line to make the $ (anchor for end of line) work
+
+sed -i 's/ *$//' all_versions.txt
+
+if [ "$(cat all_versions.txt | grep ${PKG_PACKAGE_REGEX}$)" = "" ]; then
+  echo "Adding currently building version to all_versions.txt..."
+  printf "${PKG_PACKAGE}\n" >> all_versions.txt
+fi
+
+# Set tempdir because I don't want to write in environment variable.
+# If environment variable "TMPDIR" is empty, set $GDN_TEMPDIR as tempdir for gandalf. Else use the predefined tempdir/gandalf
+
+if [ "$TMPDIR" == "" ]; then
+  echo NOTE: Variable '$TMPDIR' is empty! This is not an error. If you"'"re building on iOS this is normal. Make directory...
+  GDN_TEMPDIR="/tmp/gandalf"
+  mkdir ${GDN_TEMPDIR}
+
+  else 
+  GDN_TEMPDIR="$TMPDIR/gandalf"
+  mkdir $GDN_TEMPDIR
+
+fi
+
+# Get all Gandalf versions, except the one we are building, parse them in one line and save them in the variable "OTHER_VERSIONS"
+
+OTHER_VERSIONS=$(cat all_versions.txt | grep -v ${PKG_PACKAGE_REGEX}'$')
+
+# Save them in a temporary file
+printf "${OTHER_VERSIONS}\n" > $GDN_TEMPDIR/tmp_replaces.tmp
+# Add all packages which are in replaces.txt to the temporary file
+cat $1/replaces.txt >> $GDN_TEMPDIR/tmp_replaces.tmp
+# Sort them, parse them in one line and save them in "PKG_REPLACES"
+
+PKG_REPLACES=$(cat $GDN_TEMPDIR/tmp_replaces.tmp | sort | sed ':a;N;$!ba;s/\n/,\ /g')
+
 PKG_SECTION=$(cat $1/section.txt)
 PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
 PKG_DEPENDS="firmware ${FIRMWARE}, sudo, com.officialscheduler.mterminal, mobilesubstrate"
-
-#Confirmation to continue
-read -p "${BOLD}Packaging ${PKG_NAME} will start. Press any key to continue...${NORMAL}"
 
 #Start message
 echo "Started packaging ${PKG_NAME}"
@@ -120,6 +156,7 @@ dpkg-deb -Zgzip -b "${PKG_PACKAGE}"
 #Clean up
 echo "Cleaning up temporary files and folders..."
 rm -rf "${PKG_PACKAGE}"
+rm -rf $GDN_TEMPDIR
 
 echo "Packaging done."
 echo "Filename: ${BOLD}${PKG_PACKAGE}.deb${NORMAL}"

@@ -4,16 +4,16 @@
 echo "Installing the Gandalf application..."
 echo "Unpacking…"
 
-tar -xvf /var/mobile/Downloads/Gandalf/Gandalf.app.tar.gz -C /Applications/
+tar -xf /var/mobile/Downloads/Gandalf/Gandalf.app.tar.gz -C /Applications/
 echo "App installed..."
 
 
-echo "Cleaning up files.."
+echo "Cleaning up files..."
 
 rm -rf /var/mobile/Downloads/Gandalf
 
 
-echo "Please Wait... running uicache..."
+echo "Please wait... Running uicache..."
 uicache
 
 echo "Temporary command permissions fix running"
@@ -33,7 +33,7 @@ echo "   'su' to login as root (Administrator / superuser) default password: 'al
 echo "   'gandalf hold' (to prevent other tweaks from removing Gandalf)"
 echo
 echo "That's it. After you have executed these commands you can close MTerminal."
-echo "Afraid of forgetting them? There is an app on your Homescreen with the command!"
+echo "Afraid of forgetting them? There is an app on your Homescreen which shows you this command."
 sleep 5
 echo
 echo "Thanks for using Gandalf! (Wow you read this!)"

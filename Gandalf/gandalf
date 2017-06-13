@@ -22,7 +22,7 @@ fi
 
 echo "${PKG_NAME} - Let this tweak say \"You shall not pass!\" to incompatible tweaks"
 
-#Main switc
+#Main switch
 case $1 in
   "hold")
     echo "Adding hold status to ${PKG_NAME}"
