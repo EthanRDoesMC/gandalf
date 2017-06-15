@@ -53,33 +53,43 @@ CONFLICTS_FILE="$1/conflicts.txt"
 PKG_PACKAGE="io.github.ethanrdoesmc.gandalf$1"
 PKG_PACKAGE_REGEX="io\.github\.ethanrdoesmc\.gandalf$1"
 PKG_NAME="Gandalf for $(cat $1/name.txt)"
-# Check if the version we are currently building is added to all_versions.txt
 
-# First remove all possible spaces at the end of the line to make the $ (anchor for end of line) work
+# for security add a allow-multiple-installs parameter. It won't add all other Gandalf version to the replaces section. 
+if [ "$2" != "allow-multiple-installs" ]; then 
+ # Check if the version we are currently building is added to all_versions.txt
 
-sed -i 's/ *$//' all_versions.txt
+ # First remove all possible spaces at the end of the line to make the $ (anchor for end of line) work
 
-if [ "$(cat all_versions.txt | grep ${PKG_PACKAGE_REGEX}$)" = "" ]; then
-  echo "Adding currently building version to all_versions.txt..."
-  printf "${PKG_PACKAGE}\n" >> all_versions.txt
+ sed -i 's/ *$//' all_versions.txt
+
+ if [ "$(cat all_versions.txt | grep ${PKG_PACKAGE_REGEX}$)" = "" ]; then
+   echo "Adding currently building version to all_versions.txt..."
+   printf "${PKG_PACKAGE}\n" >> all_versions.txt
+
+ fi
+
+ # Set and make tempdir. Thanks to https://unix.stackexchange.com/a/84980
+ # should work on macOS and Linux. 
+
+ GDN_TEMPDIR=$(mktemp -d 2>/dev/null || mktemp -d -t 'mytmpdir.XXXXXX')
+
+ # Get all Gandalf versions, except the one we are building, parse them in one line and save them in the variable "OTHER_VERSIONS"
+
+ OTHER_VERSIONS=$(cat all_versions.txt | grep -v ${PKG_PACKAGE_REGEX}'$')
+
+ # Save them in a temporary file
+ printf "${OTHER_VERSIONS}\n" > $GDN_TEMPDIR/tmp_replaces.tmp
+ # Add all packages which are in replaces.txt to the temporary file
+ cat $1/replaces.txt >> $GDN_TEMPDIR/tmp_replaces.tmp
+ # Sort them, parse them in one line and save them in "PKG_REPLACES"
+
+ PKG_REPLACES=$(cat $GDN_TEMPDIR/tmp_replaces.tmp | sort | sed ':a;N;$!ba;s/\n/,\ /g')
+
+else 
+ read -p "--- You are now building gandalf without adding all other versions to the REPLACES section. Press any key to continue. ---"
+ PKG_REPLACES=$(cat $1/replaces.txt | sed ':a;N;$!ba;s/\n/,\ /g')
+
 fi
-
-# Set and make tempdir. Thanks to https://unix.stackexchange.com/a/84980
-# should work on macOS and Linux. 
-
-GDN_TEMPDIR=$(mktemp -d 2>/dev/null || mktemp -d -t 'mytmpdir.XXXXXX')
-
-# Get all Gandalf versions, except the one we are building, parse them in one line and save them in the variable "OTHER_VERSIONS"
-
-OTHER_VERSIONS=$(cat all_versions.txt | grep -v ${PKG_PACKAGE_REGEX}'$')
-
-# Save them in a temporary file
-printf "${OTHER_VERSIONS}\n" > $GDN_TEMPDIR/tmp_replaces.tmp
-# Add all packages which are in replaces.txt to the temporary file
-cat $1/replaces.txt >> $GDN_TEMPDIR/tmp_replaces.tmp
-# Sort them, parse them in one line and save them in "PKG_REPLACES"
-
-PKG_REPLACES=$(cat $GDN_TEMPDIR/tmp_replaces.tmp | sort | sed ':a;N;$!ba;s/\n/,\ /g')
 
 PKG_SECTION=$(cat $1/section.txt)
 PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
@@ -147,7 +157,7 @@ dpkg-deb -Zgzip -b "${PKG_PACKAGE}"
 #Clean up
 echo "Cleaning up temporary files and folders..."
 rm -rf "${PKG_PACKAGE}"
-rm -rf $GDN_TEMPDIR
+rm -rf "${GDN_TEMPDIR}"
 
 echo "Packaging done."
 echo "Filename: ${BOLD}${PKG_PACKAGE}.deb${NORMAL}"
