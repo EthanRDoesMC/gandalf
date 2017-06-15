@@ -64,19 +64,10 @@ if [ "$(cat all_versions.txt | grep ${PKG_PACKAGE_REGEX}$)" = "" ]; then
   printf "${PKG_PACKAGE}\n" >> all_versions.txt
 fi
 
-# Set tempdir because I don't want to write in environment variable.
-# If environment variable "TMPDIR" is empty, set $GDN_TEMPDIR as tempdir for gandalf. Else use the predefined tempdir/gandalf
+# Set and make tempdir. Thanks to https://unix.stackexchange.com/a/84980
+# should work on macOS and Linux. 
 
-if [ "$TMPDIR" == "" ]; then
-  echo NOTE: Variable '$TMPDIR' is empty! This is not an error. If you"'"re building on iOS this is normal. Make directory...
-  GDN_TEMPDIR="/tmp/gandalf"
-  mkdir ${GDN_TEMPDIR}
-
-  else 
-  GDN_TEMPDIR="$TMPDIR/gandalf"
-  mkdir $GDN_TEMPDIR
-
-fi
+GDN_TEMPDIR=$(mktemp -d 2>/dev/null || mktemp -d -t 'mytmpdir.XXXXXX')
 
 # Get all Gandalf versions, except the one we are building, parse them in one line and save them in the variable "OTHER_VERSIONS"
 
