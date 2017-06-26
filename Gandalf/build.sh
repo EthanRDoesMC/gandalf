@@ -43,16 +43,15 @@ if [ ! -d "$1" ] || [ ! -f "$1/conflicts.txt" ] || [ ! -f "$1/firmware.txt" ] ||
 	echo " - $1/section.txt"
 	exit 1
 fi
-
+PKG_NAME="Gandalf for $(cat $1/name.txt)"
 #Confirmation to continue
-read -p "${BOLD}Packaging ${PKG_NAME} will start. Press any key to continue...${NORMAL}"
-
+# read -p "${BOLD}Packaging ${PKG_NAME} will start. Press any key to continue...${NORMAL}"
+echo "${BOLD}Packaging ${PKG_NAME} will start...${NORMAL}"
 FIRMWARE=$(cat $1/firmware.txt)
 CONFLICTS_FILE="$1/conflicts.txt"
 
 PKG_PACKAGE="io.github.ethanrdoesmc.gandalf$1"
-PKG_PACKAGE_REGEX="io\.github\.ethanrdoesmc\.gandalf$1"
-PKG_NAME="Gandalf for $(cat $1/name.txt)"
+PKG_PACKAGE_REGEX="io\\.github\\.ethanrdoesmc\\.gandalf$1"
 
 # for security add a allow-multiple-installs parameter. It won't add all other Gandalf version to the replaces section. 
 if [ "$2" != "allow-multiple-installs" ]; then 
@@ -152,7 +151,16 @@ find . -type f -name '.DS_Store' -exec rm {} +
 echo "Creating the package..."
 
 dpkg-deb -Zgzip -b "${PKG_PACKAGE}"
+# Check if packaging was not successful; First save exitcode of dpkg-deb in variable to make it possible to better work with it. 
 
+DPKG_ERRORCODE=$(echo $?)
+if [ "${DPKG_ERRORCODE}" -ne "0" ]; then
+ echo "${RED}FATAL:${NORMAL} dpkg-deb exited with error code '${DPKG_ERRORCODE}'. Build was most likely NOT successful."
+ echo "Deleting temporary folder '${GDN_TEMPDIR}'"
+ echo "Please also check if all_versions.txt file is corrupted."
+ rm -rf "${GDN_TEMPDIR}"
+ exit ${DPKG_ERRORCODE}
+fi
 
 #Clean up
 echo "Cleaning up temporary files and folders..."
