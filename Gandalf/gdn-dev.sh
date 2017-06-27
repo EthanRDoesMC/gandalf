@@ -17,30 +17,48 @@ PACKAGE_REGEX="io\\.github\\.ethanrdoesmc\\.gandalf"
 
 function build_all () {
  echo "Building all gandalf versions..."
- # Get number of lines of the file all_versions.txt and save them in a variable
- echo "We currently have $(wc -l < all_versions.txt) known Gandalf versions."
-
-# First remove all possible spaces at the end of the line to make the $ (anchor for end of line) work
-
+ # Get number of lines of the file all_versions.txt and save them in a variable (uncomment for debug)
+ # echo "We currently have $(wc -l < all_versions.txt) known Gandalf versions."
+ # First remove all possible spaces at the end of the line to make the $ (anchor for end of line) work
  sed -i 's/ *$//' all_versions.txt
-
  # Get shortname of versions in all_versions.txt by deleting io.github.ethanrdoesmc.gandalf and compile gandalf as long as there is still a version --Comment not good, please edit--
 
- for VERSION in $(cat all_versions.txt | sed "s/^${PACKAGE_REGEX}//g"); do
-  ./build.sh "${VERSION}"
-  # Check if packaging was not successful; First save exitcode of build.sh in variable to make it possible to better work with it. 
-  BUILDSH_ERRORCODE=$(echo $?)
-  if [ "${BUILDSH_ERRORCODE}" -ne "0" ]; then
-   echo "${RED}FATAL:${NORMAL} build.sh exited with error code '${BUILDSH_ERRORCODE}'. Build was most likely NOT successful."
-   exit ${BUILDSH_ERRORCODE}
- fi
-done
+  for VERSION in $(cat all_versions.txt | sed "s/^${PACKAGE_REGEX}//g"); do
+
+   ./build.sh "${VERSION}"
+
+   # Check if packaging was not successful; First save exitcode of build.sh in variable to make it possible to better work with it. 
+   BUILDSH_ERRORCODE=$(echo $?)
+
+   if [ "${BUILDSH_ERRORCODE}" -ne "0" ]; then
+
+    echo "${RED}FATAL:${NORMAL} build.sh exited with error code '${BUILDSH_ERRORCODE}'. Build was most likely NOT successful."
+    exit ${BUILDSH_ERRORCODE}
+
+   fi
+
+  done
 }
+
 case $1 in
 "compile-for-repo")
   build_all
-  mv *.deb ../docs/
-  sh ../docs/update.sh
+  echo "Move packages to repo..."
+  mv *.deb ../docs/debs/
+  echo "Update repo..."
+  # Remove old files
+  rm ../docs/Packages
+  rm ../docs/Packages.gz
+  rm ../docs/Packages.bz2
+  dpkg-scanpackages ../docs/debs > ../docs/Packages
+  # Check if dpkg-scanpackages was not successful
+  DPKG_SCANPKGERRORC=$(echo $?)
+  if [ "$DPKG_SCANPKGERRORC" -ne "0" ]; then
+   echo "${RED}ERROR:${NORMAL} dpkg-scanpackages exited with errorcode '${DPKG_SCANPKGERRORC}'. Repo is most likely NOT useable. Please contact us on GitHub."
+  fi
+
+  gzip -c9 ../docs/Packages > ../docs/Packages.gz
+  bzip2 -c9 ../docs/Packages > ../docs/Packages.bz2
 ;;
 
 "compile-all")
@@ -72,27 +90,27 @@ case $1 in
 
 "clean")
   # Set and make tempdir. Thanks to https://unix.stackexchange.com/a/84980
- # should work on macOS and Linux. 
+  # should work on macOS and Linux.
 
- TEMPDIRECTORY=$(mktemp -d 2>/dev/null || mktemp -d -t 'mytmpdir.XXXXXX')
+  TEMPDIRECTORY=$(mktemp -d 2>/dev/null || mktemp -d -t 'mytmpdir.XXXXXX')
   echo 'Removing all possible spaces at the end of the line to make the $ (anchor for end of line) work'
+  sed -i 's/ *$//' all_versions.txt
 
- sed -i 's/ *$//' all_versions.txt
+  # Get shortname of versions in all_versions.txt by deleting io.github.ethanrdoesmc.gandalf; Sort conflicts.txt and replaces.txt of every known version. 
+  echo "Sorting packages in conflicts.txt and replaces.txt"
+  for VERSION in $(cat all_versions.txt | sed "s/^${PACKAGE_REGEX}//g"); do
+   cat ${VERSION}/conflicts.txt | sort > ${TEMPDIRECTORY}/conflicts.txt
+   cat ${TEMPDIRECTORY}/conflicts.txt > ${VERSION}/conflicts.txt
+   cat ${VERSION}/replaces.txt | sort > ${TEMPDIRECTORY}/replaces.txt
+   cat ${TEMPDIRECTORY}/replaces.txt > ${VERSION}/replaces.txt
 
- # Get shortname of versions in all_versions.txt by deleting io.github.ethanrdoesmc.gandalf; Sort conflicts.txt and replaces.txt of every known version. 
- echo "Sorting packages in conflicts.txt and replaces.txt"
- for VERSION in $(cat all_versions.txt | sed "s/^${PACKAGE_REGEX}//g"); do
-  cat ${VERSION}/conflicts.txt | sort > ${TEMPDIRECTORY}/conflicts.txt
-  cat ${TEMPDIRECTORY}/conflicts.txt > ${VERSION}/conflicts.txt
-  cat ${VERSION}/replaces.txt | sort > ${TEMPDIRECTORY}/replaces.txt
-  cat ${TEMPDIRECTORY}/replaces.txt > ${VERSION}/replaces.txt
-done
-echo "Cleaning up temporary folder..."
-rm -rf  ${TEMPDIRECTORY}
+  done
+  echo "Cleaning up temporary folder..."
+  rm -rf  ${TEMPDIRECTORY}
 ;;
 
 "setup-mac")
- echo "This will once setup your Mac, so that you can compile gandalf on it."
+  echo "This will once setup your Mac, so that you can compile gandalf on it."
 ;;
 
 *)
