@@ -15,14 +15,14 @@ fi
 PACKAGE_REGEX="io\\.github\\.ethanrdoesmc\\.gandalf"
 # Functions
 
-# build_all: Build all gandalf versions at once
 function build_all () {
- echo "Building all gandalf versions..."
- # Get number of lines of the file all_versions.txt and save them in a variable (uncomment for debug)
- # echo "We currently have $(wc -l < all_versions.txt) known Gandalf versions."
- # First remove all possible spaces at the end of the line to make the $ (anchor for end of line) work
- sed -i 's/ *$//' all_versions.txt
- # Get shortname of versions in all_versions.txt by deleting io.github.ethanrdoesmc.gandalf and compile gandalf as long as there is still a version --Comment not good, please edit--
+  # build_all: Build all gandalf versions at once
+  echo "Building all gandalf versions..."
+  # Get number of lines of the file all_versions.txt and save them in a variable (uncomment for debug)
+  # echo "We currently have $(wc -l < all_versions.txt) known Gandalf versions."
+  # First remove all possible spaces at the end of the line to make the $ (anchor for end of line) work
+  sed -i 's/ *$//' all_versions.txt
+  # Get shortname of versions in all_versions.txt by deleting io.github.ethanrdoesmc.gandalf and compile gandalf as long as there is still a version --Comment not good, please edit--
 
   for VERSION in $(cat all_versions.txt | sed "s/^${PACKAGE_REGEX}//g"); do
    ./build.sh "${VERSION}"
@@ -36,13 +36,13 @@ function build_all () {
     exit ${BUILDSH_ERRORCODE}
 
    fi
-
   done
 }
 
 # Main Switch: check with which parameter script is launched
 case $1 in
 "compile-for-repo")
+  read -p "-- Note: if you're on iOS this will most likely fail. Press any key to start. --"
   # Compile all known gandalf versions
   build_all
   # Move all debs to repo
