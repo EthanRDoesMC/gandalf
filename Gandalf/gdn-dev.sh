@@ -47,7 +47,7 @@ case $1 in
     echo "Please select one number of the following options:"
     # Ask if you want to continue to build
     select CHOICE in "Yes" "No"; do
-    # check which answer was given  
+    # check which answer was given
     case $CHOICE in
         Yes)
           echo "Continue..."
@@ -91,22 +91,28 @@ case $1 in
   read -p "Please enter shortname (eg. 'c'):" FOLDER_NAME
   echo ${FOLDER_NAME}
   mkdir ${FOLDER_NAME}
-  read -p "Please enter the supported firmware (format: =10.2 or <8.4):" FILE_FIRMWARE
+  read -p "Please enter the supported firmware (format: =10.2 or <8.4): " FILE_FIRMWARE
   printf "(${FILE_FIRMWARE})" > ${FOLDER_NAME}/firmware.txt
   echo "Gandalf is usually named after a jailbreak: Gandalf for <jailbreakname>. So: "
-  read -p "Please enter the name of the jailbreak here:" FILE_NAM
+  read -p "Please enter the name of the jailbreak here: " FILE_NAM
   printf "${FILE_NAME}" > ${FOLDER_NAME}/name.txt
-  read -p "Please enter the section now:" FILE_SECTION
+  read -p "Please enter the section now: " FILE_SECTION
   printf "${FILE_SECTION}" > ${FOLDER_NAME}/section.txt
   echo "Now there comes the most important step: you must now add all bundle identifiers to the file conflicts.txt."
   read -p "--- Press any key to continue --- "
   nano ${FOLDER_NAME}/conflicts.txt
   read -p "--Now please add the tweaks which should be removed if Gandalf is installed. Press any key to continue. --"
-  nano ${FOLDER_NAME}/conflicts.txt
+  nano ${FOLDER_NAME}/replaces.txt
   echo "Starting to build current version..."
   # Add version to all_versions.txt
   printf "io.github.ethanrdoesmc.gandalf${FOLDER_NAME}\n" >> all_versions.txt
   ./build.sh ${FOLDER_NAME}
+  # Check if build was not successfull
+  BUILDSH_ERRORCODE=$(echo $?)
+  if [ "${BUILDSH_ERRORCODE}" != "0" ]; then
+    echo "${RED}ERROR:${NORMAL} Couldn't build current version. Exitcode: ${BUILDSH_ERRORCODE}"
+    exit ${BUILDSH_ERRORCODE}
+  fi
   build_all
 ;;
 
@@ -118,7 +124,7 @@ case $1 in
   TEMPDIRECTORY=$(mktemp -d 2>/dev/null || mktemp -d -t 'mytmpdir.XXXXXX')
   # Sort versions in all_versions.txt alphabetically. 
   echo 'Sorting all_versions.txt...'
-  cat all_versions.txt > ${TEMPDIRECTORY}/all_versions.txt
+  cat all_versions.txt | sort > ${TEMPDIRECTORY}/all_versions.txt
   cat ${TEMPDIRECTORY}/all_versions.txt > all_versions.txt
   # Clean all_versions.txt
   echo 'Removing all possible spaces at the end of the line to make the $ (anchor for end of line) work'
