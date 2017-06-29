@@ -31,10 +31,8 @@ function build_all () {
    BUILDSH_ERRORCODE=$(echo $?)
 
    if [ "${BUILDSH_ERRORCODE}" -ne "0" ]; then
-
     echo "${RED}FATAL:${NORMAL} build.sh exited with error code '${BUILDSH_ERRORCODE}'. Build was most likely NOT successful."
     exit ${BUILDSH_ERRORCODE}
-
    fi
   done
 }
@@ -42,7 +40,26 @@ function build_all () {
 # Main Switch: check with which parameter script is launched
 case $1 in
 "compile-for-repo")
-  read -p "-- Note: if you're on iOS this will most likely fail. Press any key to start. --"
+  # check if we're running the script on an iPhone/iPad/iPod with uname -m 
+  if [[ "$(uname -m)" =~ iPhone.* || "$(uname -m)" =~ iPad.* || "$(uname -m)" =~ iPod.* ]]; then
+    # Output warning
+    echo "${RED}Note: if you're on iOS this will most likely fail.${NORMAL} Do you want to continue?"
+    echo "Please select one number of the following options:"
+    # Ask if you want to continue to build
+    select CHOICE in "Yes" "No"; do
+    # check which answer was given  
+    case $CHOICE in
+        Yes)
+          echo "Continue..."
+          break # get out of this select loop
+        ;;
+        No)
+          echo "Exit..."
+          exit 1 # exit the loop
+        ;;
+      esac
+    done
+  fi
   # Compile all known gandalf versions
   build_all
   # Move all debs to repo
@@ -60,7 +77,6 @@ case $1 in
   if [ "$DPKG_SCANPKGERRORC" -ne "0" ]; then
    echo "${RED}ERROR:${NORMAL} dpkg-scanpackages exited with errorcode '${DPKG_SCANPKGERRORC}'. Repo is most likely NOT useable. Please contact us on GitHub."
   fi
-
   gzip -c9 ../docs/Packages > ../docs/Packages.gz
   bzip2 -c9 ../docs/Packages > ../docs/Packages.bz2
 ;;
@@ -72,7 +88,6 @@ case $1 in
 
 "new")
   # Create new gandalf version
-
   read -p "Please enter shortname (eg. 'c'):" FOLDER_NAME
   echo ${FOLDER_NAME}
   mkdir ${FOLDER_NAME}
@@ -116,7 +131,6 @@ case $1 in
    cat ${TEMPDIRECTORY}/conflicts.txt > ${VERSION}/conflicts.txt
    cat ${VERSION}/replaces.txt | sort > ${TEMPDIRECTORY}/replaces.txt
    cat ${TEMPDIRECTORY}/replaces.txt > ${VERSION}/replaces.txt
-
   done
   # Cleanup
   echo "Cleaning up temporary folder..."
