@@ -39,26 +39,15 @@ function build_all () {
 
 # Main Switch: check with which parameter script is launched
 case $1 in
-"compile-for-repo")
-  # check if we're running the script on an iPhone/iPad/iPod with uname -m 
-  if [[ "$(uname -m)" =~ iPhone.* || "$(uname -m)" =~ iPad.* || "$(uname -m)" =~ iPod.* ]]; then
-    # Output warning
-    echo "${RED}Note: if you're on iOS this will most likely fail.${NORMAL} Do you want to continue?"
-    echo "Please select one number of the following options:"
-    # Ask if you want to continue to build
-    select CHOICE in "Yes" "No"; do
-    # check which answer was given
-    case $CHOICE in
-        Yes)
-          echo "Continue..."
-          break # get out of this select loop
-        ;;
-        No)
-          echo "Exit..."
-          exit 1 # exit the loop
-        ;;
-      esac
-    done
+"compile-for-repo"|"c4r")
+  # Check if dpkg-scanpackages exists via checking with "command -v"; if command -v exitcode != 0 then command doesn't exist
+  command -v dpkg-scanpackages
+  # Save exitcode in a variable 
+  COMMANDV_EXITC=$(echo $?)
+  echo ${COMMANDV_EXITC}
+  if [ "${COMMANDV_EXITC}" -ne "0" ]; then
+    echo "${RED}FATAL:${NORMAL} dpkg-scanpackages is not installed on this system. You won't be able to update the repo."
+    exit 1
   fi
   # Compile all known gandalf versions
   build_all
@@ -81,23 +70,57 @@ case $1 in
   bzip2 -c9 ../docs/Packages > ../docs/Packages.bz2
 ;;
 
-"compile-all")
+"compile-all"|ca)
   # Compile all known gandalf versions
   build_all
 ;;
 
 "new")
   # Create new gandalf version
-  read -p "Please enter shortname (eg. 'c'):" FOLDER_NAME
-  echo ${FOLDER_NAME}
-  mkdir ${FOLDER_NAME}
-  read -p "Please enter the supported firmware (format: =10.2 or <8.4): " FILE_FIRMWARE
-  printf "(${FILE_FIRMWARE})" > ${FOLDER_NAME}/firmware.txt
+  # In a while Loop check if we already have a version called like the input / input is empty 
+  while true; do
+    read -p "Please enter shortname (eg. 'c'): " FOLDER_NAME
+    if [ "${FOLDER_NAME}" = "$(cat all_versions.txt | sed 's/io\.github\.ethanrdoesmc\.gandalf//' | grep ^${FOLDER_NAME}\$)" ]; then
+      echo "${RED}ERROR:${NORMAL} You can't use this name, since it's invalid. We either have already gotten a version called like this, or you have left this field empty."
+    else
+      echo ${FOLDER_NAME}
+      mkdir ${FOLDER_NAME}
+      break
+    fi
+  done
+
+  while true; do
+    read -p "Please enter the supported firmware (format: =10.2 or <8.4): " FILE_FIRMWARE
+    if [ "$(echo ${FILE_FIRMWARE} | sed "s/ //g")" = "" ]; then
+      echo "ERROR: This mustn't be empty"
+      else
+      printf "(${FILE_FIRMWARE})" > ${FOLDER_NAME}/firmware.txt
+      break
+    fi
+  done
+
   echo "Gandalf is usually named after a jailbreak: Gandalf for <jailbreakname>. So: "
-  read -p "Please enter the name of the jailbreak here: " FILE_NAM
-  printf "${FILE_NAME}" > ${FOLDER_NAME}/name.txt
+  while true; do
+    read -p "Please enter the name of the jailbreak here: " FILE_NAME
+    if [ "$(echo ${FILE_NAME} | sed "s/ //g")" = "" ]; then
+      echo "ERROR: This mustn't be empty"
+      else
+      printf "${FILE_NAME}" > ${FOLDER_NAME}/name.txt
+      break
+   fi
+  done
+
+  while true; do
   read -p "Please enter the section now: " FILE_SECTION
-  printf "${FILE_SECTION}" > ${FOLDER_NAME}/section.txt
+
+  if [ "$(echo ${FILE_SECTION} | sed "s/ //g")" = "" ]; then
+      echo "ERROR: This mustn't be empty"
+      else
+      printf "${FILE_SECTION}" > ${FOLDER_NAME}/section.txt
+      break
+    fi
+  done
+
   echo "Now there comes the most important step: you must now add all bundle identifiers to the file conflicts.txt."
   read -p "--- Press any key to continue --- "
   nano ${FOLDER_NAME}/conflicts.txt
@@ -116,7 +139,7 @@ case $1 in
   build_all
 ;;
 
-"clean")
+"clean"|"cln")
   # Sort file contents alphabetically
   # Set and make tempdir. Thanks to https://unix.stackexchange.com/a/84980
   # should work on macOS and Linux.
