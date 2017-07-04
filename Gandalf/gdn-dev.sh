@@ -44,7 +44,6 @@ case $1 in
   command -v dpkg-scanpackages
   # Save exitcode in a variable 
   COMMANDV_EXITC=$(echo $?)
-  echo ${COMMANDV_EXITC}
   if [ "${COMMANDV_EXITC}" -ne "0" ]; then
     echo "${RED}FATAL:${NORMAL} dpkg-scanpackages is not installed on this system. You won't be able to update the repo."
     exit 1
@@ -90,11 +89,11 @@ case $1 in
   done
 
   while true; do
-    read -p "Please enter the supported firmware (format: =10.2 or <8.4): " FILE_FIRMWARE
+    read -p "Please enter the supported firmware (format: <=10.2 or >=8.4): " FILE_FIRMWARE
     if [ "$(echo ${FILE_FIRMWARE} | sed "s/ //g")" = "" ]; then
       echo "ERROR: This mustn't be empty"
       else
-      printf "(${FILE_FIRMWARE})" > ${FOLDER_NAME}/firmware.txt
+      printf "FIRMWARE: \"${FILE_FIRMWARE}\"\n" >> ${FOLDER_NAME}/config.cfg
       break
     fi
   done
@@ -105,7 +104,7 @@ case $1 in
     if [ "$(echo ${FILE_NAME} | sed "s/ //g")" = "" ]; then
       echo "ERROR: This mustn't be empty"
       else
-      printf "${FILE_NAME}" > ${FOLDER_NAME}/name.txt
+      printf "NAME: \"${FILE_NAME}\"\n" >> ${FOLDER_NAME}/config.cfg
       break
    fi
   done
@@ -116,11 +115,12 @@ case $1 in
   if [ "$(echo ${FILE_SECTION} | sed "s/ //g")" = "" ]; then
       echo "ERROR: This mustn't be empty"
       else
-      printf "${FILE_SECTION}" > ${FOLDER_NAME}/section.txt
+      printf "SECTION: \"${FILE_SECTION}\"\n" >> ${FOLDER_NAME}/config.cfg
       break
     fi
   done
-
+  # Add VERSION: to configfile (standard 2.0.0)
+  printf "VERSION: \"2.0.0\"\n" >> ${FOLDER_NAME}/config.cfg
   echo "Now there comes the most important step: you must now add all bundle identifiers to the file conflicts.txt."
   read -p "--- Press any key to continue --- "
   nano ${FOLDER_NAME}/conflicts.txt

@@ -6,8 +6,6 @@
 # for the most part (You can ignore some, like error checking for mv)
 
 # Config
-PKG_VERSION="2.5.5" #Bump this everytime you update something.
-
 
 #DO NOT TOUCH! (Unless you have a good reason...)
 #Variable format is "PKG_FIELDNAME"
@@ -32,22 +30,21 @@ if [ -z "$1" ]; then
   exit 0
 fi
 
-if [ ! -d "$1" ] || [ ! -f "$1/conflicts.txt" ] || [ ! -f "$1/firmware.txt" ] || [ ! -f "$1/name.txt" ] || [ ! -f "$1/replaces.txt" ] || [ ! -f "$1/section.txt" ]; then
+if [ ! -d "$1" ] || [ ! -f "$1/conflicts.txt" ] || [ ! -f "$1/config.cfg" ] || [ ! -f "$1/replaces.txt" ]; then
 	echo "${BOLD}${RED}ERROR:${NORMAL} Please check if these files or folders exist:"
 	echo
 	echo " - $1"
 	echo " - $1/conflicts.txt"
-	echo " - $1/firmware.txt"
-	echo " - $1/name.txt"
 	echo " - $1/replaces.txt"
-	echo " - $1/section.txt"
+	echo " - $1/config.cfg"
 	exit 1
 fi
-PKG_NAME="Gandalf for $(cat $1/name.txt)"
+PKG_NAME="Gandalf for $(cat $1/config.cfg | grep '^NAME:' | sed 's/^NAME:\ *\"//;s/\".*//' )"
 #Confirmation to continue
 # read -p "${BOLD}Packaging ${PKG_NAME} will start. Press any key to continue...${NORMAL}"
 echo "${BOLD}Packaging ${PKG_NAME} will start...${NORMAL}"
-FIRMWARE=$(cat $1/firmware.txt)
+FIRMWARE=$(cat $1/config.cfg | grep '^FIRMWARE:' | sed 's/^FIRMWARE:\ *\"//;s/\".*//')
+FIRMWARE=$(echo "($FIRMWARE)")
 CONFLICTS_FILE="$1/conflicts.txt"
 
 PKG_PACKAGE="io.github.ethanrdoesmc.gandalf$1"
@@ -90,7 +87,35 @@ else
 
 fi
 
-PKG_SECTION=$(cat $1/section.txt)
+# Get the values of the config file and save them in the matching variable
+# Check if configfile is valid
+# Make sure that we can get the exitcode of a command in the pipe which failed
+set -o pipefail
+
+cat $1/config.cfg | grep '^VERSION:' | sed 's/^VERSION:\ *\"//;s/\".*//' >> /dev/null
+if [ "$?" -ne "0" ]; then 
+  echo "${RED}ERROR:${NORMAL} Config file $1/config.cfg is invalid! Check line VERSION:"
+  exit 1
+fi
+cat $1/config.cfg | grep '^SECTION:' | sed 's/^SECTION:\ *\"//;s/\".*//' >> /dev/null
+if [ "$?" -ne "0" ]; then 
+  echo "${RED}ERROR:${NORMAL} Config file $1/config.cfg is invalid! Check line SECTION:"
+  exit 1
+fi
+cat $1/config.cfg | grep '^NAME:' | sed 's/^NAME:\ *\"//;s/\".*//' >> /dev/null
+if [ "$?" -ne "0" ]; then 
+  echo "${RED}ERROR:${NORMAL} Config file $1/config.cfg is invalid! Check line NAME:"
+  exit 1
+fi
+cat $1/config.cfg | grep '^FIRMWARE:' | sed 's/^FIRMWARE:\ *\"//;s/\".*//' >> /dev/null
+if [ "$?" -ne "0" ]; then 
+  echo "${RED}ERROR:${NORMAL} Config file $1/config.cfg is invalid! Check line FIRMWARE:"
+  exit 1
+fi
+
+# Read configfile, get the right line, and remove everything before the " and after the " -> we now have the value in between the "
+PKG_VERSION=$(cat $1/config.cfg | grep '^VERSION:' | sed 's/^VERSION:\ *\"//;s/\".*//' )
+PKG_SECTION=$(cat $1/config.cfg | grep '^SECTION:' | sed 's/^SECTION:\ *\"//;s/\".*//' )
 PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
 PKG_DEPENDS="firmware ${FIRMWARE}, sudo, com.officialscheduler.mterminal, mobilesubstrate"
 
