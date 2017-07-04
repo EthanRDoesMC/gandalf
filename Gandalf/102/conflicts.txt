@@ -1,16 +1,21 @@
 ch.sebikeller.automuter
 com.a3tweaks.auxo3ios9
 com.alexzielenski.tinybar
-com.enduniverse.cydiaextenderplus
+com.bengiannis.nougatshortcuts
 com.bolencki13.appendix
 com.cpdigitaldarkroom.volumebanner
-com.creatix.hoppin
 com.creatix.carrot
+com.creatix.hoppin
+com.enduniverse.cydiaextenderplus
+com.enduniverse.priorityhub
 com.fidele007.hotdog (<= 3.3.3-25)
 com.inasser.ariki
 com.microseconds.iblank
 com.strayadevteam.forcy
 com.supermamon.newpackage
+com.xx.XMIDEHelper
+com.xx.XModGame
+com.xx.XModGame5x
 eu.heinelt.ifile
 me.chewitt.cmc
 me.chewitt.mcpro
@@ -23,8 +28,3 @@ org.thebigboss.andrios
 org.thebigboss.protean
 org.thebigboss.spin
 org.thebigboss.vertex
-com.bengiannis.nougatshortcuts
-com.enduniverse.priorityhub
-com.xx.XModGame5x
-com.xx.XModGame
-com.xx.XMIDEHelper
