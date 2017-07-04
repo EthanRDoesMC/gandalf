@@ -41,8 +41,8 @@ function build_all () {
 case $1 in
 "compile-for-repo"|"c4r")
   # Check if dpkg-scanpackages exists via checking with "command -v"; if command -v exitcode != 0 then command doesn't exist
-  command -v dpkg-scanpackages
-  # Save exitcode in a variable 
+  command -v dpkg-scanpackages >> /dev/null
+  # Save exitcode in a variable
   COMMANDV_EXITC=$(echo $?)
   if [ "${COMMANDV_EXITC}" -ne "0" ]; then
     echo "${RED}FATAL:${NORMAL} dpkg-scanpackages is not installed on this system. You won't be able to update the repo."
