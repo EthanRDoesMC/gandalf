@@ -39,9 +39,11 @@ if [ ! -d "$1" ] || [ ! -f "$1/conflicts.txt" ] || [ ! -f "$1/config.cfg" ] || [
 	echo " - $1/config.cfg"
 	exit 1
 fi
+# read config file, print only the line containing 'NAME:' (the ^ represents beginning of line, if we don't add this it might also match 'N0NAME:' etc.), now delete everything before and after the ' " ' and voila: we have the value. 
 PKG_NAME="Gandalf for $(cat $1/config.cfg | grep '^NAME:' | sed 's/^NAME:\ *\"//;s/\".*//' )"
 #Confirmation to continue
 # read -p "${BOLD}Packaging ${PKG_NAME} will start. Press any key to continue...${NORMAL}"
+
 echo "${BOLD}Packaging ${PKG_NAME} will start...${NORMAL}"
 FIRMWARE=$(cat $1/config.cfg | grep '^FIRMWARE:' | sed 's/^FIRMWARE:\ *\"//;s/\".*//')
 FIRMWARE=$(echo "($FIRMWARE)")
@@ -51,7 +53,10 @@ PKG_PACKAGE="io.github.ethanrdoesmc.gandalf$1"
 PKG_PACKAGE_REGEX="io\\.github\\.ethanrdoesmc\\.gandalf$1"
 
 # for security add a allow-multiple-installs parameter. It won't add all other Gandalf version to the replaces section. 
-if [ "$2" != "allow-multiple-installs" ]; then 
+if [ "$2" = "allow-multiple-installs" ]; then
+  read -p "--- You are now building gandalf without adding all other versions to the REPLACES section. Press any key to continue. ---"
+ PKG_REPLACES=$(cat $1/replaces.txt | sed ':a;N;$!ba;s/\n/,\ /g')
+  else
  # Check if the version we are currently building is added to all_versions.txt
 
  # First remove all possible spaces at the end of the line to make the $ (anchor for end of line) work
@@ -81,10 +86,6 @@ if [ "$2" != "allow-multiple-installs" ]; then
 
  PKG_REPLACES=$(cat $GDN_TEMPDIR/tmp_replaces.tmp | sort | sed ':a;N;$!ba;s/\n/,\ /g')
 
-else 
- read -p "--- You are now building gandalf without adding all other versions to the REPLACES section. Press any key to continue. ---"
- PKG_REPLACES=$(cat $1/replaces.txt | sed ':a;N;$!ba;s/\n/,\ /g')
-
 fi
 
 # Get the values of the config file and save them in the matching variable
@@ -92,7 +93,7 @@ fi
 # Make sure that we can get the exitcode of a command in the pipe which failed
 set -o pipefail
 
-cat $1/config.cfg | grep '^VERSION:' | sed 's/^VERSION:\ *\"//;s/\".*//' >> /dev/null
+cat $1/config.cfg | grep '^BUILD:' | sed 's/^BUILD:\ *\"//;s/\".*//' >> /dev/null
 if [ "$?" -ne "0" ]; then 
   echo "${RED}ERROR:${NORMAL} Config file $1/config.cfg is invalid! Check line VERSION:"
   exit 1
@@ -114,7 +115,7 @@ if [ "$?" -ne "0" ]; then
 fi
 
 # Read configfile, get the right line, and remove everything before the " and after the " -> we now have the value in between the "
-PKG_VERSION=$(cat $1/config.cfg | grep '^VERSION:' | sed 's/^VERSION:\ *\"//;s/\".*//' )
+PKG_VERSION=$(cat $1/config.cfg | grep '^BUILD:' | sed 's/^BUILD:\ *\"//;s/\".*//' )
 PKG_SECTION=$(cat $1/config.cfg | grep '^SECTION:' | sed 's/^SECTION:\ *\"//;s/\".*//' )
 PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
 PKG_DEPENDS="firmware ${FIRMWARE}, sudo, com.officialscheduler.mterminal, mobilesubstrate"

@@ -1,18 +1,11 @@
 #!/bin/bash
-# This script is the main script for managing the repository
+# This script is the main script for managing the repository in an user friendlier way. 
 # You can: Create new gandalf versions, push all gandalf versions to the repo and compile all versions of gandalf with this script.
 # Style
 BOLD=$(tput bold)
 NORMAL=$(tput sgr0)
 RED=$(tput setaf 1)
 
-# Check if script is launched without parameters and output error.
-if [ "$1" = "" ]; then
- echo "${BOLD}USAGE:${NORMAL} '$0 <option>'"
- exit 1
-fi
-# Regular expression of gandalf bundle identifier, we need 2 '\' because bash eats up the first one. 
-PACKAGE_REGEX="io\\.github\\.ethanrdoesmc\\.gandalf"
 # Functions
 
 function build_all () {
@@ -37,10 +30,34 @@ function build_all () {
   done
 }
 
+function list_options () {
+  # Print all available options on terminal
+  echo
+  echo "  ${BOLD}Available options:${NORMAL}"
+  echo "    - '$0 compile-all' or short '$0 ca': Compile all versions of gandalf at once"
+  echo "    - '$0 compile-for-repo' or short '$0 c4r': Compile all versions of gandalf at once and update repository"
+  echo "    - '$0 clean' or short '$0 cln': Sort all conflicts.txt and replaces.txt alphabetically"
+  echo "    - '$0 new': Create a new version of gandalf"
+  echo "    - '$0 setup-mac': Doing nothing at the moment"
+  echo
+}
+
+# Check if script is launched without parameters and output error and available options
+if [ "$1" = "" ]; then
+ echo "${BOLD}USAGE:${NORMAL} '$0 <option>'"
+  list_options
+ exit 1
+fi
+# Regular expression of gandalf bundle identifier, we need 2 '\' because bash eats up the first one. 
+PACKAGE_REGEX="io\\.github\\.ethanrdoesmc\\.gandalf"
+
+
 # Main Switch: check with which parameter script is launched
+
 case $1 in
 "compile-for-repo"|"c4r")
-  # Check if dpkg-scanpackages exists via checking with "command -v"; if command -v exitcode != 0 then command doesn't exist
+  # Check if dpkg-scanpackages exists via checking with "command -v"; if command -v exitcode != 0 then command doesn't exist output the output to the black hole /dev/null
+
   command -v dpkg-scanpackages >> /dev/null
   # Save exitcode in a variable
   COMMANDV_EXITC=$(echo $?)
@@ -69,7 +86,7 @@ case $1 in
   bzip2 -c9 ../docs/Packages > ../docs/Packages.bz2
 ;;
 
-"compile-all"|ca)
+"compile-all"|"ca")
   # Compile all known gandalf versions
   build_all
 ;;
@@ -120,7 +137,7 @@ case $1 in
     fi
   done
   # Add VERSION: to configfile (standard 2.0.0)
-  printf "VERSION: \"2.0.0\"\n" >> ${FOLDER_NAME}/config.cfg
+  printf "BUILD: \"2.0.0\"\n" >> ${FOLDER_NAME}/config.cfg
   echo "Now there comes the most important step: you must now add all bundle identifiers to the file conflicts.txt."
   read -p "--- Press any key to continue --- "
   nano ${FOLDER_NAME}/conflicts.txt
@@ -154,12 +171,15 @@ case $1 in
   sed -i 's/ *$//' all_versions.txt
   # Get shortname of versions in all_versions.txt by deleting io.github.ethanrdoesmc.gandalf; Sort conflicts.txt and replaces.txt of every known version. 
   echo "Sorting packages in conflicts.txt and replaces.txt"
+ echo "Sorting config file"
   for VERSION in $(cat all_versions.txt | sed "s/^${PACKAGE_REGEX}//g"); do
-  # output file content, sort them, save them to a temporary file, and rewrite them back
-   cat ${VERSION}/conflicts.txt | sort > ${TEMPDIRECTORY}/conflicts.txt
-   cat ${TEMPDIRECTORY}/conflicts.txt > ${VERSION}/conflicts.txt
-   cat ${VERSION}/replaces.txt | sort > ${TEMPDIRECTORY}/replaces.txt
-   cat ${TEMPDIRECTORY}/replaces.txt > ${VERSION}/replaces.txt
+  # output file content, sort it, save it to a temporary file, and rewrite them back
+   CONFLICTS_SORTED=$(cat ${VERSION}/conflicts.txt | sort)
+   printf "${CONFLICTS_SORTED}" > ${VERSION}/conflicts.txt
+   REPLACES_SORTED=$(cat ${VERSION}/replaces.txt | sort)
+   printf "${REPLACES_SORTED}" > ${VERSION}/replaces.txt
+  CONFIG_SORTED=$(cat ${VERSION}/config.cfg | sort)
+  printf "${CONFIG_SORTED}" > ${VERSION}/config.cfg
   done
   # Cleanup
   echo "Cleaning up temporary folder..."
@@ -168,11 +188,27 @@ case $1 in
 
 "setup-mac")
   # To be done...
+  # Eye candy
+# Prints ascii art "Gandalf" on terminal
+echo "WELCOME TO"
+cat << "EOF"
+  _____                 _       _  __ 
+ / ____|               | |     | |/ _|
+| |  __  __ _ _ __   __| | __ _| | |_ 
+| | |_ |/ _` | '_ \ / _` |/ _` | |  _|
+| |__| | (_| | | | | (_| | (_| | | |  
+ \_____|\__,_|_| |_|\__,_|\__,_|_|_|  
+
+EOF
+
   echo "This will once setup your Mac, so that you can compile gandalf on it."
 ;;
 
 *)
+  # If the option is invalid get here and output error & available options
   echo "${RED}ERROR:${NORMAL} Unknown parameter '$1'."
+  list_options
+  exit 1
 ;;
 
 esac

@@ -19,6 +19,18 @@ uicache
 echo "Temporary command permissions fix running"
 chmod 0755 /usr/bin/gandalf
 echo "Done! In the future you (hopefully) won't have to see this."
+# Eye candy and maybe let's the user look here...
+# Prints ascii art "Gandalf" on Cydia install screen 
+echo "WELCOME TO"
+cat << "EOF"
+  _____                 _       _  __ 
+ / ____|               | |     | |/ _|
+| |  __  __ _ _ __   __| | __ _| | |_ 
+| | |_ |/ _` | '_ \ / _` |/ _` | |  _|
+| |__| | (_| | | | | (_| | (_| | | |  
+ \_____|\__,_|_| |_|\__,_|\__,_|_|_|  
+EOF
+
 echo
 echo "--- Now please run 'gandalf hold'! Just to be safe. ---"
 echo
