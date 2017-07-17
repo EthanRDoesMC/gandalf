@@ -13,7 +13,6 @@
 PKG_DESCRIPTION="Some tweaks may break jailbreaks. Let this tweak say
   \"You Shall Not Pass!\" to incompatible tweaks and you can sit back and have
   fun with your jailbreak."
-PKG_DEPICTION="https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalf102"
 PKG_MAINTAINER="EthanRDoesMC <ethanrdoesmc@gmail.com>"
 PKG_AUTHOR="EthanRDoesMC <ethanrdoesmc@gmail.com>"
 PKG_ARCHITECTURE='iphoneos-arm'
@@ -113,13 +112,17 @@ if [ "$?" -ne "0" ]; then
   echo "${RED}ERROR:${NORMAL} Config file $1/config.cfg is invalid! Check line FIRMWARE:"
   exit 1
 fi
-
+cat $1/config.cfg | grep '^DEPICTION:' | sed 's/^DEPICTION:\ *\"//;s/\".*//' >> /dev/null
+if [ "$?" -ne "0" ]; then 
+  echo "${RED}ERROR:${NORMAL} Config file $1/config.cfg is invalid! Check line DEPICTION:"
+  exit 1
+fi
 # Read configfile, get the right line, and remove everything before the " and after the " -> we now have the value in between the "
 PKG_VERSION=$(cat $1/config.cfg | grep '^BUILD:' | sed 's/^BUILD:\ *\"//;s/\".*//' )
 PKG_SECTION=$(cat $1/config.cfg | grep '^SECTION:' | sed 's/^SECTION:\ *\"//;s/\".*//' )
 PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed ':a;N;$!ba;s/\n/,\ /g')
 PKG_DEPENDS="firmware ${FIRMWARE}, sudo, com.officialscheduler.mterminal, mobilesubstrate"
-
+PKG_DEPICTION=$(cat $1/config.cfg | grep '^DEPICTION:' | sed 's/^DEPICTION:\ *\"//;s/\".*//')
 #Start message
 echo "Started packaging ${PKG_NAME}"
 

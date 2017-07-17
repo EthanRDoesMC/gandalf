@@ -138,6 +138,7 @@ case $1 in
   done
   # Add VERSION: to configfile (standard 2.0.0)
   printf "BUILD: \"2.0.0\"\n" >> ${FOLDER_NAME}/config.cfg
+  printf "DEPICTION: \"https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalf102\"\n" >> ${FOLDER_NAME}/config.cfg
   echo "Now there comes the most important step: you must now add all bundle identifiers to the file conflicts.txt."
   read -p "--- Press any key to continue --- "
   nano ${FOLDER_NAME}/conflicts.txt
