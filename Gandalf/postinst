@@ -1,6 +1,15 @@
 #!/bin/bash
 
 #Main script
+
+#Check if old gandalf.app (lowercase g) exists + remove it
+
+if [ -e /Applications/gandalf.app ]; then
+  echo "Debug: Found old gandalf.app application. This is no error."
+  echo "Removing it..."
+  rm -rf /Applications/gandalf.app
+fi
+
 echo "Installing the Gandalf application..."
 echo "Unpacking…"
 
