@@ -1,0 +1,17 @@
+body{
+  background-color:#d3d3d3;
+  padding: 10px;
+  font-family: -apple-system,BlinkMacSystemFont,sans-serif;
+}
+h1{
+  font-size: 40pt;
+}
+header{
+  width:100%;
+  float:left;
+}
+a{
+  text-decoration:none;
+  font-weight:bold;
+  color:;
+}
