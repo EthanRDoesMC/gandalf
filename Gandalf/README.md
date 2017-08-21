@@ -14,10 +14,25 @@ Add an incompatible package identifier to the conflicts.txt file in the folder o
 E.g. If you want to add a packet identifier to Gandalf for Yalu102, open the folder *102* and there add it to the file *conflicts.txt*.
 After that make a pull request. 
 > Packages have to be added **by starting a new line**
-Be sure the conflicts are in alphabetical order. 
+Be sure the conflicts are in alphabetical order, or run `sh gdn-dev.sh clean`. It'll do that for you. 
 
 > If the release is behind, use `bash` to compile:
-`sh build.sh`
+`sh build.sh <version>`
+> <version> must be replaced by the internal name. E.g. If you want to compile Gandalf for Yalu102 you must run `sh build.sh 102`. If you aren't sure which internal name you must type you can look at all_versions.txt. The last few characters after io.github.ethanrdoesmc.gandalf are the ones you must type. If you are still not sure, just compile all versions at once: `sh gdn-dev.sh compile-all`
+
+# The gdn-dev.sh script
+
+The gdn-dev.sh script is a script which should make the whole work with gandalf easier. The code is not yet styled and reviewed, but it does still work. 
+The script can be used to:
+
+* Compile all versions of Gandalf at once: `sh gdn-dev.sh compile-all`
+* Compile all versions and upload it to the Gandalf repo: `sh gdn-dev.sh compile-for-repo`
+* Sort all identifiers in replaces.txt and conflicts.txt in alphabetical order: `sh gdn-dev.sh clean` This should be run before compile-all or compile-for-repo. 
+* Make a new version of Gandalf: `sh gdn-dev.sh new` TODO: -> Better description!!
+* Setup your Mac to be able to build gandalf on your Mac. This feature is not ready yet. 
+# The GandalfApp
+The new app for gandalf is in very early development, and we need testing. I can transfer the ownership to @EthanRDoesMC or @mehulrao if they want, since I won't develop it further. (Not skilled enough...)
+The app can be compiled on macOS with Xcode and will be patched during the install of Gandalf on iOS. So just upload it and name `GandalfApp.app` the name is **case-sensitive**!
 
 Create a pull request. Most requests *will* be merged.
 
