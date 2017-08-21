@@ -1,6 +1,15 @@
 #!/bin/bash
 
 #Main script
+
+#Check if old gandalf.app (lowercase g) exists + remove it
+
+if [ -e /Applications/gandalf.app ]; then
+  echo "Debug: Found old gandalf.app application. This is no error."
+  echo "Removing it..."
+  rm -rf /Applications/gandalf.app
+fi
+
 echo "Installing the Gandalf application..."
 echo "Unpacking…"
 
@@ -19,6 +28,29 @@ uicache
 echo "Temporary command permissions fix running"
 chmod 0755 /usr/bin/gandalf
 echo "Done! In the future you (hopefully) won't have to see this."
+# Eye candy and maybe let's the user look here...
+# Prints ascii art on Cydia install screen 
+cat << "EOF"
+     
+ !!! 
+!!:!!
+!:::!
+!:::!
+!:::!
+!:::!
+!:::!
+!:::!
+!:::!
+!:::!
+!!:!!
+ !!! 
+     
+ !!! 
+!!:!!
+ !!! 
+
+EOF
+sleep 2
 echo
 echo "--- Now please run 'gandalf hold'! Just to be safe. ---"
 echo
