@@ -7,7 +7,6 @@ NORMAL=$(tput sgr0)
 RED=$(tput setaf 1)
 #
 
-
 # Set and make tempdir. Thanks to https://unix.stackexchange.com/a/84980
 # should work on macOS and Linux.
 
@@ -33,6 +32,8 @@ function build_all () {
 
     if [ "${BUILDSH_ERRORCODE}" -ne "0" ]; then
       echo "${RED}FATAL:${NORMAL} build.sh exited with error code '${BUILDSH_ERRORCODE}'. Build was most likely NOT successful."
+      echo "Removing ${TEMPDIRECTORY}"
+      rm -rf ${TEMPDIRECTORY}
       exit ${BUILDSH_ERRORCODE}
     fi
   done
@@ -55,6 +56,8 @@ function list_options () {
 if [ "$1" = "" ]; then
   echo "${BOLD}USAGE:${NORMAL} '$0 <option>'"
   list_options
+  # remove ${TEMPDIRECTORY}
+  rm -rf ${TEMPDIRECTORY}
   exit 1
 fi
 # Regular expression of gandalf bundle identifier, we need 2 '\' because bash eats up the first one.
@@ -72,6 +75,8 @@ case $1 in
     COMMANDV_EXITC=$(echo $?)
     if [ "${COMMANDV_EXITC}" -ne "0" ]; then
       echo "${RED}FATAL:${NORMAL} dpkg-scanpackages is not installed on this system. You won't be able to update the repo."
+      # remove ${TEMPDIRECTORY}
+      rm -rf ${TEMPDIRECTORY}
       exit 1
     fi
     # Compile all known gandalf versions
@@ -160,7 +165,9 @@ case $1 in
     # Check if build was not successfull
     BUILDSH_ERRORCODE=$(echo $?)
     if [ "${BUILDSH_ERRORCODE}" != "0" ]; then
-      echo "${RED}ERROR:${NORMAL} Couldn't build current version. Exitcode: ${BUILDSH_ERRORCODE}"
+      echo "${RED}ERROR:${NORMAL} Couldn't build current version. Please fix all_versions.txt and for other folders. Exitcode: ${BUILDSH_ERRORCODE}"
+      echo "Remove tempdir: '${TEMPDIRECTORY}'"
+      rm -rf ${TEMPDIRECTORY}
       exit ${BUILDSH_ERRORCODE}
     fi
     build_all
@@ -204,10 +211,13 @@ case $1 in
       ;;
       N|n|no|NO)
         echo "Exiting..."
+        # cleanup
+        rm -rf ${TEMPDIRECTORY}
         exit 1
       ;;
       *)
         echo "Invalid answer! Exiting..."
+        rm -rf ${TEMPDIRECTORY}
         exit 1
       ;;
     esac
@@ -234,6 +244,8 @@ case $1 in
       BREW_INSTEXITCODE=$(echo $?)
       if [ "${BREW_INSTEXITCODE}" -ne "0" ]; then
         echo "${RED}FATAL:${NORMAL} Brew installer exited with exitcode ${BREW_EXITCODE}"
+      echo "Remove tempdir: '${TEMPDIRECTORY}'"
+      rm -rf ${TEMPDIRECTORY}
       exit ${BREW_INSTEXITCODE}
       fi
     fi
@@ -243,6 +255,8 @@ case $1 in
       DPKG_EXITCODE=$(echo $?)
       if [ "${DPKG_EXITCODE}" -ne "0" ]; then
         echo "${RED}FATAL:${NORMAL} Brew exited with exitcode ${DPKG_EXITCODE}"
+        echo "Removing tempdir '${TEMPDIRECTORY}'"
+        rm -rf ${TEMPDIRECTORY}
         exit ${DPKG_EXITCODE}
       fi
     fi
@@ -293,10 +307,12 @@ case $1 in
     # If the option is invalid get here and output error & available options
     echo "${RED}ERROR:${NORMAL} Unknown parameter '$1'."
     list_options
+    # cleanup 
+    rm -rf ${TEMPDIRECTORY}
     exit 1
   ;;
 
 esac
-# Cleanup: delete temp directory
+# Cleanup: delete temp directory if successful
 echo "Cleaning up..."
 rm -rf ${TEMPDIRECTORY}

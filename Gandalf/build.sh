@@ -30,7 +30,7 @@ fi
 #Sanity Checks
 if [ -z "$1" ]; then
   echo "${BOLD}Usage:${NORMAL} './build.sh <version>'"
-  exit 0
+  exit 1
 fi
 
 if [ ! -d "$1" ] || [ ! -f "$1/conflicts.txt" ] || [ ! -f "$1/config.cfg" ] || [ ! -f "$1/replaces.txt" ]; then
@@ -101,26 +101,41 @@ set -o pipefail
 cat $1/config.cfg | grep '^BUILD:' | sed -e 's/^BUILD:\ *\"//;s/\".*//' >> /dev/null
 if [ "$?" -ne "0" ]; then
   echo "${RED}ERROR:${NORMAL} Config file $1/config.cfg is invalid! Check line VERSION:"
+  #Clean up
+  echo "Removing '${GDN_TEMPDIR}"
+  rm -rf "${GDN_TEMPDIR}"
   exit 1
 fi
 cat $1/config.cfg | grep '^SECTION:' | sed -e 's/^SECTION:\ *\"//;s/\".*//' >> /dev/null
 if [ "$?" -ne "0" ]; then
   echo "${RED}ERROR:${NORMAL} Config file $1/config.cfg is invalid! Check line SECTION:"
+  #Clean up
+  echo "Removing ${GDN_TEMPDIR}"
+  rm -rf "${GDN_TEMPDIR}"
   exit 1
 fi
 cat $1/config.cfg | grep '^NAME:' | sed -e 's/^NAME:\ *\"//;s/\".*//' >> /dev/null
 if [ "$?" -ne "0" ]; then
   echo "${RED}ERROR:${NORMAL} Config file $1/config.cfg is invalid! Check line NAME:"
+  #Clean up
+  echo "Removing '${GDN_TEMPDIR}"
+  rm -rf "${GDN_TEMPDIR}"
   exit 1
 fi
 cat $1/config.cfg | grep '^FIRMWARE:' | sed -e 's/^FIRMWARE:\ *\"//;s/\".*//' >> /dev/null
 if [ "$?" -ne "0" ]; then
   echo "${RED}ERROR:${NORMAL} Config file $1/config.cfg is invalid! Check line FIRMWARE:"
+  #Clean up
+  echo "Removing '${GDN_TEMPDIR}"
+  rm -rf "${GDN_TEMPDIR}"
   exit 1
 fi
 cat $1/config.cfg | grep '^DEPICTION:' | sed -e 's/^DEPICTION:\ *\"//;s/\".*//' >> /dev/null
 if [ "$?" -ne "0" ]; then
   echo "${RED}ERROR:${NORMAL} Config file $1/config.cfg is invalid! Check line DEPICTION:"
+  #Clean up
+  echo "Removing '${GDN_TEMPDIR}"
+  rm -rf "${GDN_TEMPDIR}"
   exit 1
 fi
 # Read configfile, get the right line, and remove everything before the " and after the " -> we now have the value in between the "
