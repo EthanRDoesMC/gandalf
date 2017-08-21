@@ -165,7 +165,7 @@ case $1 in
     # Check if build was not successfull
     BUILDSH_ERRORCODE=$(echo $?)
     if [ "${BUILDSH_ERRORCODE}" != "0" ]; then
-      echo "${RED}ERROR:${NORMAL} Couldn't build current version. Please fix all_versions.txt and for other folders. Exitcode: ${BUILDSH_ERRORCODE}"
+      echo "${RED}ERROR:${NORMAL} Couldn't build current version. Please fix all_versions.txt and check other folders. Exitcode: ${BUILDSH_ERRORCODE}"
       echo "Remove tempdir: '${TEMPDIRECTORY}'"
       rm -rf ${TEMPDIRECTORY}
       exit ${BUILDSH_ERRORCODE}
@@ -244,9 +244,9 @@ case $1 in
       BREW_INSTEXITCODE=$(echo $?)
       if [ "${BREW_INSTEXITCODE}" -ne "0" ]; then
         echo "${RED}FATAL:${NORMAL} Brew installer exited with exitcode ${BREW_EXITCODE}"
-      echo "Remove tempdir: '${TEMPDIRECTORY}'"
-      rm -rf ${TEMPDIRECTORY}
-      exit ${BREW_INSTEXITCODE}
+        echo "Remove tempdir: '${TEMPDIRECTORY}'"
+        rm -rf ${TEMPDIRECTORY}
+        exit ${BREW_INSTEXITCODE}
       fi
     fi
     if [ "${I_DPKG}" == "false" ]; then
