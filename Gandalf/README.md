@@ -22,17 +22,21 @@ Be sure the conflicts are in alphabetical order, or run `sh gdn-dev.sh clean`. I
 
 # The gdn-dev.sh script
 
-The gdn-dev.sh script is a script which should make the whole work with gandalf easier. The code is not yet styled and reviewed, but it does still work. 
+The gdn-dev.sh script is a script which should make the whole work with gandalf easier. 
 The script can be used to:
 
 * Compile all versions of Gandalf at once: `sh gdn-dev.sh compile-all`
 * Compile all versions and upload it to the Gandalf repo: `sh gdn-dev.sh compile-for-repo`
 * Sort all identifiers in replaces.txt and conflicts.txt in alphabetical order: `sh gdn-dev.sh clean` This should be run before compile-all or compile-for-repo. 
 * Make a new version of Gandalf: `sh gdn-dev.sh new` TODO: -> Better description!!
-* Setup your Mac to be able to build gandalf on your Mac. This feature is not ready yet. 
+* Setup your Mac to be able to build gandalf on your Mac. This feature is not yet tested on a clean Mac but it installs brew and dpkg if needed. Run it with `sh gdn-dev.sh setup-mac`
+* Check if the most important tools for compiling gandalf are installed on your system. This isn't complete yet but it's in late beta. Run it with `sh gdn-dev.sh check`
+
 # The GandalfApp
 The new app for gandalf is in very early development, and we need testing. I can transfer the ownership to @EthanRDoesMC or @mehulrao if they want, since I won't develop it further. (Not skilled enough...)
 The app can be compiled on macOS with Xcode and will be patched during the install of Gandalf on iOS. So just upload it and name `GandalfApp.app` the name is **case-sensitive**!
+
+# Pull requests
 
 Create a pull request. Most requests *will* be merged.
 
