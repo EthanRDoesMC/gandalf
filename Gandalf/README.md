@@ -5,7 +5,7 @@ Did you know? Control file fields can be entered in any order. This means the de
 
 # How to install?
 Install via my repo: https://ethanrdoesmc.github.io/gandalf/
-Tap [this][cydia://url/https://cydia.saurik.com/api/share#?source=https://ethanrdoesmc.github.io/gandalf/] to open in Cydia.
+Tap [this](cydia://url/https://ethanrdoesmc.github.io/gandalf/) to open in Cydia.
 There's also a little repo installer thing on my personal repo. https://ethanrdoesmc.github.io/repo
 # Contribute
 Fork this repository with the *Fork* button on the top right.
@@ -17,8 +17,7 @@ After that make a pull request.
 Be sure the conflicts are in alphabetical order, or run `sh gdn-dev.sh clean`. It'll do that for you. 
 
 > If the release is behind, use `bash` to compile:
-`sh build.sh <version>`
-> <version> must be replaced by the internal name. E.g. If you want to compile Gandalf for Yalu102 you must run `sh build.sh 102`. If you aren't sure which internal name you must type you can look at all_versions.txt. The last few characters after io.github.ethanrdoesmc.gandalf are the ones you must type. If you are still not sure, just compile all versions at once: `sh gdn-dev.sh compile-all`
+`sh build.sh <version>` while `<version>` must be replaced by the internal name. E.g. If you want to compile Gandalf for Yalu102 you must run `sh build.sh 102`. If you aren't sure which internal name you must type you can look at all_versions.txt. The last few characters after io.github.ethanrdoesmc.gandalf are the ones you must type. If you are still not sure, just compile all versions at once: `sh gdn-dev.sh compile-all`
 
 # The gdn-dev.sh script
 
