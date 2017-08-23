@@ -17,7 +17,7 @@ After that make a pull request.
 Be sure the conflicts are in alphabetical order, or run `sh gdn-dev.sh clean`. It'll do that for you. 
 
 > If the release is behind, use `bash` to compile:
-`sh build.sh <version>` while `<version>` must be replaced by the internal name. E.g. If you want to compile Gandalf for Yalu102 you must run `sh build.sh 102`. If you aren't sure which internal name you must type you can look at all_versions.txt. The last few characters after io.github.ethanrdoesmc.gandalf are the ones you must type. If you are still not sure, just compile all versions at once: `sh gdn-dev.sh compile-all`
+`sh build.sh <version>` while `<version>` must be replaced by the internal name. E.g. If you want to compile Gandalf for Yalu102 you must run `sh build.sh 102`. If you aren't sure which internal name you should use you can look at all_versions.txt. The last few characters after io.github.ethanrdoesmc.gandalf are the ones you should type. If you are still not sure, just compile all versions at once: `sh gdn-dev.sh compile-all`
 
 # The gdn-dev.sh script
 
