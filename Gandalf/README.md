@@ -5,7 +5,7 @@ Did you know? Control file fields can be entered in any order. This means the de
 
 # How to install?
 Install via my repo: https://ethanrdoesmc.github.io/gandalf/
-Tap [this](cydia://url/https://ethanrdoesmc.github.io/gandalf/) to open in Cydia.
+Tap [this](https://tinyurl.com/gandrepo) to open in Cydia.
 There's also a little repo installer thing on my personal repo. https://ethanrdoesmc.github.io/repo
 # Contribute
 Fork this repository with the *Fork* button on the top right.
