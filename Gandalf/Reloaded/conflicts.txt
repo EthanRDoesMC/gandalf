@@ -1,0 +1,4 @@
+com.bushe.lockhtml4
+com.rpetrich.rocketbootstrap (<<1.0.5)
+com.cpdigitaldarkroom.swiper
+com.midkin.youtubevolume

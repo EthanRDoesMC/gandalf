@@ -1,12 +1,12 @@
 #!/bin/bash
-# 
+#
 # Packages "Gandalf" into a deb
 #
 # Follow https://google.github.io/styleguide/shell.xml
 # for the most part (You can ignore some, like error checking for mv)
 
 # Config
-PKG_VERSION="2.5.5" #Bump this everytime you update something.
+PKG_VERSION="2.5.6" #Bump this everytime you update something.
 
 
 #DO NOT TOUCH! (Unless you have a good reason...)
@@ -34,7 +34,7 @@ fi
 
 if [ ! -d "$1" ] || [ ! -f "$1/conflicts.txt" ] || [ ! -f "$1/firmware.txt" ] || [ ! -f "$1/name.txt" ] || [ ! -f "$1/replaces.txt" ] || [ ! -f "$1/section.txt" ]; then
 	echo "${BOLD}${RED}ERROR:${NORMAL} Please check if these files or folders exist:"
-	echo 
+	echo
 	echo " - $1"
 	echo " - $1/conflicts.txt"
 	echo " - $1/firmware.txt"
@@ -48,14 +48,15 @@ fi
 read -p "${BOLD}Packaging ${PKG_NAME} will start. Press any key to continue...${NORMAL}"
 
 FIRMWARE=$(cat $1/firmware.txt)
+echo $1
 CONFLICTS_FILE="$1/conflicts.txt"
 
 PKG_PACKAGE="io.github.ethanrdoesmc.gandalf$1"
 PKG_PACKAGE_REGEX="io\.github\.ethanrdoesmc\.gandalf$1"
 PKG_NAME="Gandalf for $(cat $1/name.txt)"
 
-# for security add a allow-multiple-installs parameter. It won't add all other Gandalf version to the replaces section. 
-if [ "$2" != "allow-multiple-installs" ]; then 
+# for security add a allow-multiple-installs parameter. It won't add all other Gandalf version to the replaces section.
+if [ "$2" != "allow-multiple-installs" ]; then
  # Check if the version we are currently building is added to all_versions.txt
 
  # First remove all possible spaces at the end of the line to make the $ (anchor for end of line) work
@@ -69,7 +70,7 @@ if [ "$2" != "allow-multiple-installs" ]; then
  fi
 
  # Set and make tempdir. Thanks to https://unix.stackexchange.com/a/84980
- # should work on macOS and Linux. 
+ # should work on macOS and Linux.
 
  GDN_TEMPDIR=$(mktemp -d 2>/dev/null || mktemp -d -t 'mytmpdir.XXXXXX')
 
@@ -85,7 +86,7 @@ if [ "$2" != "allow-multiple-installs" ]; then
 
  PKG_REPLACES=$(cat $GDN_TEMPDIR/tmp_replaces.tmp | sort | sed ':a;N;$!ba;s/\n/,\ /g')
 
-else 
+else
  read -p "--- You are now building gandalf without adding all other versions to the REPLACES section. Press any key to continue. ---"
  PKG_REPLACES=$(cat $1/replaces.txt | sed ':a;N;$!ba;s/\n/,\ /g')
 
@@ -136,7 +137,7 @@ echo "Bundling ${GANDALF_COMMAND_NAME}..."
 
 cp "gandalf" "${PKG_PACKAGE}/usr/bin"
 
-#Make it executable 
+#Make it executable
 chmod +x "${PKG_PACKAGE}/usr/bin/gandalf"
 
 #Copy the DEBIAN scripts
