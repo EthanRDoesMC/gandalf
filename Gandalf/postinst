@@ -1,40 +1,100 @@
 #!/bin/bash
 
 #Main script
-echo "Installing the Gandalf application..."
-echo "Unpacking…"
 
-tar -xf /var/mobile/Downloads/Gandalf/Gandalf.app.tar.gz -C /Applications/
+#Check if old gandalf.app (lowercase g) exists + remove it
+
+if [ -e /Applications/gandalf.app ]; then
+  echo "Debug: Found old gandalf.app application. This is no error."
+  echo "Removing it..."
+  rm -rf /Applications/gandalf.app
+fi
+
+if [ -e /Applications/Gandalf.app ]; then
+  echo "Debug: Found old Gandalf.app application. This is no error."
+  echo "Removing it..."
+  rm -rf /Applications/Gandalf.app
+fi
+echo "Installing the Gandalf application..."
+echo "Unpacking..."
+
+tar -xf /var/mobile/Downloads/Gandalf/GandalfApp.app.tar.gz -C /var/mobile/Downloads/Gandalf/
+
+echo "Patching app..."
+
+mv /var/mobile/Downloads/Gandalf/GandalfApp.app/GandalfApp /var/mobile/Downloads/Gandalf/GandalfApp.app/exec
+
+#  Make the launcher script
+echo "Make startup script..."
+cat <<'EOF' > "/var/mobile/Downloads/Gandalf/GandalfApp.app/GandalfApp";
+#!/bin/bash
+# Launch app as root
+
+dir=$(dirname "$0")
+exec "${dir}"/exec "$@"
+EOF
+
+echo "Setting permissions..."
+
+#  set permissions, this is very important. The whole thing relies on the setuid bit
+
+chown root:wheel /var/mobile/Downloads/Gandalf/GandalfApp.app/GandalfApp
+chown root:wheel /var/mobile/Downloads/Gandalf/GandalfApp.app/exec
+chmod 0555 /var/mobile/Downloads/Gandalf/GandalfApp.app/GandalfApp
+chmod 6555 /var/mobile/Downloads/Gandalf/GandalfApp.app/exec
+# move it to Applications folder
+mv /var/mobile/Downloads/Gandalf/GandalfApp.app /Applications
+
 echo "App installed..."
 
+echo "Setting permissions for other files..."
+
+# set permissions of other gandalf files, don´t chown it to mobile!
+# if we did that, mobile and any app could add any code to the gandalf script and since this script
+# will be executed by root user (via the app) it would execute these commands as root
+# TL;DR: Maliscious App: echo "remove_everything" > /usr/bin/gandalf, App executes the script as root
+# Next day: WHY CAN`T I ACCESS MY iPHONE???????
+# so better do:
+
+chown root:wheel /usr/bin/gandalf
+chmod 555 /usr/bin/gandalf
+chown -R root:wheel /etc/gandalf
+chmod 444 /etc/gandalf/properties.plist
 
 echo "Cleaning up files..."
 
 rm -rf /var/mobile/Downloads/Gandalf
-
-
 echo "Please wait... Running uicache..."
 uicache
 
-echo "Temporary command permissions fix running"
-chmod 0755 /usr/bin/gandalf
-echo "Done! In the future you (hopefully) won't have to see this."
+# Eye candy and maybe let's the user look here...
+# Prints ascii art on Cydia install screen
+cat << "EOF"
+
+ !!!
+!!:!!
+!:::!
+!:::!
+!:::!
+!:::!
+!:::!
+!:::!
+!:::!
+!:::!
+!!:!!
+ !!!
+
+ !!!
+!!:!!
+ !!!
+
+EOF
+sleep 2
 echo
-echo "--- Now please run 'gandalf hold'! Just to be safe. ---"
+echo "--- Now please run the app and hold gandalf from there ---"
 echo
 echo "--Why should you do that?--"
-echo "This command prevents Cydia (better dpkg) from removing Gandalf automatically. If you don't execute this command you could install tweaks usually blocked by Gandalf if something removed Gandalf."
-echo
-echo "--How to do that?--"
-echo
-echo "In a terminal emulator like 'MTerminal' execute following commands:"
-echo 
-echo "   'su' to login as root (Administrator / superuser) default password: 'alpine'"
-echo "   'gandalf hold' (to prevent other tweaks from removing Gandalf)"
-echo
-echo "That's it. After you have executed these commands you can close MTerminal."
-echo "Afraid of forgetting them? There is an app on your Homescreen which shows you this command."
-sleep 5
+echo "This prevents Cydia (better dpkg) from removing Gandalf automatically. If you don't tap the button there, a bad tweak could remove Gandalf and install itself. Now Gandalf failed..."
 echo
 echo "Thanks for using Gandalf! (Wow you read this!)"
-sleep 2
+sleep 1

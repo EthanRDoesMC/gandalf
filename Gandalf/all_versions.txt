@@ -1,2 +1,3 @@
-io.github.ethanrdoesmc.gandalfx
 io.github.ethanrdoesmc.gandalf102
+io.github.ethanrdoesmc.gandalfReloaded
+io.github.ethanrdoesmc.gandalfx

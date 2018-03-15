@@ -39,6 +39,6 @@ echo "Done! If there was no error you're good to go!"
 	echo "$0 hold - Adds the \"Hold\" status to ${PKG_NAME} to block removal of the package"
 	echo
 	echo "$0 rmhold - removes the \"Hold\" status to allow removal of ${PKG_NAME}"
-exit 0
+exit 1
 	;;
 esac

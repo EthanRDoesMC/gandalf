@@ -1,6 +1,16 @@
 #!/bin/bash
 echo "Removing the Gandalf application…"
-rm -rf /Applications/Gandalf.app
-rm -rf /usr/bin/gandalf #Needed? Doesn't dpkg already do this -jonisc
+
+rm -rf /Applications/GandalfApp.app
+
+#Check if lowercase gandalf.app exists & then delete it
+
+if [ -e /Applications/gandalf.app ]; then
+  echo "Debug: Found old gandalf.app application. This is no error."
+  echo "Removing it..."
+  rm -rf /Applications/gandalf.app
+fi
+
+rm -rf /usr/bin/gandalf #Needed? Doesn't dpkg already do this -ann0see
 echo "Finished removing the Gandalf application"
 #really, you forgot the quotation mark? ugh... thank goodness dpkg tries the prerm from the newpackage if the old package prerm fails... -ethan

@@ -1,39 +1,53 @@
 Package: io.github.ethanrdoesmc.gandalf102
-Version: 2.5.1
+Version: 2.6.0
 Architecture: iphoneos-arm
 Maintainer: EthanRDoesMC <ethanrdoesmc@gmail.com>
-Depends: firmware (>=10.0), sudo, com.officialscheduler.mterminal, mobilesubstrate
-Breaks: ch.sebikeller.automuter, com.a3tweaks.auxo3ios9, com.alexzielenski.tinybar, com.enduniverse.cydiaextenderplus, com.bolencki13.appendix, com.cpdigitaldarkroom.volumebanner, com.creatix.hoppin, com.creatix.carrot, com.fidele007.hotdog (<= 3.3.3-25), com.inasser.ariki, com.microseconds.iblank, com.strayadevteam.forcy, com.supermamon.newpackage, eu.heinelt.ifile, me.chewitt.cmc, me.chewitt.mcpro, me.chewitt.seng, net.angelxwind.appsyncunified (<= 5.8), openssh, org.coolstar.classicfolders, org.protectmyprivacy.pmp, org.thebigboss.andrios, org.thebigboss.protean, org.thebigboss.spin, org.thebigboss.vertex, com.bengiannis.nougatshortcuts, com.enduniverse.priorityhub, com.xx.XModGame5x, com.xx.XModGame, com.xx.XMIDEHelper
-Replaces: com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102
+Depends: firmware (>=10.0), mobilesubstrate
+Breaks: ch.sebikeller.automuter, com.a3tweaks.auxo3ios9, com.alexzielenski.tinybar, com.bengiannis.nougatshortcuts, com.bolencki13.appendix, com.cpdigitaldarkroom.volumebanner, com.creatix.carrot, com.creatix.hoppin, com.enduniverse.cydiaextenderplus, com.enduniverse.priorityhub, com.fidele007.hotdog (<= 3.3.3-25), com.inasser.ariki, com.microseconds.iblank, com.strayadevteam.forcy, com.supermamon.newpackage, com.xx.XMIDEHelper, com.xx.XModGame, com.xx.XModGame5x, eu.heinelt.ifile, me.chewitt.cmc, me.chewitt.mcpro, me.chewitt.seng, net.angelxwind.appsyncunified (<= 5.8), openssh, org.coolstar.classicfolders, org.protectmyprivacy.pmp, org.thebigboss.andrios, org.thebigboss.protean, org.thebigboss.spin, org.thebigboss.vertex
+Replaces: com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102, io.github.ethanrdoesmc.gandalfReloaded, io.github.ethanrdoesmc.gandalfx
 Filename: debs/io.github.ethanrdoesmc.gandalf102.deb
-Size: 16547180
-MD5sum: 5c132c9cb0464004c04a15934069d0b5
-SHA1: 71fa332010df15b9f806267fcacbf5acf92788cb
-SHA256: 8aa071f116484b7d176101a42dcd6b65e7e2e0054fd6d0ce18792045d7fdeee9
+Size: 152980
+MD5sum: e6691d84543c8144d998f14407208a14
+SHA1: 0747d5b6cf5c42415be9f3cba6766399fc1041c0
+SHA256: 3c83150c19d645fe7ac768c033ca05b018a6d6eff360316a9c812a7fb8830529
 Section: Gandalf102
-Description: Some tweaks may break jailbreaks. Let this tweak say
-  "You Shall Not Pass!" to incompatible tweaks and you can sit back and have
-  fun with your jailbreak.
+Description: Some tweaks may break jailbreaks. Let this tweak say "You Shall Not Pass!" to incompatible tweaks and you can sit back and have fun with your jailbreak.
 Author: EthanRDoesMC <ethanrdoesmc@gmail.com>
 Depiction: https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalf102
 Name: Gandalf for Yalu102
 
-Package: io.github.ethanrdoesmc.gandalfx
-Version: 2.5
+Package: io.github.ethanrdoesmc.gandalfReloaded
+Version: 2.6.0
 Architecture: iphoneos-arm
 Maintainer: EthanRDoesMC <ethanrdoesmc@gmail.com>
-Depends: firmware (>=10.1), sudo, com.officialscheduler.mterminal, mobilesubstrate
-Breaks: ch.sebikeller.automuter, com.a3tweaks.auxo3ios9, com.alexzielenski.tinybar, com.enduniverse.cydiaextenderplus, com.bolencki13.appendix, com.cpdigitaldarkroom.volumebanner, com.creatix.hoppin, com.creatix.carrot, com.fidele007.hotdog (<= 3.3.3-25), com.inasser.ariki, com.microseconds.iblank, com.strayadevteam.forcy, com.supermamon.newpackage, eu.heinelt.ifile, me.chewitt.cmc, me.chewitt.mcpro, me.chewitt.seng, net.angelxwind.appsyncunified (<= 5.8), openssh, org.coolstar.classicfolders, org.protectmyprivacy.pmp, org.thebigboss.andrios, org.thebigboss.protean, org.thebigboss.spin, org.thebigboss.vertex, com.bengiannis.nougatshortcuts, com.rpetrich.littlebrother, io.github.ethanrdoesmc.gandalf102, com.enduniverse.priorityhub, com.xx.XModGame5x, com.xx.XModGame, com.xx.XMIDEHelper
-Replaces: com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102
+Depends: firmware (>=11.0), mobilesubstrate
+Breaks: com.bushe.lockhtml4, com.gnos.bloard, com.midkin.youtubevolume, com.rpetrich.rocketbootstrap (<<1.0.6), net.angelxwind.appsyncunified (<<9.0)
+Replaces: com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102, io.github.ethanrdoesmc.gandalf102, io.github.ethanrdoesmc.gandalfx
+Filename: debs/io.github.ethanrdoesmc.gandalfReloaded.deb
+Size: 152724
+MD5sum: 2e9c787856392c79ab6eca284c10d55f
+SHA1: 70ea1dad2390fae86c8e544761772a68cf6906a9
+SHA256: 4e5f0530dc720d7454bf9cd3674c3d28a06200a343cf0c29900b24ca1bf68e1b
+Section: Gandalf11
+Description: Some tweaks may break jailbreaks. Let this tweak say "You Shall Not Pass!" to incompatible tweaks and you can sit back and have fun with your jailbreak.
+Author: EthanRDoesMC <ethanrdoesmc@gmail.com>
+Depiction: https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalfReloaded
+Name: Gandalf for Reloaded
+
+Package: io.github.ethanrdoesmc.gandalfx
+Version: 2.6.0
+Architecture: iphoneos-arm
+Maintainer: EthanRDoesMC <ethanrdoesmc@gmail.com>
+Depends: firmware (>=10.1), mobilesubstrate
+Breaks: ch.sebikeller.automuter, com.a3tweaks.auxo3ios9, com.alexzielenski.tinybar, com.bengiannis.nougatshortcuts, com.bolencki13.appendix, com.cpdigitaldarkroom.volumebanner, com.creatix.carrot, com.creatix.hoppin, com.enduniverse.cydiaextenderplus, com.enduniverse.priorityhub, com.fidele007.hotdog (<= 3.3.3-25), com.inasser.ariki, com.microseconds.iblank, com.rpetrich.littlebrother, com.strayadevteam.forcy, com.supermamon.newpackage, com.xx.XMIDEHelper, com.xx.XModGame, com.xx.XModGame5x, eu.heinelt.ifile, io.github.ethanrdoesmc.gandalf102, me.chewitt.cmc, me.chewitt.mcpro, me.chewitt.seng, net.angelxwind.appsyncunified (<= 5.8), openssh, org.coolstar.classicfolders, org.protectmyprivacy.pmp, org.thebigboss.andrios, org.thebigboss.protean, org.thebigboss.spin, org.thebigboss.vertex
+Replaces: com.enduniverse.cydiaextenderplus, com.github.ethanrdoesmc.gandalf, com.github.ethanrdoesmc.gandalf102, io.github.ethanrdoesmc.gandalf102, io.github.ethanrdoesmc.gandalfReloaded
 Filename: debs/io.github.ethanrdoesmc.gandalfx.deb
-Size: 14111970
-MD5sum: 41b6982f5f371df931132f9de87c5512
-SHA1: 5511e2e88310be097873855b262831923bf9aace
-SHA256: 8b7f5890fb0ad00640e87def07c7fefceaa75915e583828466ce4612fc39b0bc
+Size: 153012
+MD5sum: 5a232ef12ac31152889d906acea309e2
+SHA1: 49736fc8cdb89dbc2b0b5956dcfd0dc7de0c9ba6
+SHA256: ff84fabd222fd1f821996e67329a9b7fab6eaebb0089a79d8484721cc852c190
 Section: Gandalf_For_YaluX_AKA_Mach_Portal
-Description: Some tweaks may break jailbreaks. Let this tweak say
-  "You Shall Not Pass!" to incompatible tweaks and you can sit back and have
-  fun with your jailbreak.
+Description: Some tweaks may break jailbreaks. Let this tweak say "You Shall Not Pass!" to incompatible tweaks and you can sit back and have fun with your jailbreak.
 Author: EthanRDoesMC <ethanrdoesmc@gmail.com>
 Depiction: https://ethanrdoesmc.github.io/gandalf/depictions/?p=io.github.ethanrdoesmc.gandalf102
 Name: Gandalf for YaluX (Mach_Portal)
