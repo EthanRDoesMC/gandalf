@@ -142,7 +142,7 @@ fi
 PKG_VERSION=$(cat $1/config.cfg | grep '^BUILD:' | sed -e 's/^BUILD:\ *\"//;s/\".*//' )
 PKG_SECTION=$(cat $1/config.cfg | grep '^SECTION:' | sed -e 's/^SECTION:\ *\"//;s/\".*//' )
 PKG_BREAKS=$(cat ${CONFLICTS_FILE} | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/, /g')
-PKG_DEPENDS="firmware ${FIRMWARE}, sudo, com.officialscheduler.mterminal, mobilesubstrate"
+PKG_DEPENDS="firmware ${FIRMWARE}, mobilesubstrate"
 PKG_DEPICTION=$(cat $1/config.cfg | grep '^DEPICTION:' | sed -e 's/^DEPICTION:\ *\"//;s/\".*//')
 #Start message
 echo "Started packaging ${PKG_NAME}"

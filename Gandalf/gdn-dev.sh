@@ -90,7 +90,8 @@ case $1 in
     rm ../docs/Packages.gz
     rm ../docs/Packages.bz2
     # Create repo structure
-    dpkg-scanpackages ../docs/debs > ../docs/Packages
+    # change the directory in subshell
+    $(cd ../docs/; dpkg-scanpackages debs > Packages)
     # Check if dpkg-scanpackages was not successful
     DPKG_SCANPKGERRORC=$(echo $?)
     if [ "$DPKG_SCANPKGERRORC" -ne "0" ]; then
@@ -307,7 +308,7 @@ case $1 in
     # If the option is invalid get here and output error & available options
     echo "${RED}ERROR:${NORMAL} Unknown parameter '$1'."
     list_options
-    # cleanup 
+    # cleanup
     rm -rf ${TEMPDIRECTORY}
     exit 1
   ;;
