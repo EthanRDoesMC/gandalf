@@ -1,4 +1,5 @@
 com.bushe.lockhtml4
-com.rpetrich.rocketbootstrap (<<1.0.5)
-com.cpdigitaldarkroom.swiper
+com.rpetrich.rocketbootstrap (<<1.0.6)
 com.midkin.youtubevolume
+net.angelxwind.appsyncunified (<<9.0)
+com.gnos.bloard
